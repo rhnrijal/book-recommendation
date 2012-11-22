@@ -7,6 +7,6 @@
 
 # Project files #
 bin
-settings
+.settings
 .project
 .classpath
