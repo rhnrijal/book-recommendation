@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<authors>
+  <author>
+    <name>Sully Prudhomme</name>
+    <nobel>1901</nobel>
+  </author>
+  <author>
+    <name>Theodor Mommsen</name>
+    <nobel>1902</nobel>
+  </author>
+  <author>
+    <name>Bj&#xF8;rnstjerne Bj&#xF8;rnson</name>
+    <nobel>1903</nobel>
+  </author>
+  <author>
+    <name>Fr&#xE9;d&#xE9;ric MistralJos&#xE9; Echegaray</name>
+    <nobel>1904</nobel>
+  </author>
+  <author>
+    <name>Henryk Sienkiewicz</name>
+    <nobel>1905</nobel>
+  </author>
+  <author>
+    <name>Giosu&#xE8; Carducci</name>
+    <nobel>1906</nobel>
+  </author>
+  <author>
+    <name>Rudyard Kipling</name>
+    <nobel>1907</nobel>
+  </author>
+  <author>
+    <name>Rudolf Christoph Eucken</name>
+    <nobel>1908</nobel>
+  </author>
+  <author>
+    <name>Selma Lagerl&#xF6;f</name>
+    <nobel>1909</nobel>
+  </author>
+  <author>
+    <name>Paul Heyse</name>
+    <nobel>1910</nobel>
+  </author>
+  <author>
+    <name>Maurice Maeterlinck</name>
+    <nobel>1911</nobel>
+  </author>
+  <author>
+    <name>Gerhart Hauptmann</name>
+    <nobel>1912</nobel>
+  </author>
+  <author>
+    <name>Rabindranath Tagore</name>
+    <nobel>1913</nobel>
+  </author>
+  <author>
+    <name>Romain Rolland</name>
+    <nobel>1915</nobel>
+  </author>
+  <author>
+    <name>Verner von Heidenstam</name>
+    <nobel>1916</nobel>
+  </author>
+  <author>
+    <name>Karl Adolph GjellerupHenrik Pontoppidan</name>
+    <nobel>1917</nobel>
+  </author>
+  <author>
+    <name>Carl Spitteler</name>
+    <nobel>1919</nobel>
+  </author>
+  <author>
+    <name>Knut Hamsun</name>
+    <nobel>1920</nobel>
+  </author>
+  <author>
+    <name>Anatole France</name>
+    <nobel>1921</nobel>
+  </author>
+  <author>
+    <name>Jacinto Benavente</name>
+    <nobel>1922</nobel>
+  </author>
+  <author>
+    <name>W. B. Yeats</name>
+    <nobel>1923</nobel>
+  </author>
+  <author>
+    <name>W&#x142;adys&#x142;aw Reymont</name>
+    <nobel>1924</nobel>
+  </author>
+  <author>
+    <name>George Bernard Shaw</name>
+    <nobel>1925</nobel>
+  </author>
+  <author>
+    <name>Grazia Deledda</name>
+    <nobel>1926</nobel>
+  </author>
+  <author>
+    <name>Henri Bergson</name>
+    <nobel>1927</nobel>
+  </author>
+  <author>
+    <name>Sigrid Undset</name>
+    <nobel>1928</nobel>
+  </author>
+  <author>
+    <name>Thomas Mann</name>
+    <nobel>1929</nobel>
+  </author>
+  <author>
+    <name>Sinclair Lewis</name>
+    <nobel>1930</nobel>
+  </author>
+  <author>
+    <name>Erik Axel Karlfeldt</name>
+    <nobel>1931</nobel>
+  </author>
+  <author>
+    <name>John Galsworthy</name>
+    <nobel>1932</nobel>
+  </author>
+  <author>
+    <name>Ivan Bunin</name>
+    <nobel>1933</nobel>
+  </author>
+  <author>
+    <name>Luigi Pirandello</name>
+    <nobel>1934</nobel>
+  </author>
+  <author>
+    <name>Eugene O'Neill</name>
+    <nobel>1936</nobel>
+  </author>
+  <author>
+    <name>Roger Martin du Gard</name>
+    <nobel>1937</nobel>
+  </author>
+  <author>
+    <name>Pearl S. Buck</name>
+    <nobel>1938</nobel>
+  </author>
+  <author>
+    <name>Frans Eemil Sillanp&#xE4;&#xE4;</name>
+    <nobel>1939</nobel>
+  </author>
+  <author>
+    <name>Johannes Vilhelm Jensen</name>
+    <nobel>1944</nobel>
+  </author>
+  <author>
+    <name>Gabriela Mistral</name>
+    <nobel>1945</nobel>
+  </author>
+  <author>
+    <name>Hermann Hesse</name>
+    <nobel>1946</nobel>
+  </author>
+  <author>
+    <name>Andr&#xE9; Gide</name>
+    <nobel>1947</nobel>
+  </author>
+  <author>
+    <name>T. S. Eliot</name>
+    <nobel>1948</nobel>
+  </author>
+  <author>
+    <name>William Faulkner</name>
+    <nobel>1949</nobel>
+  </author>
+  <author>
+    <name>Bertrand Russell</name>
+    <nobel>1950</nobel>
+  </author>
+  <author>
+    <name>P&#xE4;r Lagerkvist</name>
+    <nobel>1951</nobel>
+  </author>
+  <author>
+    <name>Fran&#xE7;ois Mauriac</name>
+    <nobel>1952</nobel>
+  </author>
+  <author>
+    <name>Winston Churchill</name>
+    <nobel>1953</nobel>
+  </author>
+  <author>
+    <name>Ernest Hemingway</name>
+    <nobel>1954</nobel>
+  </author>
+  <author>
+    <name>Halld&#xF3;r Laxness</name>
+    <nobel>1955</nobel>
+  </author>
+  <author>
+    <name>Juan Ram&#xF3;n Jim&#xE9;nez</name>
+    <nobel>1956</nobel>
+  </author>
+  <author>
+    <name>Albert Camus</name>
+    <nobel>1957</nobel>
+  </author>
+  <author>
+    <name>Boris Pasternak[C]</name>
+    <nobel>1958</nobel>
+  </author>
+  <author>
+    <name>Salvatore Quasimodo</name>
+    <nobel>1959</nobel>
+  </author>
+  <author>
+    <name>Saint-John Perse</name>
+    <nobel>1960</nobel>
+  </author>
+  <author>
+    <name>Ivo Andri&#x107;</name>
+    <nobel>1961</nobel>
+  </author>
+  <author>
+    <name>John Steinbeck</name>
+    <nobel>1962</nobel>
+  </author>
+  <author>
+    <name>Giorgos Seferis</name>
+    <nobel>1963</nobel>
+  </author>
+  <author>
+    <name>Jean-Paul Sartre[D]</name>
+    <nobel>1964</nobel>
+  </author>
+  <author>
+    <name>Mikhail Sholokhov</name>
+    <nobel>1965</nobel>
+  </author>
+  <author>
+    <name>Shmuel Yosef AgnonNelly Sachs</name>
+    <nobel>1966</nobel>
+  </author>
+  <author>
+    <name>Miguel &#xC1;ngel Asturias</name>
+    <nobel>1967</nobel>
+  </author>
+  <author>
+    <name>Yasunari Kawabata</name>
+    <nobel>1968</nobel>
+  </author>
+  <author>
+    <name>Samuel Beckett</name>
+    <nobel>1969</nobel>
+  </author>
+  <author>
+    <name>Aleksandr Solzhenitsyn</name>
+    <nobel>1970</nobel>
+  </author>
+  <author>
+    <name>Pablo Neruda</name>
+    <nobel>1971</nobel>
+  </author>
+  <author>
+    <name>Heinrich B&#xF6;ll</name>
+    <nobel>1972</nobel>
+  </author>
+  <author>
+    <name>Patrick White</name>
+    <nobel>1973</nobel>
+  </author>
+  <author>
+    <name>Eyvind JohnsonHarry Martinson</name>
+    <nobel>1974</nobel>
+  </author>
+  <author>
+    <name>Eugenio Montale</name>
+    <nobel>1975</nobel>
+  </author>
+  <author>
+    <name>Saul Bellow</name>
+    <nobel>1976</nobel>
+  </author>
+  <author>
+    <name>Vicente Aleixandre</name>
+    <nobel>1977</nobel>
+  </author>
+  <author>
+    <name>Isaac Bashevis Singer</name>
+    <nobel>1978</nobel>
+  </author>
+  <author>
+    <name>Odysseas Elytis</name>
+    <nobel>1979</nobel>
+  </author>
+  <author>
+    <name>Czes&#x142;aw Mi&#x142;osz</name>
+    <nobel>1980</nobel>
+  </author>
+  <author>
+    <name>Elias Canetti</name>
+    <nobel>1981</nobel>
+  </author>
+  <author>
+    <name>Gabriel Garc&#xED;a M&#xE1;rquez</name>
+    <nobel>1982</nobel>
+  </author>
+  <author>
+    <name>William Golding</name>
+    <nobel>1983</nobel>
+  </author>
+  <author>
+    <name>Jaroslav Seifert</name>
+    <nobel>1984</nobel>
+  </author>
+  <author>
+    <name>Claude Simon</name>
+    <nobel>1985</nobel>
+  </author>
+  <author>
+    <name>Wole Soyinka</name>
+    <nobel>1986</nobel>
+  </author>
+  <author>
+    <name>Joseph Brodsky</name>
+    <nobel>1987</nobel>
+  </author>
+  <author>
+    <name>Naguib Mahfouz</name>
+    <nobel>1988</nobel>
+  </author>
+  <author>
+    <name>Camilo Jos&#xE9; Cela</name>
+    <nobel>1989</nobel>
+  </author>
+  <author>
+    <name>Octavio Paz</name>
+    <nobel>1990</nobel>
+  </author>
+  <author>
+    <name>Nadine Gordimer</name>
+    <nobel>1991</nobel>
+  </author>
+  <author>
+    <name>Derek Walcott</name>
+    <nobel>1992</nobel>
+  </author>
+  <author>
+    <name>Toni Morrison</name>
+    <nobel>1993</nobel>
+  </author>
+  <author>
+    <name>Kenzabur&#x14D; &#x14C;e</name>
+    <nobel>1994</nobel>
+  </author>
+  <author>
+    <name>Seamus Heaney</name>
+    <nobel>1995</nobel>
+  </author>
+  <author>
+    <name>Wis&#x142;awa Szymborska</name>
+    <nobel>1996</nobel>
+  </author>
+  <author>
+    <name>Dario Fo</name>
+    <nobel>1997</nobel>
+  </author>
+  <author>
+    <name>Jos&#xE9; Saramago</name>
+    <nobel>1998</nobel>
+  </author>
+  <author>
+    <name>G&#xFC;nter Grass</name>
+    <nobel>1999</nobel>
+  </author>
+  <author>
+    <name>Gao Xingjian</name>
+    <nobel>2000</nobel>
+  </author>
+  <author>
+    <name>V. S. Naipaul</name>
+    <nobel>2001</nobel>
+  </author>
+  <author>
+    <name>Imre Kert&#xE9;sz</name>
+    <nobel>2002</nobel>
+  </author>
+  <author>
+    <name>J. M. Coetzee</name>
+    <nobel>2003</nobel>
+  </author>
+  <author>
+    <name>Elfriede Jelinek</name>
+    <nobel>2004</nobel>
+  </author>
+  <author>
+    <name>Harold Pinter</name>
+    <nobel>2005</nobel>
+  </author>
+  <author>
+    <name>Orhan Pamuk</name>
+    <nobel>2006</nobel>
+  </author>
+  <author>
+    <name>Doris Lessing</name>
+    <nobel>2007</nobel>
+  </author>
+  <author>
+    <name>J. M. G. Le Cl&#xE9;zio</name>
+    <nobel>2008</nobel>
+  </author>
+  <author>
+    <name>Herta M&#xFC;ller</name>
+    <nobel>2009</nobel>
+  </author>
+  <author>
+    <name>Mario Vargas Llosa</name>
+    <nobel>2010</nobel>
+  </author>
+  <author>
+    <name>Tomas Transtr&#xF6;mer</name>
+    <nobel>2011</nobel>
+  </author>
+  <author>
+    <name>Mo Yan</name>
+    <nobel>2012</nobel>
+  </author>
+</authors>

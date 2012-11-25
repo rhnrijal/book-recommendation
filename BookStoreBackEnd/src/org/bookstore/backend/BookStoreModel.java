@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.net.URLEncoder;
+import java.security.SecureRandom;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,16 +46,54 @@ public class BookStoreModel {
 	
 	private Model model = null;
 	private Dataset dataset = null;
+	private SecureRandom random = new SecureRandom();
+	
+	/* Author */
+	Resource author = null;
+	Property hasName = null;
+	Property hasBio = null;
+	// Property hasNationality = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasNationality");
+	Property hasBook = null;
+
+	/* Book */
+	Resource book = null;
+	Property hasAuthor = null;
+	Property hasTitle = null;
+	Property hasGenre = null;
+
+	/* Book Type */
+	Resource format = null;
+	Resource eBook = null;
+	Resource hardcover = null;
+	Resource paperback = null;
+	Property hasEdition = null;
+	
+	/* Edition */
+	Resource edition = null;
+	Property hasISBN = null;
+	Property hasLanguage = null;
+	Property hasPages = null;
+	Property hasPublisher = null;
+	Property hasType = null;
+	Property hasYear = null;
+	Property hasFormat = null;
+	
+	/* Publisher */
+	Resource publisher = null;
+	
+	/* Award */
+	Resource award = null;
+	Property hasAward = null;
 	
 	public BookStoreModel() {
 		dataset = TDBFactory.createDataset(BookStoreConstants.DATASET_PATH);
 		
 		if(!dataset.containsNamedModel(BookStoreConstants.DATASET_NAME)) {
 			model = readOntologyModel(BookStoreConstants.ONTOLOGY_PATH);
+			initModel();
 			dataset.begin(ReadWrite.WRITE);
 			try {
-				populate();
-				persistModel();
+				populate(BookStoreConstants.ONTOLOGY_XML);
 				dataset.addNamedModel(BookStoreConstants.DATASET_NAME, model);
 				dataset.commit();
 			} finally {
@@ -62,14 +102,47 @@ public class BookStoreModel {
 		}
 		else {
 			model = dataset.getNamedModel(BookStoreConstants.DATASET_NAME);
+			initModel();
 		}
 	}
 	
 	private void close() {
-		
 		if(dataset != null){
 			dataset.close();
 		}
+	}
+	
+	private void initModel() {
+		author = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Author");
+		hasName = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasName");
+		hasBio = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasBio");
+		
+		hasBook = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasBook");
+
+		book = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Book");
+		hasAuthor = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasAuthor");
+		hasTitle = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasTitle");
+		hasGenre = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasGenre");
+
+		format = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Format");
+		eBook = model.getResource(BookStoreConstants.ONTOLOGY_URI + "eBook");
+		hardcover = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Hardcover");
+		paperback = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Paperback");
+		hasEdition = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasEdition");
+		
+		edition = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Edition");
+		hasISBN = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasISBN");
+		hasLanguage = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasLanguage");
+		hasPages = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPages");
+		hasPublisher = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPublisher");
+		hasType = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasType");
+		hasYear = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasYear");
+		hasFormat = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasFormat");
+		
+		publisher = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Publisher");
+		
+		award = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Award");
+		hasAward = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasAward");
 	}
 	
 	private Model readOntologyModel(String path) {
@@ -97,6 +170,8 @@ public class BookStoreModel {
 	
 	private void persistModel() {
 		
+			
+		
 		OutputStream outOWL = null;
 		try {
 			outOWL = new FileOutputStream(BookStoreConstants.ONTOLOGY_OUTPUT_PATH);
@@ -104,46 +179,18 @@ public class BookStoreModel {
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		model.setNsPrefix("owl", "http://www.w3.org/2002/07/owl#");
 
 		model.write(outOWL);
 		
 	}
 	
-	private void populate() {
+	private void populate(String xmlPath) {
 		
-		Document doc = readXML(BookStoreConstants.ONTOLOGY_XML);
+		Document doc = readXML(xmlPath);
 		
 		if(doc != null) {
-			
-			/* Author */
-			Resource author = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Author");
-			Property hasName = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasName");
-			Property hasBio = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasBio");
-			// Property hasNationality = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasNationality");
-
-			/* Book */
-			Resource book = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Book");
-			Property hasAuthor = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasAuthor");
-			Property hasTitle = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasTitle");
-			Property hasGenre = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasGenre");
-
-			/* Book Type */
-			Resource format = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Format");
-			Resource eBook = model.getResource(BookStoreConstants.ONTOLOGY_URI + "eBook");
-			Resource hardcover = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Hardcover");
-			Resource paperback = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Paperback");
-			
-			/* Edition */
-			Resource edition = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Edition");
-			Property hasISBN = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasISBN");
-			Property hasLanguage = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasLanguage");
-			Property hasPages = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPages");
-			Property hasPublisher = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPublisher");
-			Property hasType = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasType");
-			Property hasYear = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasYear");
-			
-			/* Publisher */
-			Resource publisher = model.getResource(BookStoreConstants.ONTOLOGY_URI + "Publisher");
 
 			/* Authors */
 			NodeList authorsList = null;
@@ -167,10 +214,14 @@ public class BookStoreModel {
 			String pages = null;
 			String year = null;
 			String language = null;
+			String editionFormat = null;
+			
+			Resource formatInstance = null;
 
 			/* Publisher */
 			String publisherName = null;
 			Resource publisherInstance = null;
+			
 			
 			
 			authorsList = doc.getElementsByTagName("author");
@@ -210,7 +261,7 @@ public class BookStoreModel {
 										.addProperty(hasName, publisherName);
 							}
 
-							bookInstance = getBookByTitle(model, bookTitle);
+							bookInstance = getBookByTitle(bookTitle);
 							
 							if(bookInstance == null){
 								bookInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle))
@@ -218,36 +269,106 @@ public class BookStoreModel {
 										.addProperty(hasTitle, bookTitle)
 										.addProperty(hasGenre, bookGenre)
 										.addProperty(hasAuthor, authorInstance);
+
+								authorInstance.addProperty(hasBook, bookInstance);
 							}
 
 							ISBN = getValue("isbn", bookEdition);
 							pages = getValue("num_pages", bookEdition);
 							year = getValue("year", bookEdition);
 							language = getValue("language", bookEdition);
+							editionFormat = getValue("format", bookEdition);
+							
+							formatInstance = getFormatByLabel(editionFormat);
+							
+							if(formatInstance == null) {
+								editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle + "_edition_" + new BigInteger(130, random).toString(32)))
+										.addProperty(RDF.type, edition)
+										.addProperty(hasISBN, ISBN)
+										.addProperty(hasPages, pages)
+										.addProperty(hasYear, year)
+										.addProperty(hasLanguage, language)
+										.addProperty(hasTitle, bookTitle)
+										.addProperty(hasFormat, eBook)
+										.addProperty(hasPublisher, publisherInstance);
+								
+								bookInstance.addProperty(hasEdition, editionInstance);
+								formatInstance = paperback;
+							}
 												
-							editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle + year + ISBN))
+							editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle + "_edition_" + new BigInteger(130, random).toString(32)))
 									.addProperty(RDF.type, edition)
 									.addProperty(hasISBN, ISBN)
 									.addProperty(hasPages, pages)
 									.addProperty(hasYear, year)
 									.addProperty(hasLanguage, language)
-									.addProperty(hasTitle, bookTitle);
+									.addProperty(hasTitle, bookTitle)
+									.addProperty(hasFormat, formatInstance)
+									.addProperty(hasPublisher, publisherInstance);
+							
+							bookInstance.addProperty(hasEdition, editionInstance);
 						}
 					}
 					
 				}
 				
 			}
-			System.out.println(getResourceByName("Author", "George R.R. Martin"));
 		}
 		else {
-			logger.error("Could not populate dataset because the XML Document is null");
+			logger.error("Could not populate dataset with authors, books, editions and publishers because the XML Document is null");
 		}
 	}
 	
-	public void getAuthors() {
+	private void addNobelAwards(String xmlPath) {
 		
-		System.out.println(getResourceByName("Author", "George R.R. Martin"));
+		Document doc = readXML(xmlPath);
+		
+		NodeList authorsList = null;
+		Node readAuthor = null;
+		Resource authorInstance = null;
+		String authorName = null;
+		String nobelYear = null;
+		
+		Resource awardInstance = null;
+		
+		if(doc != null) {
+			authorsList = doc.getElementsByTagName("author");
+			
+			for (int temp = 0; temp < authorsList.getLength(); temp++) {
+				readAuthor = authorsList.item(temp);
+				if (readAuthor.getNodeType() == Node.ELEMENT_NODE) {
+					
+					authorName = getValue("name", readAuthor);
+					nobelYear = getValue("nobel", readAuthor);
+					
+					authorInstance = getResourceByName("Author", authorName);
+					
+					if(authorInstance != null) {
+						
+						awardInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "Nobel_" + nobelYear)
+								.addProperty(RDF.type, award)
+								.addProperty(hasName, "Nobel")
+								.addProperty(hasYear, nobelYear);
+						
+						authorInstance.addProperty(hasAward, awardInstance);
+						
+					}
+					
+					
+				}
+			}
+		}
+		else {
+			logger.error("Could not populate dataset with awwards because the XML Document is null");
+		}
+		
+	}
+	
+	private void getAuthors() {
+		
+		System.out.println(getResourceByName("Author", "George R. R. Martin"));
+		System.out.println(getResourceByName("Author", "José Saramago"));
+		System.out.println(getResourceByName("Author", "Malcolm Gladwell"));
 		
 	}
 	
@@ -262,11 +383,11 @@ public class BookStoreModel {
 		return (nValue != null) ? nValue.getNodeValue() : "";
 	}
 	
-	private Resource getResourceByName(String subject, String object){
+	private Resource getResourceByName(String subject, String name){
 
-		String queryString = "SELECT ?x WHERE { ?x a <http://www.owl-ontologies.com/book.owl#" + encodeURL(subject) + "> . " + "?x  <"
-				+ BookStoreConstants.ONTOLOGY_URI + "hasName> \"" + object + "\"}";
-
+		String queryString =	BookStoreConstants.ONTOLOGY_PREFIX_BOOK + 
+								"\nSELECT ?x WHERE { ?x a book:" + encodeURL(subject) + " . ?x book:hasName \"" + name + "\"}";
+		
 		ResultSet results = executeQuery(model, queryString);
 
 		while (results.hasNext()) {
@@ -277,12 +398,37 @@ public class BookStoreModel {
 		return null;
 	}
 	
-	private Resource getBookByTitle(Model model, String object){
+	private Resource getBookByTitle(String title){
 		
-//		String queryString = "SELECT ?x WHERE { ?x a <http://www.owl-ontologies.com/book.owl#" + URLDecoder.decode(subject, "UTF-8") + "> . " + "?x  <"
-//				+ ontologyURI + "hasName> \"" + object + "\"}";
-		
+		String queryString = 	BookStoreConstants.ONTOLOGY_PREFIX_BOOK +
+								"\nSELECT ?x WHERE { ?x a book:Book . ?x book:hasTitle> \"" + title + "\"}";
 		return null;
+//		ResultSet results = executeQuery(model, queryString);
+//
+//		while (results.hasNext()) {
+//			QuerySolution row = results.next();
+//			RDFNode thing = row.get("x");
+//			return (Resource) thing;
+//		}
+//		return null;
+	}
+	
+	private Resource getFormatByLabel(String label) {
+		
+		String queryString = 	BookStoreConstants.ONTOLOGY_PREFIX_BOOK + "\n" +
+								BookStoreConstants.ONTOLOGY_PREFIX_RDFS +
+								"SELECT ?format	WHERE { ?format rdfs:subClassOf book:Format . ?format rdfs:label ?label\n" +
+								"FILTER regex(?label, \"" + label + "\", 'i' )}";
+		
+		ResultSet results = executeQuery(model, queryString);
+
+		while (results.hasNext()) {
+			QuerySolution row = results.next();
+			RDFNode thing = row.get("x");
+			return (Resource) thing;
+		}
+		return null;
+		
 	}
 
 	private ResultSet executeQuery(Model model, String queryString) {
@@ -326,7 +472,9 @@ public class BookStoreModel {
 	public static void main(String args[]){
 		PropertyConfigurator.configure("log4j.properties");
 		BookStoreModel bookStore = new BookStoreModel();
+		bookStore.addNobelAwards("nobelAwards.xml");
 		bookStore.getAuthors();
+		bookStore.persistModel();
 		bookStore.close();
 	}
 
