@@ -1,0 +1,416 @@
+<?xml version="1.0"?>
+<books>
+  <book>
+    <title>Malcolm X: A Life of Reinvention</title>
+    <award>Pulitzer Prize</award>
+    <year>2012</year>
+    <genre>History</genre>
+    <author>Manning Marable</author>
+  </book>
+  <book>
+    <title>Life on Mars</title>
+    <award>Pulitzer Prize</award>
+    <year>2012</year>
+    <genre>Poetry</genre>
+    <author>Tracy K. Smith</author>
+  </book>
+  <book>
+    <title>The Swerve: How the World Became Modern</title>
+    <award>Pulitzer Prize</award>
+    <year>2012</year>
+    <genre>General Nonfiction</genre>
+    <author>Stephen Greenblatt</author>
+  </book>
+  <book>
+    <title>George F. Kennan: An American Life</title>
+    <award>Pulitzer Prize</award>
+    <year>2012</year>
+    <genre>Biography or Autobiography</genre>
+    <author>John Lewis Gaddis</author>
+  </book>
+  <book>
+    <title>A Visit from the Goon Squad</title>
+    <award>Pulitzer Prize</award>
+    <year>2011</year>
+    <genre>Fiction</genre>
+    <author>Jennifer Egan</author>
+  </book>
+  <book>
+    <title>Clybourne Park</title>
+    <award>Pulitzer Prize</award>
+    <year>2011</year>
+    <genre>Drama</genre>
+    <author>Bruce Norris</author>
+  </book>
+  <book>
+    <title>Washington: A Life</title>
+    <award>Pulitzer Prize</award>
+    <year>2011</year>
+    <genre>Biography or Autobiography</genre>
+    <author>Ron Chernow</author>
+  </book>
+  <book>
+    <title>The Best of It: New and Selected Poems</title>
+    <award>Pulitzer Prize</award>
+    <year>2011</year>
+    <genre>Poetry</genre>
+    <author>Kay Ryan</author>
+  </book>
+  <book>
+    <title>The Emperor of All Maladies</title>
+    <award>Pulitzer Prize</award>
+    <year>2011</year>
+    <genre>General Nonfiction</genre>
+    <author>Siddhartha Mukherjee</author>
+  </book>
+  <book>
+    <title>The Fiery Trial: Abraham Lincoln and American Slavery</title>
+    <award>Pulitzer Prize</award>
+    <year>2011</year>
+    <genre>History</genre>
+    <author>Eric Foner</author>
+  </book>
+  <book>
+    <title>Versed</title>
+    <award>Pulitzer Prize</award>
+    <year>2010</year>
+    <genre>Poetry</genre>
+    <author>Rae Armantrout</author>
+  </book>
+  <book>
+    <title>Next to Normal</title>
+    <award>Pulitzer Prize</award>
+    <year>2010</year>
+    <genre>Drama</genre>
+    <author>Brian Yorkey</author>
+  </book>
+  <book>
+    <title>The First Tycoon: The Epic Life of Cornelius Vanderbilt</title>
+    <award>Pulitzer Prize</award>
+    <year>2010</year>
+    <genre>Biography or Autobiography</genre>
+    <author>T.J. Stiles</author>
+  </book>
+  <book>
+    <title>Tinkers</title>
+    <award>Pulitzer Prize</award>
+    <year>2010</year>
+    <genre>Fiction</genre>
+    <author>Paul Harding</author>
+  </book>
+  <book>
+    <title>The Dead Hand: The Untold Story of the Cold War Arms Race and its Dangerous Legacy</title>
+    <award>Pulitzer Prize</award>
+    <year>2010</year>
+    <genre>General Nonfiction</genre>
+    <author>David E. Hoffman</author>
+  </book>
+  <book>
+    <title>Lords of Finance: The Bankers Who Broke the World</title>
+    <award>Pulitzer Prize</award>
+    <year>2010</year>
+    <genre>History</genre>
+    <author>Liaquat Ahamed</author>
+  </book>
+  <book>
+    <title>The Shadow of Sirius</title>
+    <award>Pulitzer Prize</award>
+    <year>2009</year>
+    <genre>Poetry</genre>
+    <author>W.S. Merwin</author>
+  </book>
+  <book>
+    <title>Olive Kitteridge</title>
+    <award>Pulitzer Prize</award>
+    <year>2009</year>
+    <genre>Fiction</genre>
+    <author>Elizabeth Strout</author>
+  </book>
+  <book>
+    <title>The Hemingses of Monticello</title>
+    <award>Pulitzer Prize</award>
+    <year>2009</year>
+    <genre>History</genre>
+    <author>Annette Gordon-Reed</author>
+  </book>
+  <book>
+    <title>American Lion: Andrew Jackson in the White House</title>
+    <award>Pulitzer Prize</award>
+    <year>2009</year>
+    <genre>Biography or Autobiography</genre>
+    <author>Jon Meacham</author>
+  </book>
+  <book>
+    <title>Slavery by Another Name: The Re-Enslavement of Black Americans from the Civil War to World War II</title>
+    <award>Pulitzer Prize</award>
+    <year>2009</year>
+    <genre>General Nonfiction</genre>
+    <author>Douglas A. Blackmon</author>
+  </book>
+  <book>
+    <title>Nazi Germany and the Jews: The Years of Extermination, 1939-1945</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>General Nonfiction</genre>
+    <author>Saul Friedl&#xC3;&#xA4;nder</author>
+  </book>
+  <book>
+    <title>Failure</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>Poetry</genre>
+    <author>Philip Schultz</author>
+  </book>
+  <book>
+    <title>Time and Materials</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>Poetry</genre>
+    <author>Robert Hass</author>
+  </book>
+  <book>
+    <title>August: Osage County</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>Drama</genre>
+    <author>Tracy Letts</author>
+  </book>
+  <book>
+    <title>What Hath God Wrought: The Transformation of America, 1815-1848</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>History</genre>
+    <author>Daniel Walker Howe</author>
+  </book>
+  <book>
+    <title>The Brief Wondrous Life of Oscar Wao</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>Fiction</genre>
+    <author>Junot D&#xC3;&#xAD;az</author>
+  </book>
+  <book>
+    <title>Eden's Outcasts: The Story of Louisa May Alcott and Her Father</title>
+    <award>Pulitzer Prize</award>
+    <year>2008</year>
+    <genre>Biography or Autobiography</genre>
+    <author>John Matteson</author>
+  </book>
+  <book>
+    <title>The Most Famous Man in America: The Biography of Henry Ward Beecher</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>Biography or Autobiography</genre>
+    <author>Debby Applegate</author>
+  </book>
+  <book>
+    <title>The Road</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>Fiction</genre>
+    <author>Cormac McCarthy</author>
+  </book>
+  <book>
+    <title>Native Guard</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>Poetry</genre>
+    <author>Natasha Trethewey</author>
+  </book>
+  <book>
+    <title>Stories Volume 1</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>Special citation</genre>
+    <author>Ray Bradbury</author>
+  </book>
+  <book>
+    <title>Rabbit Hole</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>Drama</genre>
+    <author>David Lindsay-Abaire</author>
+  </book>
+  <book>
+    <title>The Looming Tower: Al-Qaeda and the Road to 9/11</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>General Nonfiction</genre>
+    <author>Lawrence Wright</author>
+  </book>
+  <book>
+    <title>The Race Beat: The Press, the Civil Rights Struggle, and the Awakening of a Nation</title>
+    <award>Pulitzer Prize</award>
+    <year>2007</year>
+    <genre>History</genre>
+    <author>Gene Roberts</author>
+  </book>
+  <book>
+    <title>Polio: An American Story</title>
+    <award>Pulitzer Prize</award>
+    <year>2006</year>
+    <genre>History</genre>
+    <author>David M. Oshinsky</author>
+  </book>
+  <book>
+    <title>Imperial Reckoning: The Untold Story of Britain's Gulag in Kenya</title>
+    <award>Pulitzer Prize</award>
+    <year>2006</year>
+    <genre>General Nonfiction</genre>
+    <author>Caroline Elkins</author>
+  </book>
+  <book>
+    <title>American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer</title>
+    <award>Pulitzer Prize</award>
+    <year>2006</year>
+    <genre>Biography or Autobiography</genre>
+    <author>Kai Bird</author>
+  </book>
+  <book>
+    <title>March</title>
+    <award>Pulitzer Prize</award>
+    <year>2006</year>
+    <genre>Fiction</genre>
+    <author>Geraldine Brooks</author>
+  </book>
+  <book>
+    <title>Late Wife</title>
+    <award>Pulitzer Prize</award>
+    <year>2006</year>
+    <genre>Poetry</genre>
+    <author>Claudia Emerson</author>
+  </book>
+  <book>
+    <title>Gilead</title>
+    <award>Pulitzer Prize</award>
+    <year>2005</year>
+    <genre>Fiction</genre>
+    <author>Marilynne Robinson</author>
+  </book>
+  <book>
+    <title>Washington's Crossing</title>
+    <award>Pulitzer Prize</award>
+    <year>2005</year>
+    <genre>History</genre>
+    <author>David Hackett Fischer</author>
+  </book>
+  <book>
+    <title>Doubt</title>
+    <award>Pulitzer Prize</award>
+    <year>2005</year>
+    <genre>Drama</genre>
+    <author>John Patrick Shanley</author>
+  </book>
+  <book>
+    <title>Delights &amp; Shadows</title>
+    <award>Pulitzer Prize</award>
+    <year>2005</year>
+    <genre>Poetry</genre>
+    <author>Ted Kooser</author>
+  </book>
+  <book>
+    <title>Ghost Wars: The Secret History of the CIA, Afghanistan, and bin Laden from the Soviet Invasion to September 10, 2001</title>
+    <award>Pulitzer Prize</award>
+    <year>2005</year>
+    <genre>General Nonfiction</genre>
+    <author>Steve Coll</author>
+  </book>
+  <book>
+    <title>de Kooning: An American Master</title>
+    <award>Pulitzer Prize</award>
+    <year>2005</year>
+    <genre>Biography or Autobiography</genre>
+    <author>Mark Stevens</author>
+  </book>
+  <book>
+    <title>I am My Own Wife</title>
+    <award>Pulitzer Prize</award>
+    <year>2004</year>
+    <genre>Drama</genre>
+    <author>Doug Wright</author>
+  </book>
+  <book>
+    <title>The Known World</title>
+    <award>Pulitzer Prize</award>
+    <year>2004</year>
+    <genre>Fiction</genre>
+    <author>Edward P. Jones</author>
+  </book>
+  <book>
+    <title>A Nation Under Our Feet: Black Political Struggles in the Rural South from Slavery to the Great Migration</title>
+    <award>Pulitzer Prize</award>
+    <year>2004</year>
+    <genre>History</genre>
+    <author>Steven Hahn</author>
+  </book>
+  <book>
+    <title>Gulag</title>
+    <award>Pulitzer Prize</award>
+    <year>2004</year>
+    <genre>General Nonfiction</genre>
+    <author>Anne Applebaum</author>
+  </book>
+  <book>
+    <title>Walking to Martha's Vineyard</title>
+    <award>Pulitzer Prize</award>
+    <year>2004</year>
+    <genre>Poetry</genre>
+    <author>Franz Wright</author>
+  </book>
+  <book>
+    <title>A Problem from Hell: America and the Age of Genocide</title>
+    <award>Pulitzer Prize</award>
+    <year>2003</year>
+    <genre>General Nonfiction</genre>
+    <author>Samantha Power</author>
+  </book>
+  <book>
+    <title>An Army at Dawn: The War in North Africa, 1942-1943</title>
+    <award>Pulitzer Prize</award>
+    <year>2003</year>
+    <genre>History</genre>
+    <author>Rick Atkinson</author>
+  </book>
+  <book>
+    <title>Anna in the Tropics</title>
+    <award>Pulitzer Prize</award>
+    <year>2003</year>
+    <genre>Drama</genre>
+    <author>Nilo Cruz</author>
+  </book>
+  <book>
+    <title>Master of the Senate (The Years of Lyndon Johnson, #3)</title>
+    <award>Pulitzer Prize</award>
+    <year>2003</year>
+    <genre>Biography or Autobiography</genre>
+    <author>Robert A. Caro</author>
+  </book>
+  <book>
+    <title>Middlesex</title>
+    <award>Pulitzer Prize</award>
+    <year>2003</year>
+    <genre>Fiction</genre>
+    <author>Jeffrey Eugenides</author>
+  </book>
+  <book>
+    <title>Moy Sand and Gravel</title>
+    <award>Pulitzer Prize</award>
+    <year>2003</year>
+    <genre>Poetry</genre>
+    <author>Paul Muldoon</author>
+  </book>
+  <book>
+    <title>Topdog/Underdog</title>
+    <award>Pulitzer Prize</award>
+    <year>2002</year>
+    <genre>Drama</genre>
+    <author>Suzan-Lori Parks</author>
+  </book>
+  <book>
+    <title>Carry Me Home: Birmingham, Alabama: The Climactic Battle of the Civil Rights Revolution</title>
+    <award>Pulitzer Prize</award>
+    <year>2002</year>
+    <genre>General Nonfiction</genre>
+    <author>Diane McWhorter</author>
+  </book>
+</books>

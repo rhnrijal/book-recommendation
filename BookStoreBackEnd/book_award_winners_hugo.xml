@@ -1,0 +1,416 @@
+<?xml version="1.0"?>
+<books>
+  <book>
+    <title>The Encyclopedia Of Science Fiction</title>
+    <award>Hugo Award</award>
+    <year>2012</year>
+    <genre>Best Related Work</genre>
+    <author>John Clute</author>
+  </book>
+  <book>
+    <title>The Man Who Bridged the Mist</title>
+    <award>Hugo Award</award>
+    <year>2012</year>
+    <genre>Best Novella</genre>
+    <author>Kij Johnson</author>
+  </book>
+  <book>
+    <title>Six Months, Three Days</title>
+    <award>Hugo Award</award>
+    <year>2012</year>
+    <genre>Best Novelette</genre>
+    <author>Charlie Jane Anders</author>
+  </book>
+  <book>
+    <title>The Paper Menagerie</title>
+    <award>Hugo Award</award>
+    <year>2012</year>
+    <genre>Best Short Story</genre>
+    <author>Ken Liu</author>
+  </book>
+  <book>
+    <title>Digger</title>
+    <award>Hugo Award</award>
+    <year>2012</year>
+    <genre>Best Graphic Story</genre>
+    <author>Ursula Vernon</author>
+  </book>
+  <book>
+    <title>Among Others</title>
+    <award>Hugo Award</award>
+    <year>2012</year>
+    <genre>Best Novel</genre>
+    <author>Jo Walton</author>
+  </book>
+  <book>
+    <title>Chicks Dig Time Lords: A Celebration of Doctor Who by the Women Who Love It</title>
+    <award>Hugo Award</award>
+    <year>2011</year>
+    <genre>Best Related Work</genre>
+    <author>Lynne M. Thomas</author>
+  </book>
+  <book>
+    <title>All Clear (All Clear, #2)  ( Oxford Time Travel, #4)</title>
+    <award>Hugo Award</award>
+    <year>2011</year>
+    <genre>Best Novel</genre>
+    <author>Connie Willis</author>
+  </book>
+  <book>
+    <title>Blackout (All Clear, #1) ( Oxford Time Travel, #3)</title>
+    <award>Hugo Award</award>
+    <year>2011</year>
+    <genre>Best Novel</genre>
+    <author>Connie Willis</author>
+  </book>
+  <book>
+    <title>For Want of a Nail</title>
+    <award>Hugo Award</award>
+    <year>2011</year>
+    <genre>Best Short Story</genre>
+    <author>Mary Robinette Kowal</author>
+  </book>
+  <book>
+    <title>The Lifecycle of Software Objects</title>
+    <award>Hugo Award</award>
+    <year>2011</year>
+    <genre>Best Novella</genre>
+    <author>Ted Chiang</author>
+  </book>
+  <book>
+    <title>Girl Genius, Vol. 9: Agatha Heterodyne and the Heirs of the Storm</title>
+    <award>Hugo Award</award>
+    <year>2010</year>
+    <genre>Best Graphic Story</genre>
+    <author>Phil Foglio</author>
+  </book>
+  <book>
+    <title>This Is Me, Jack Vance!: Or, More Properly, This Is "I"</title>
+    <award>Hugo Award</award>
+    <year>2010</year>
+    <genre>Best Related Book</genre>
+    <author>Jack Vance</author>
+  </book>
+  <book>
+    <title>The Island</title>
+    <award>Hugo Award</award>
+    <year>2010</year>
+    <genre>Best Novelette</genre>
+    <author>Peter Watts</author>
+  </book>
+  <book>
+    <title>The City and the City</title>
+    <award>Hugo Award</award>
+    <year>2010</year>
+    <genre>Best Novel</genre>
+    <author>China Mi&#xC3;&#xA9;ville</author>
+  </book>
+  <book>
+    <title>Palimpseste</title>
+    <award>Hugo Award</award>
+    <year>2010</year>
+    <genre>Best Novella</genre>
+    <author>Charles Stross</author>
+  </book>
+  <book>
+    <title>The Windup Girl</title>
+    <award>Hugo Award</award>
+    <year>2010</year>
+    <genre>Best Novel</genre>
+    <author>Paolo Bacigalupi</author>
+  </book>
+  <book>
+    <title>Your Hate Mail Will Be Graded: A Decade of Whatever, 1998-2008</title>
+    <award>Hugo Award</award>
+    <year>2009</year>
+    <genre>Best Related Book</genre>
+    <author>John Scalzi</author>
+  </book>
+  <book>
+    <title>Girl Genius, Vol. 8: Agatha Heterodyne and the Chapel of Bones</title>
+    <award>Hugo Award</award>
+    <year>2009</year>
+    <genre>Best Graphic Story</genre>
+    <author>Phil Foglio</author>
+  </book>
+  <book>
+    <title>Exhalation</title>
+    <award>Hugo Award</award>
+    <year>2009</year>
+    <genre>Best Short Story</genre>
+    <author>Ted Chiang</author>
+  </book>
+  <book>
+    <title>Shoggoths in Bloom</title>
+    <award>Hugo Award</award>
+    <year>2009</year>
+    <genre>Best Novelette</genre>
+    <author>Elizabeth Bear</author>
+  </book>
+  <book>
+    <title>The Graveyard Book</title>
+    <award>Hugo Award</award>
+    <year>2009</year>
+    <genre>Best Novel</genre>
+    <author>Neil Gaiman</author>
+  </book>
+  <book>
+    <title>The Merchant and the Alchemist's Gate</title>
+    <award>Hugo Award</award>
+    <year>2008</year>
+    <genre>Best Novelette</genre>
+    <author>Ted Chiang</author>
+  </book>
+  <book>
+    <title>The Yiddish Policemen's Union</title>
+    <award>Hugo Award</award>
+    <year>2008</year>
+    <genre>Best Novel</genre>
+    <author>Michael Chabon</author>
+  </book>
+  <book>
+    <title>All Seated on the Ground</title>
+    <award>Hugo Award</award>
+    <year>2008</year>
+    <genre>Best Novella</genre>
+    <author>Connie Willis</author>
+  </book>
+  <book>
+    <title>Brave New Words: The Oxford Dictionary of Science Fiction</title>
+    <award>Hugo Award</award>
+    <year>2008</year>
+    <genre>Best Related Book</genre>
+    <author>Jeff Prucher</author>
+  </book>
+  <book>
+    <title>James Tiptree, Jr.: The Double Life of Alice B. Sheldon</title>
+    <award>Hugo Award</award>
+    <year>2007</year>
+    <genre>Best Related Book</genre>
+    <author>Julie Phillips</author>
+  </book>
+  <book>
+    <title>A Billion Eves</title>
+    <award>Hugo Award</award>
+    <year>2007</year>
+    <genre>Best Novella</genre>
+    <author>Robert Reed</author>
+  </book>
+  <book>
+    <title>Impossible Dreams</title>
+    <award>Hugo Award</award>
+    <year>2007</year>
+    <genre>Best short story</genre>
+    <author>Tim Pratt</author>
+  </book>
+  <book>
+    <title>Rainbows End</title>
+    <award>Hugo Award</award>
+    <year>2007</year>
+    <genre>Best Novel</genre>
+    <author>Vernor Vinge</author>
+  </book>
+  <book>
+    <title>Storyteller: Writing Lessons &amp; More from 27 Years of the Clarion Writers' Workshop</title>
+    <award>Hugo Award</award>
+    <year>2006</year>
+    <genre>Best Related Book</genre>
+    <author>Kate Wilhelm</author>
+  </book>
+  <book>
+    <title>Spin</title>
+    <award>Hugo Award</award>
+    <year>2006</year>
+    <genre>Best Novel</genre>
+    <author>Robert Charles Wilson</author>
+  </book>
+  <book>
+    <title>Travels with My Cats</title>
+    <award>Hugo Award</award>
+    <year>2005</year>
+    <genre>Short story</genre>
+    <author>Mike Resnick</author>
+  </book>
+  <book>
+    <title>The Cambridge Companion to Science Fiction</title>
+    <award>Hugo Award</award>
+    <year>2005</year>
+    <genre>Best Related Book</genre>
+    <author>Edward James</author>
+  </book>
+  <book>
+    <title>Jonathan Strange &amp; Mr Norrell</title>
+    <award>Hugo Award</award>
+    <year>2005</year>
+    <genre>Best Novel</genre>
+    <author>Susanna Clarke</author>
+  </book>
+  <book>
+    <title>A Study in Emerald</title>
+    <award>Hugo Award</award>
+    <year>2004</year>
+    <genre>Best Short Story</genre>
+    <author>Neil Gaiman</author>
+  </book>
+  <book>
+    <title>Paladin of Souls (Chalion, #2)</title>
+    <award>Hugo Award</award>
+    <year>2004</year>
+    <genre>Best Novel</genre>
+    <author>Lois McMaster Bujold</author>
+  </book>
+  <book>
+    <title>I simulacri</title>
+    <award>Hugo Award</award>
+    <year>2004</year>
+    <genre>Best Novella</genre>
+    <author>Vernor Vinge</author>
+  </book>
+  <book>
+    <title>The Chesley Awards for Science Fiction and Fantasy Art: A Retrospective</title>
+    <award>Hugo Award</award>
+    <year>2004</year>
+    <genre>Best Related Book</genre>
+    <author>Elizabeth Humphrey</author>
+  </book>
+  <book>
+    <title>Hominids (Neanderthal Parallax, #1)</title>
+    <award>Hugo Award</award>
+    <year>2003</year>
+    <genre>Best Novel</genre>
+    <author>Robert J. Sawyer</author>
+  </book>
+  <book>
+    <title>Better to Have Loved: The Life of Judith Merril</title>
+    <award>Hugo Award</award>
+    <year>2003</year>
+    <genre>Best Related Book</genre>
+    <author>Judith Merril</author>
+  </book>
+  <book>
+    <title>Coraline</title>
+    <award>Hugo Award</award>
+    <year>2003</year>
+    <genre>Best Novella</genre>
+    <author>Neil Gaiman</author>
+  </book>
+  <book>
+    <title>Falling onto Mars</title>
+    <award>Hugo Award</award>
+    <year>2003</year>
+    <genre>Best Short Story</genre>
+    <author>Geoffrey A. Landis</author>
+  </book>
+  <book>
+    <title>Hell is the Absence of God</title>
+    <award>Hugo Award</award>
+    <year>2002</year>
+    <genre>Best Novelette</genre>
+    <author>Ted Chiang</author>
+  </book>
+  <book>
+    <title>The Art of Chesley Bonestell</title>
+    <award>Hugo Award</award>
+    <year>2002</year>
+    <genre>Best Related Book</genre>
+    <author>Ron Miller</author>
+  </book>
+  <book>
+    <title>American Gods</title>
+    <award>Hugo Award</award>
+    <year>2002</year>
+    <genre>Best Novel</genre>
+    <author>Neil Gaiman</author>
+  </book>
+  <book>
+    <title>Harry Potter and the Goblet of Fire (Harry Potter, #4)</title>
+    <award>Hugo Award</award>
+    <year>2001</year>
+    <genre>Best Novel</genre>
+    <author>J.K. Rowling</author>
+  </book>
+  <book>
+    <title>Kona&#xC4;&#x8D;na Zemlja/Vu&#xC4;&#x8D;je vrijeme</title>
+    <award>Hugo Award</award>
+    <year>2001</year>
+    <genre>Best Novella</genre>
+    <author>Jack Williamson</author>
+  </book>
+  <book>
+    <title>Different Kinds of Darkness</title>
+    <award>Hugo Award</award>
+    <year>2001</year>
+    <genre>Best Short Story</genre>
+    <author>David Langford</author>
+  </book>
+  <book>
+    <title>Greetings From Earth: The Art of Bob Eggleton</title>
+    <award>Hugo Award</award>
+    <year>2001</year>
+    <genre>Best Related Book</genre>
+    <author>Bob Eggleton</author>
+  </book>
+  <book>
+    <title>10 to the 16 to 1</title>
+    <award>Hugo Award</award>
+    <year>2000</year>
+    <genre>Best Novelette</genre>
+    <author>James Patrick Kelly</author>
+  </book>
+  <book>
+    <title>Kin</title>
+    <award>Hugo Award</award>
+    <year>2000</year>
+    <genre>Best Short Story</genre>
+    <author>Bruce McAllister</author>
+  </book>
+  <book>
+    <title>The Winds of Marble Arch and Other Stories</title>
+    <award>Hugo Award</award>
+    <year>2000</year>
+    <genre>Best Novella</genre>
+    <author>Connie Willis</author>
+  </book>
+  <book>
+    <title>Science Fiction of the 20th Century: An Illustrated History</title>
+    <award>Hugo Award</award>
+    <year>2000</year>
+    <genre>Best Related Book</genre>
+    <author>Frank M. Robinson</author>
+  </book>
+  <book>
+    <title>Scherzo with Tyrannosaur</title>
+    <award>Hugo Award</award>
+    <year>2000</year>
+    <genre>Best Short Story</genre>
+    <author>Michael Stanwick</author>
+  </book>
+  <book>
+    <title>A Deepness in the Sky (Zones of Thought, #2)</title>
+    <award>Hugo Award</award>
+    <year>2000</year>
+    <genre>Best Novel</genre>
+    <author>Vernor Vinge</author>
+  </book>
+  <book>
+    <title>To Say Nothing of the Dog (Oxford Time Travel, #2)</title>
+    <award>Hugo Award</award>
+    <year>1999</year>
+    <genre>Best Novel</genre>
+    <author>Connie Willis</author>
+  </book>
+  <book>
+    <title>The Dreams Our Stuff is Made Of: How Science Fiction Conquered the World</title>
+    <award>Hugo Award</award>
+    <year>1999</year>
+    <genre>Best Related Book</genre>
+    <author>Thomas M. Disch</author>
+  </book>
+  <book>
+    <title>The 43 Antarean Dynasties</title>
+    <award>Hugo Award</award>
+    <year>1998</year>
+    <genre>Best Short Story</genre>
+    <author>Mike Resnick</author>
+  </book>
+</books>

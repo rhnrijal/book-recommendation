@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<awards>
+  <award>
+    <name>Nobel Prize</name>
+    <description>Since 1901, the Nobel Prize in Literature has been awarded annually to an author from any country who has, in the words of the will of Alfred Nobel, produced "in the field of literature the most outstanding work in an ideal direction".</description>
+  </award>
+  <award>
+    <name>Pulitzer Prize</name>
+    <description>The Pulitzer Prize is a U.S. award for achievements in newspaper and online journalism, literature and musical composition. It was established in 1917 by provisions in the will of American (Hungarian-born) publisher Joseph Pulitzer, and is administered by Columbia University in New York City. Prizes are awarded yearly in twenty-one categories. In twenty of these, each winner receives a certificate and a $10,000 cash award.</description>
+  </award>
+  <award>
+    <name>Hugo Award</name>
+    <description>The Hugo Awards are a set of awards given annually for the best science fiction or fantasy works and achievements of the previous year. The awards are named after Hugo Gernsback, the founder of the pioneering science fiction magazine Amazing Stories, and were officially named the Science Fiction Achievement Awards until 1992. Organized and overseen by the World Science Fiction Society, the awards are given each year at the annual World Science Fiction Convention as the central focus of the event. They were first given in 1953, at the 11th World Science Fiction Convention, and have been awarded every year since 1955. Over the years that the award has been given, the categories presented have changed; currently Hugo Awards are given in more than a dozen categories, and include both written and dramatic works of various types.</description>
+  </award>
+</awards>
