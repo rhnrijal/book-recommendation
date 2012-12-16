@@ -92,11 +92,15 @@ public class BookStoreModel {
 	Property hasDescription = null;
 	Property hasWin = null;
 	
-	Pattern pattern = Pattern.compile("(.*)?award_winners_(.*).xml");
+	int authorId = 1;
+	int bookId = 1;
+	int editionId = 1;
+	int publisherId = 1;
+	int awardId = 1;
+	int awardWinnerId = 1;
 	
 	public BookStoreModel() {
 		dataset = TDBFactory.createDataset(BookStoreConstants.DATASET_PATH);
-		
 		if(!dataset.containsNamedModel(BookStoreConstants.DATASET_NAME)) {
 			model = readOntologyModel(BookStoreConstants.ONTOLOGY_PATH);
 			initModel();
@@ -254,7 +258,7 @@ public class BookStoreModel {
 					authorInstance = getResourceByName("Author", authorName);
 
 					if (authorInstance == null) {
-						authorInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(authorName))
+						authorInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "author" + authorId++)
 								.addProperty(RDF.type, author)
 								.addProperty(hasName, authorName)
 								.addProperty(hasBio, authorBio)
@@ -280,21 +284,9 @@ public class BookStoreModel {
 									publisherInstance = getResourceByName("Publisher", publisherName);
 		
 									if (publisherInstance == null) {
-										publisherInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(publisherName))
+										publisherInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "publisher" + publisherId++)
 												.addProperty(RDF.type, publisher)
 												.addProperty(hasName, publisherName);
-									}
-		
-									bookInstance = getBookByTitle(bookTitle);
-									
-									if(bookInstance == null){
-										bookInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle))
-												.addProperty(RDF.type, book)
-												.addProperty(hasTitle, bookTitle)
-												.addProperty(hasGenre, bookGenre)
-												.addProperty(hasAuthor, authorInstance);
-		
-										authorInstance.addProperty(hasBook, bookInstance);
 									}
 									
 									image_url = getValue("image_url", bookEdition);
@@ -303,6 +295,19 @@ public class BookStoreModel {
 									year = getValue("year", bookEdition);
 									language = getValue("language", bookEdition);
 									editionFormat = getValue("format", bookEdition);
+									
+									bookInstance = getBookByTitle(bookTitle);
+									
+									if(bookInstance == null){
+										bookInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "book" + bookId++)
+												.addProperty(RDF.type, book)
+												.addProperty(hasTitle, bookTitle)
+												.addProperty(hasGenre, bookGenre)
+												.addProperty(hasImage, image_url)
+												.addProperty(hasAuthor, authorInstance);
+
+										authorInstance.addProperty(hasBook, bookInstance);
+									}
 									
 									formatInstance = getFormatByLabel(editionFormat);
 									
@@ -321,7 +326,7 @@ public class BookStoreModel {
 										formatInstance = paperback;
 									}
 														
-									editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle + "_edition_" + new BigInteger(130, random).toString(32)))
+									editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "edition" + editionId++)
 											.addProperty(RDF.type, edition)
 											.addProperty(hasImage, image_url)
 											.addProperty(hasISBN, ISBN)
@@ -349,28 +354,32 @@ public class BookStoreModel {
 	
 	private void populateAwards(String xmlPath) {
 		Document doc = readXML(xmlPath);
-		
-		NodeList awardList = null;
-		Node readAward = null;
-		String awardName = null;
-		String awardDescription = null;
-		Resource awardInstance = null;
 				
 		if(doc != null) {
+			
+			NodeList awardList = null;
+			Node readAward = null;
+			String awardName = null;
+			String awardDescription = null;
+			String awardImage = null;
+			Resource awardInstance = null;
+			
 			awardList = doc.getElementsByTagName("award");
 			for(int i = 0; i < awardList.getLength(); i++) {
 				readAward = awardList.item(i);
 				if (readAward.getNodeType() == Node.ELEMENT_NODE) {
 					awardName = getValue("name", readAward);
 					awardDescription = getValue("description", readAward);
+					awardImage = getValue("image", readAward);
 					
 					awardInstance = getResourceByName("Award", awardName);
 					
 					if(awardInstance == null) {
-						awardInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(awardName))
+						awardInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award" + awardId++)
 								.addProperty(RDF.type, award)
 								.addProperty(hasName, awardName)
-								.addProperty(hasDescription, awardDescription);
+								.addProperty(hasDescription, awardDescription)
+								.addProperty(hasImage, awardImage);
 					}
 					else {
 						System.out.println("Award with name " + awardName + " does not exist.");
@@ -384,17 +393,18 @@ public class BookStoreModel {
 		
 		Document doc = readXML(xmlPath);		
 		
-		NodeList authorsList = null;
-		Node readAuthor = null;
-		Resource authorInstance = null;
-		String authorName = null;
-		String awardYear = null;
-		Resource awardInstance = null;
-		Resource awardWinnerInstance = null;
-		
-		String awardName = null;
-		
 		if(doc != null) {
+			
+			NodeList authorsList = null;
+			Node readAuthor = null;
+			Resource authorInstance = null;
+			String authorName = null;
+			String awardYear = null;
+			Resource awardInstance = null;
+			Resource awardWinnerInstance = null;
+			
+			String awardName = null;
+			
 			authorsList = doc.getElementsByTagName("author");
 			
 			for (int temp = 0; temp < authorsList.getLength(); temp++) {
@@ -413,7 +423,7 @@ public class BookStoreModel {
 						
 						if(awardInstance != null) {
 						
-							awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(awardName + awardYear))
+							awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award_winner" + awardWinnerId++)
 									.addProperty(RDF.type, awardWin)
 									.addProperty(hasAward, awardInstance)
 									.addProperty(hasYear, awardYear)
@@ -426,7 +436,7 @@ public class BookStoreModel {
 						}
 					}
 					else {
-						System.out.println("Author with name " + authorName + " does not exist.");
+						//System.out.println("Author with name " + authorName + " does not exist.");
 					}
 				}
 			}
@@ -473,7 +483,7 @@ public class BookStoreModel {
 						
 						if(awardInstance != null) {
 						
-							awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(awardName + awardYear + awardGenre))
+							awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award_winner" + awardWinnerId++)
 									.addProperty(RDF.type, awardWin)
 									.addProperty(hasAward, awardInstance)
 									.addProperty(hasYear, awardYear)
@@ -486,7 +496,7 @@ public class BookStoreModel {
 						}
 					}
 					else {
-						System.out.println("Book with title " + bookTitle + " does not exist. - ");
+						//System.out.println("Book with title " + bookTitle + " does not exist. - ");
 					}
 				}
 			}
@@ -501,6 +511,7 @@ public class BookStoreModel {
 		System.out.println(getResourceByName("Author", "George R.R. Martin"));
 		System.out.println(getResourceByName("Author", "José Saramago"));
 		System.out.println(getResourceByName("Author", "Malcolm Gladwell"));
+		//getResources();
 		
 	}
 	
@@ -517,6 +528,18 @@ public class BookStoreModel {
 		nlList = ((Element)node).getElementsByTagName(sTag).item(0).getChildNodes();
 		Node nValue = (Node) nlList.item(0);
 		return (nValue != null) ? nValue.getNodeValue() : "";
+	}
+	
+	private void getResources() {
+		String queryString = "SELECT ?x WHERE {?x ?p ?o}";
+		
+		ResultSet results = executeQuery(model, queryString);
+		
+		while (results.hasNext()) {
+		QuerySolution row = results.next();
+		RDFNode thing = row.get("x");
+			System.out.println((Resource) thing);
+		}
 	}
 	
 	private Resource getResourceByName(String subject, String name){
@@ -539,10 +562,11 @@ public class BookStoreModel {
 	
 	private Resource getBookByTitle(String title){
 		String queryString = 	BookStoreConstants.ONTOLOGY_PREFIX_BOOK +
-								"\nSELECT ?x WHERE { ?x book:hasTitle ?title }";
+								"\nSELECT ?x WHERE {?x a book:Book . ?x book:hasTitle ?title}";
 		
 		ParameterizedSparqlString paramQueryString = new ParameterizedSparqlString(queryString);
 		paramQueryString.setLiteral("title", title);
+		
 		ResultSet results = executeQuery(model, paramQueryString.toString());
 
 		while (results.hasNext()) {
