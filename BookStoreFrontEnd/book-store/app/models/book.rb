@@ -37,7 +37,7 @@ class Book < OwlModel
   end
 
   def self.find(id)
-    uri = id.to_i
+    uri = id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?title ?image ?genre ?author ?author_name ?author_image
                             WHERE { book:#{uri} a book:Book ;
@@ -64,7 +64,7 @@ class Book < OwlModel
   end
 
   def self.find_author_books(author_id)
-    author_uri = author_id.to_i
+    author_uri = author_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?book ?title ?image ?year
                             WHERE { ?book a book:Book ;
@@ -74,6 +74,7 @@ class Book < OwlModel
                                     ?edition book:hasYear ?year .
                                     book:#{author_uri} book:hasBook ?book
                                   }
+                            ORDER BY ASC(?year)
                           ")
     resources = hash['results']['bindings'].collect do |resource|
       Book.new( id: resource['book']['value'].gsub!(@@book, ''),
@@ -82,6 +83,7 @@ class Book < OwlModel
                 year: resource['year']['value']
               )
     end
-    resources.sort! { |a,b| b.year <=> a.year }.uniq! {|r| r.id}
+    resources.uniq! {|r| r.id}
+    resources.sort! { |a,b| b.year <=> a.year }
   end
 end

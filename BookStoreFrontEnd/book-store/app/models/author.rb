@@ -29,7 +29,7 @@ class Author < OwlModel
   end
 
   def self.find(id)
-    uri = id.to_i
+    uri = id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?name ?image ?bio
                             WHERE { book:#{uri} a book:Author ;
