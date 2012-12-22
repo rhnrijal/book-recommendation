@@ -1,0 +1,9 @@
+<p>
+  <b><%= @award.name %></b>
+</p>
+
+<%= image_tag @award.image, class: 'award-image' %>
+
+<div class='items-padding'>
+  <%= render @award.award_wins %>
+</div>

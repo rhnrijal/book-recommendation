@@ -1,0 +1,23 @@
+<%= image_tag @author.image, class: 'solo-image author-image' %>
+
+<p class='author-name'>
+  <b><%= @author.name %></b>
+</p>
+
+<p class='author-bio group'>
+  <%= @author.bio %>
+</p>
+
+<% unless @author.award_wins.empty? %>
+  <p><b>Awards:</b></p>
+
+  <div class='items-padding'>
+    <%= render(@author.award_wins) %>
+  </div>
+<% end %>
+
+<p><b>Books:</b></p>
+
+<div class='items-padding'>
+  <%= render @author.books %>
+</div>

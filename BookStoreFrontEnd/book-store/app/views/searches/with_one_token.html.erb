@@ -1,0 +1,37 @@
+<table class='items-table'>
+  <% @authors.each do |author| %>
+    <tr>
+      <td><%= image_tag author.image %></td>
+      <td><%= author.class %></td>
+      <td><%= link_to author.name, author.url %></td>
+    </tr>
+  <% end %>
+  <% @awards.each do |award| %>
+    <tr>
+      <td><%= image_tag award.image %></td>
+      <td><%= award.class %></td>
+      <td><%= link_to award.name, award.url %></td>
+    </tr>
+  <% end %>
+  <% @editions.each do |edition| %>
+    <tr>
+      <td><%= image_tag edition.image %></td>
+      <td><%= edition.class %></td>
+      <td><%= link_to edition.name, edition.url %></td>
+    </tr>
+  <% end %>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= image_tag book.image %></td>
+      <td><%= book.class %></td>
+      <td><%= link_to book.name, book.url %></td>
+      <td></td>
+    </tr>
+  <% end %>
+  <% @publishers.each do |publisher| %>
+    <tr>
+      <td><%= publisher.class %></td>
+      <td><%= link_to publisher.name, publisher.url %></td>
+    </tr>
+  <% end %>
+</table>

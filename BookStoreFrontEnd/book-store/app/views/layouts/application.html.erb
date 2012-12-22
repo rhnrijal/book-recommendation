@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+
+  <title>Book Store</title>
+
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Short+Stack|Droid+Sans' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class='group'>
+  <h1><%= link_to 'Book Store', root_path %></h1>
+  <%= form_tag search_path, method: :get, class: 'search' do %>
+    <%= text_field_tag :q, params[:q], placeholder: 'Type anything book related...', class: 'dashline', pattern: '.{3,}', title: '3 characters minimum' %>
+  <% end %>
+</header>
+
+<div class='sidebar group'>
+  <ul>
+    <li><%= link_to 'Books', books_path %></li>
+    <li><%= link_to 'Authors', authors_path %></li>
+    <li><%= link_to 'Publishers', publishers_path %></li>
+    <li><%= link_to 'Awards', awards_path %></li>
+  </ul>
+</div>
+
+<div class='content'>
+  <%= yield %>
+</div>
+
+<%= javascript_include_tag 'application' %>
+</body>
+</html>

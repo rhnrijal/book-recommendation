@@ -1,0 +1,14 @@
+<%= image_tag @edition.image, class: 'solo-image cover-image' %>
+
+<b><%= @edition.title %></b> by <%= link_to @edition.author.name, author_path(@edition.author) %>
+</p>
+
+<p>Published in <%= @edition.year %> by <%= link_to @edition.publisher.name, publisher_path(@edition.publisher) %></p>
+
+<p><%= @edition.pages %> pages</p>
+
+<p><%= @edition.language %></p>
+
+<p><%= @edition.isbn %></p>
+
+<p><%= link_to 'Original Book', book_path(@edition.book) %></p>

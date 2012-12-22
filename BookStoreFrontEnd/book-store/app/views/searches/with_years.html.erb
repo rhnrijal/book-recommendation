@@ -1,0 +1,18 @@
+<table class='items-table'>
+  <% @resources.each do |resource| %>
+    <tr>
+      <td><%= image_tag resource.image %></td>
+      <td><%= resource.class %></td>
+      <td><%= link_to resource.name, resource.url %></td>
+      <td>
+        <% if resource.class == Book %>
+          <% if resource.award_win %>
+            <%= "awarded #{resource.award_win.name} in #{resource.award_win.year}" %>
+          <% end %>
+        <% else %>
+          <%= resource.year %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

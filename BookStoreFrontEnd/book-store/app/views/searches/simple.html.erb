@@ -1,0 +1,9 @@
+<table class='items-table'>
+  <% @resources.each do |resource| %>
+    <tr>
+      <td><%= image_tag resource.image if resource.image %></td>
+      <td><%= resource.class %></td>
+      <td><%= link_to resource.name, resource.url %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,20 @@
+<b><%= @book.title %></b> by <%= link_to @book.author.name, author_path(@book.author) %>
+
+<p>
+  <b>Genre:</b>
+  <%= @book.genre %>
+</p>
+
+<% unless @book.award_wins.empty? %>
+  <p><b>Awards:</b></p>
+
+  <div class='items-padding'>
+    <%= render(@book.award_wins) %>
+  </div>
+<% end %>
+
+<p><b>Editions:</b></p>
+
+<div class='items-padding'>
+  <%= render @book.editions %>
+</div>
