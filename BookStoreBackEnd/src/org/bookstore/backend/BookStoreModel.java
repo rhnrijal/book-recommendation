@@ -460,6 +460,23 @@ public class BookStoreModel {
 		Resource awardInstance = null;
 		Resource awardWinnerInstance = null;
 		
+		NodeList editionList = null;
+		Node readEdition = null;
+		String ISBN = null;
+		String pages = null;
+		String year = null;
+		String language = null;
+		String editionFormat = null;
+		String image_url = null;
+		String publisherName = null;
+		
+		Resource authorInstance = null;
+		Resource formatInstance = null;
+		Resource editionInstance = null;
+		Resource publisherInstance = null;
+		
+		Node editions = null;
+		
 		String awardName = null;
 		
 		if(doc != null) {
@@ -476,27 +493,81 @@ public class BookStoreModel {
 					awardGenre = getValue("genre", readBook);
 					
 					bookInstance = getBookByTitle(bookTitle);
+					authorInstance = getResourceByName("Author", authorName);
 					
-					if(bookInstance != null) {
+					if(bookInstance == null && authorInstance != null) {	
 						
-						awardInstance = getAwardByName(awardName);
+						editions = getNode("editions", readBook);
 						
-						if(awardInstance != null) {
+						if (editions != null){
 						
-							awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award_winner" + awardWinnerId++)
-									.addProperty(RDF.type, awardWin)
-									.addProperty(hasAward, awardInstance)
-									.addProperty(hasYear, awardYear)
-									.addProperty(hasGenre, awardGenre);
+							editionList = editions.getChildNodes();
 							
-							bookInstance.addProperty(hasWin, awardWinnerInstance);							
-						}
-						else {
-							System.out.println("Award with name " + awardName + " does not exist.");
+							for(int i = 0; i < editionList.getLength(); i++ ) {
+								readEdition = editionList.item(i);
+								if(readEdition.getNodeType() == Node.ELEMENT_NODE) {
+									
+									image_url = getValue("image_url", readEdition);
+									ISBN = getValue("isbn", readEdition);
+									pages = getValue("num_pages", readEdition);
+									year = getValue("year", readEdition);
+									language = getValue("language", readEdition);
+									editionFormat = getValue("format", readEdition);
+									publisherName = getValue("publisher", readEdition);
+									
+									if(bookInstance == null) {
+										bookInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "book" + bookId++)
+												.addProperty(RDF.type, book)
+												.addProperty(hasTitle, bookTitle)
+												.addProperty(hasGenre, awardGenre)
+												.addProperty(hasImage, image_url)
+												.addProperty(hasAuthor, authorInstance);
+	
+										authorInstance.addProperty(hasBook, bookInstance);
+									}
+									
+									publisherInstance = getResourceByName("Publisher", publisherName);
+		
+									if (publisherInstance == null) {
+										publisherInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "publisher" + publisherId++)
+												.addProperty(RDF.type, publisher)
+												.addProperty(hasName, publisherName);
+									}
+									
+									formatInstance = getFormatByLabel(editionFormat);
+									
+									if(formatInstance == null) {
+										formatInstance = paperback;
+									}
+														
+									editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "edition" + editionId++)
+											.addProperty(RDF.type, edition)
+											.addProperty(hasImage, image_url)
+											.addProperty(hasISBN, ISBN)
+											.addProperty(hasPages, pages)
+											.addProperty(hasYear, year)
+											.addProperty(hasLanguage, language)
+											.addProperty(hasTitle, bookTitle)
+											.addProperty(hasFormat, formatInstance)
+											.addProperty(hasPublisher, publisherInstance);
+									
+									bookInstance.addProperty(hasEdition, editionInstance);
+									
+									
+								}
+							}
 						}
 					}
-					else {
-						//System.out.println("Book with title " + bookTitle + " does not exist. - ");
+					awardInstance = getAwardByName(awardName);
+					if(awardInstance != null && bookInstance != null) {
+						
+						awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award_winner" + awardWinnerId++)
+								.addProperty(RDF.type, awardWin)
+								.addProperty(hasAward, awardInstance)
+								.addProperty(hasYear, awardYear)
+								.addProperty(hasGenre, awardGenre);
+						
+						bookInstance.addProperty(hasWin, awardWinnerInstance);							
 					}
 				}
 			}

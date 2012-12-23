@@ -6,6 +6,17 @@
     <year>2012</year>
     <genre>Best Related Work</genre>
     <author>John Clute</author>
+    <editions>
+      <edition>
+        <isbn>9780312134860</isbn>
+        <image_url>http://d.gr-assets.com/books/1311992208m/1154287.jpg</image_url>
+        <num_pages>1386</num_pages>
+        <publisher></publisher>
+        <format></format>
+        <year>1993</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>The Man Who Bridged the Mist</title>
@@ -13,6 +24,17 @@
     <year>2012</year>
     <genre>Best Novella</genre>
     <author>Kij Johnson</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://d.gr-assets.com/books/1332267535m/13554238.jpg</image_url>
+        <num_pages>40</num_pages>
+        <publisher>Asimov's Science Fiction</publisher>
+        <format>ebook</format>
+        <year>2011</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Six Months, Three Days</title>
@@ -20,6 +42,7 @@
     <year>2012</year>
     <genre>Best Novelette</genre>
     <author>Charlie Jane Anders</author>
+    <editions/>
   </book>
   <book>
     <title>The Paper Menagerie</title>
@@ -27,6 +50,17 @@
     <year>2012</year>
     <genre>Best Short Story</genre>
     <author>Ken Liu</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://d.gr-assets.com/books/1331061564m/13501210.jpg</image_url>
+        <num_pages>15</num_pages>
+        <publisher>(The Magazine of Fantasy and Science Fiction</publisher>
+        <format>ebook</format>
+        <year>2011</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Digger</title>
@@ -34,6 +68,7 @@
     <year>2012</year>
     <genre>Best Graphic Story</genre>
     <author>Ursula Vernon</author>
+    <editions/>
   </book>
   <book>
     <title>Among Others</title>
@@ -41,6 +76,17 @@
     <year>2012</year>
     <genre>Best Novel</genre>
     <author>Jo Walton</author>
+    <editions>
+      <edition>
+        <isbn>9780765321534</isbn>
+        <image_url>http://d.gr-assets.com/books/1317792367m/8706185.jpg</image_url>
+        <num_pages>302</num_pages>
+        <publisher>Tor Books</publisher>
+        <format>Hardcover</format>
+        <year>2011</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Chicks Dig Time Lords: A Celebration of Doctor Who by the Women Who Love It</title>
@@ -48,6 +94,17 @@
     <year>2011</year>
     <genre>Best Related Work</genre>
     <author>Lynne M. Thomas</author>
+    <editions>
+      <edition>
+        <isbn>9781935234043</isbn>
+        <image_url>http://d.gr-assets.com/books/1306173435m/6828177.jpg</image_url>
+        <num_pages>186</num_pages>
+        <publisher></publisher>
+        <format></format>
+        <year>2010</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>All Clear (All Clear, #2)  ( Oxford Time Travel, #4)</title>
@@ -55,6 +112,17 @@
     <year>2011</year>
     <genre>Best Novel</genre>
     <author>Connie Willis</author>
+    <editions>
+      <edition>
+        <isbn>9780553807677</isbn>
+        <image_url>http://d.gr-assets.com/books/1320549311m/7519231.jpg</image_url>
+        <num_pages>643</num_pages>
+        <publisher>Spectra</publisher>
+        <format>Hardcover</format>
+        <year>2010</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Blackout (All Clear, #1) ( Oxford Time Travel, #3)</title>
@@ -62,6 +130,17 @@
     <year>2011</year>
     <genre>Best Novel</genre>
     <author>Connie Willis</author>
+    <editions>
+      <edition>
+        <isbn>9780553803198</isbn>
+        <image_url>http://d.gr-assets.com/books/1320493479m/6506307.jpg</image_url>
+        <num_pages>512</num_pages>
+        <publisher>Spectra</publisher>
+        <format>Hardcover</format>
+        <year>2010</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>For Want of a Nail</title>
@@ -69,6 +148,7 @@
     <year>2011</year>
     <genre>Best Short Story</genre>
     <author>Mary Robinette Kowal</author>
+    <editions/>
   </book>
   <book>
     <title>The Lifecycle of Software Objects</title>
@@ -76,6 +156,17 @@
     <year>2011</year>
     <genre>Best Novella</genre>
     <author>Ted Chiang</author>
+    <editions>
+      <edition>
+        <isbn>9781596063174</isbn>
+        <image_url>http://d.gr-assets.com/books/1304351707m/7886338.jpg</image_url>
+        <num_pages>150</num_pages>
+        <publisher></publisher>
+        <format></format>
+        <year>2010</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Girl Genius, Vol. 9: Agatha Heterodyne and the Heirs of the Storm</title>
@@ -83,6 +174,17 @@
     <year>2010</year>
     <genre>Best Graphic Story</genre>
     <author>Phil Foglio</author>
+    <editions>
+      <edition>
+        <isbn>9781890856526</isbn>
+        <image_url>http://d.gr-assets.com/books/1278555558m/7860809.jpg</image_url>
+        <num_pages>144</num_pages>
+        <publisher>Diamond Comic Distributors</publisher>
+        <format></format>
+        <year>2010</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>This Is Me, Jack Vance!: Or, More Properly, This Is "I"</title>
@@ -90,6 +192,7 @@
     <year>2010</year>
     <genre>Best Related Book</genre>
     <author>Jack Vance</author>
+    <editions/>
   </book>
   <book>
     <title>The Island</title>
@@ -97,6 +200,17 @@
     <year>2010</year>
     <genre>Best Novelette</genre>
     <author>Peter Watts</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>40</num_pages>
+        <publisher></publisher>
+        <format></format>
+        <year>2009</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>The City and the City</title>
@@ -104,6 +218,17 @@
     <year>2010</year>
     <genre>Best Novel</genre>
     <author>China Mi&#xC3;&#xA9;ville</author>
+    <editions>
+      <edition>
+        <isbn>9780345497512</isbn>
+        <image_url>http://d.gr-assets.com/books/1320475957m/4703581.jpg</image_url>
+        <num_pages>312</num_pages>
+        <publisher>Del Rey</publisher>
+        <format>Hardcover</format>
+        <year>2009</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Palimpseste</title>
@@ -111,6 +236,7 @@
     <year>2010</year>
     <genre>Best Novella</genre>
     <author>Charles Stross</author>
+    <editions/>
   </book>
   <book>
     <title>The Windup Girl</title>
@@ -118,6 +244,17 @@
     <year>2010</year>
     <genre>Best Novel</genre>
     <author>Paolo Bacigalupi</author>
+    <editions>
+      <edition>
+        <isbn>9781597801577</isbn>
+        <image_url>http://d.gr-assets.com/books/1278940608m/6597651.jpg</image_url>
+        <num_pages>359</num_pages>
+        <publisher>Night Shade Books</publisher>
+        <format>Hardcover</format>
+        <year>2009</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Your Hate Mail Will Be Graded: A Decade of Whatever, 1998-2008</title>
@@ -125,6 +262,7 @@
     <year>2009</year>
     <genre>Best Related Book</genre>
     <author>John Scalzi</author>
+    <editions/>
   </book>
   <book>
     <title>Girl Genius, Vol. 8: Agatha Heterodyne and the Chapel of Bones</title>
@@ -132,6 +270,7 @@
     <year>2009</year>
     <genre>Best Graphic Story</genre>
     <author>Phil Foglio</author>
+    <editions/>
   </book>
   <book>
     <title>Exhalation</title>
@@ -139,6 +278,17 @@
     <year>2009</year>
     <genre>Best Short Story</genre>
     <author>Ted Chiang</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://d.gr-assets.com/books/1316789463m/6404787.jpg</image_url>
+        <num_pages>40</num_pages>
+        <publisher></publisher>
+        <format>Podcast</format>
+        <year>2009</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Shoggoths in Bloom</title>
@@ -146,6 +296,7 @@
     <year>2009</year>
     <genre>Best Novelette</genre>
     <author>Elizabeth Bear</author>
+    <editions/>
   </book>
   <book>
     <title>The Graveyard Book</title>
@@ -153,6 +304,17 @@
     <year>2009</year>
     <genre>Best Novel</genre>
     <author>Neil Gaiman</author>
+    <editions>
+      <edition>
+        <isbn>9780060530921</isbn>
+        <image_url>http://d.gr-assets.com/books/1303859949m/2213661.jpg</image_url>
+        <num_pages>312</num_pages>
+        <publisher>HarperCollins</publisher>
+        <format>Hardcover</format>
+        <year>2008</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>The Merchant and the Alchemist's Gate</title>
@@ -160,6 +322,7 @@
     <year>2008</year>
     <genre>Best Novelette</genre>
     <author>Ted Chiang</author>
+    <editions/>
   </book>
   <book>
     <title>The Yiddish Policemen's Union</title>
@@ -167,6 +330,17 @@
     <year>2008</year>
     <genre>Best Novel</genre>
     <author>Michael Chabon</author>
+    <editions>
+      <edition>
+        <isbn>9780007149827</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>414</num_pages>
+        <publisher>Harper</publisher>
+        <format>Hardcover</format>
+        <year>2007</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>All Seated on the Ground</title>
@@ -174,6 +348,7 @@
     <year>2008</year>
     <genre>Best Novella</genre>
     <author>Connie Willis</author>
+    <editions/>
   </book>
   <book>
     <title>Brave New Words: The Oxford Dictionary of Science Fiction</title>
@@ -181,6 +356,17 @@
     <year>2008</year>
     <genre>Best Related Book</genre>
     <author>Jeff Prucher</author>
+    <editions>
+      <edition>
+        <isbn>9780195305678</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>342</num_pages>
+        <publisher>Oxford University Press, USA</publisher>
+        <format>Hardcover</format>
+        <year>2007</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>James Tiptree, Jr.: The Double Life of Alice B. Sheldon</title>
@@ -188,6 +374,17 @@
     <year>2007</year>
     <genre>Best Related Book</genre>
     <author>Julie Phillips</author>
+    <editions>
+      <edition>
+        <isbn>9780312203856</isbn>
+        <image_url>http://d.gr-assets.com/books/1312015660m/27058.jpg</image_url>
+        <num_pages>469</num_pages>
+        <publisher>St. Martin's Press</publisher>
+        <format>Hardcover</format>
+        <year>2006</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>A Billion Eves</title>
@@ -195,6 +392,7 @@
     <year>2007</year>
     <genre>Best Novella</genre>
     <author>Robert Reed</author>
+    <editions/>
   </book>
   <book>
     <title>Impossible Dreams</title>
@@ -202,6 +400,7 @@
     <year>2007</year>
     <genre>Best short story</genre>
     <author>Tim Pratt</author>
+    <editions/>
   </book>
   <book>
     <title>Rainbows End</title>
@@ -209,6 +408,17 @@
     <year>2007</year>
     <genre>Best Novel</genre>
     <author>Vernor Vinge</author>
+    <editions>
+      <edition>
+        <isbn>9780812536362</isbn>
+        <image_url>http://d.gr-assets.com/books/1316729149m/102439.jpg</image_url>
+        <num_pages>400</num_pages>
+        <publisher>Tor Science Fiction</publisher>
+        <format>Paperback</format>
+        <year>2007</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Storyteller: Writing Lessons &amp; More from 27 Years of the Clarion Writers' Workshop</title>
@@ -216,6 +426,17 @@
     <year>2006</year>
     <genre>Best Related Book</genre>
     <author>Kate Wilhelm</author>
+    <editions>
+      <edition>
+        <isbn>9781931520164</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>200</num_pages>
+        <publisher>Small Beer Press</publisher>
+        <format>paper</format>
+        <year>2005</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Spin</title>
@@ -223,6 +444,17 @@
     <year>2006</year>
     <genre>Best Novel</genre>
     <author>Robert Charles Wilson</author>
+    <editions>
+      <edition>
+        <isbn>9780765348258</isbn>
+        <image_url>http://d.gr-assets.com/books/1316636370m/910863.jpg</image_url>
+        <num_pages>458</num_pages>
+        <publisher>Tor Science Fiction</publisher>
+        <format>Paperback</format>
+        <year>2006</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Travels with My Cats</title>
@@ -230,6 +462,7 @@
     <year>2005</year>
     <genre>Short story</genre>
     <author>Mike Resnick</author>
+    <editions/>
   </book>
   <book>
     <title>The Cambridge Companion to Science Fiction</title>
@@ -237,6 +470,17 @@
     <year>2005</year>
     <genre>Best Related Book</genre>
     <author>Edward James</author>
+    <editions>
+      <edition>
+        <isbn>9780521016575</isbn>
+        <image_url>http://d.gr-assets.com/books/1344734631m/696166.jpg</image_url>
+        <num_pages>326</num_pages>
+        <publisher>Cambridge University Press</publisher>
+        <format>Paperback</format>
+        <year>2003</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Jonathan Strange &amp; Mr Norrell</title>
@@ -244,6 +488,17 @@
     <year>2005</year>
     <genre>Best Novel</genre>
     <author>Susanna Clarke</author>
+    <editions>
+      <edition>
+        <isbn>9780765356154</isbn>
+        <image_url>http://d.gr-assets.com/books/1327945902m/14201.jpg</image_url>
+        <num_pages>1006</num_pages>
+        <publisher>Tor Books</publisher>
+        <format>Paperback</format>
+        <year>2006</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>A Study in Emerald</title>
@@ -251,6 +506,7 @@
     <year>2004</year>
     <genre>Best Short Story</genre>
     <author>Neil Gaiman</author>
+    <editions/>
   </book>
   <book>
     <title>Paladin of Souls (Chalion, #2)</title>
@@ -258,6 +514,17 @@
     <year>2004</year>
     <genre>Best Novel</genre>
     <author>Lois McMaster Bujold</author>
+    <editions>
+      <edition>
+        <isbn>9780380818617</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>470</num_pages>
+        <publisher>HarperTorch</publisher>
+        <format>Paperback</format>
+        <year>2005</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>I simulacri</title>
@@ -265,6 +532,7 @@
     <year>2004</year>
     <genre>Best Novella</genre>
     <author>Vernor Vinge</author>
+    <editions/>
   </book>
   <book>
     <title>The Chesley Awards for Science Fiction and Fantasy Art: A Retrospective</title>
@@ -272,6 +540,7 @@
     <year>2004</year>
     <genre>Best Related Book</genre>
     <author>Elizabeth Humphrey</author>
+    <editions/>
   </book>
   <book>
     <title>Hominids (Neanderthal Parallax, #1)</title>
@@ -279,6 +548,17 @@
     <year>2003</year>
     <genre>Best Novel</genre>
     <author>Robert J. Sawyer</author>
+    <editions>
+      <edition>
+        <isbn>9780765345004</isbn>
+        <image_url>http://d.gr-assets.com/books/1316730227m/264946.jpg</image_url>
+        <num_pages>444</num_pages>
+        <publisher>Tor Science Fiction</publisher>
+        <format>Mass Market Paperback</format>
+        <year>2003</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Better to Have Loved: The Life of Judith Merril</title>
@@ -286,6 +566,7 @@
     <year>2003</year>
     <genre>Best Related Book</genre>
     <author>Judith Merril</author>
+    <editions/>
   </book>
   <book>
     <title>Coraline</title>
@@ -293,6 +574,17 @@
     <year>2003</year>
     <genre>Best Novella</genre>
     <author>Neil Gaiman</author>
+    <editions>
+      <edition>
+        <isbn>9780061139376</isbn>
+        <image_url>http://d.gr-assets.com/books/1327871014m/17061.jpg</image_url>
+        <num_pages>162</num_pages>
+        <publisher>William Morrow Paperbacks</publisher>
+        <format>Paperback</format>
+        <year>2006</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Falling onto Mars</title>
@@ -300,6 +592,17 @@
     <year>2003</year>
     <genre>Best Short Story</genre>
     <author>Geoffrey A. Landis</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://d.gr-assets.com/books/1335195188m/13613999.jpg</image_url>
+        <num_pages>7</num_pages>
+        <publisher>Fictionwise</publisher>
+        <format></format>
+        <year>2003</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Hell is the Absence of God</title>
@@ -307,6 +610,17 @@
     <year>2002</year>
     <genre>Best Novelette</genre>
     <author>Ted Chiang</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://d.gr-assets.com/books/1316789238m/6533485.jpg</image_url>
+        <num_pages>50</num_pages>
+        <publisher></publisher>
+        <format>Podcast</format>
+        <year>2002</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>The Art of Chesley Bonestell</title>
@@ -314,6 +628,17 @@
     <year>2002</year>
     <genre>Best Related Book</genre>
     <author>Ron Miller</author>
+    <editions>
+      <edition>
+        <isbn>9781855858848</isbn>
+        <image_url>http://d.gr-assets.com/books/1328841398m/1613534.jpg</image_url>
+        <num_pages>256</num_pages>
+        <publisher>Paper Tiger</publisher>
+        <format>Hardcover</format>
+        <year>2001</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>American Gods</title>
@@ -321,6 +646,17 @@
     <year>2002</year>
     <genre>Best Novel</genre>
     <author>Neil Gaiman</author>
+    <editions>
+      <edition>
+        <isbn>9780747263746</isbn>
+        <image_url>http://d.gr-assets.com/books/1258417001m/4407.jpg</image_url>
+        <num_pages>632</num_pages>
+        <publisher>Headline Review</publisher>
+        <format></format>
+        <year>2005</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Harry Potter and the Goblet of Fire (Harry Potter, #4)</title>
@@ -328,6 +664,17 @@
     <year>2001</year>
     <genre>Best Novel</genre>
     <author>J.K. Rowling</author>
+    <editions>
+      <edition>
+        <isbn>9780439139601</isbn>
+        <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
+        <num_pages>734</num_pages>
+        <publisher>Scholastic Inc.</publisher>
+        <format>Hardcover</format>
+        <year>2002</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Kona&#xC4;&#x8D;na Zemlja/Vu&#xC4;&#x8D;je vrijeme</title>
@@ -335,6 +682,7 @@
     <year>2001</year>
     <genre>Best Novella</genre>
     <author>Jack Williamson</author>
+    <editions/>
   </book>
   <book>
     <title>Different Kinds of Darkness</title>
@@ -342,6 +690,7 @@
     <year>2001</year>
     <genre>Best Short Story</genre>
     <author>David Langford</author>
+    <editions/>
   </book>
   <book>
     <title>Greetings From Earth: The Art of Bob Eggleton</title>
@@ -349,6 +698,17 @@
     <year>2001</year>
     <genre>Best Related Book</genre>
     <author>Bob Eggleton</author>
+    <editions>
+      <edition>
+        <isbn>9781855856622</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>112</num_pages>
+        <publisher>Sterling</publisher>
+        <format>Paperback</format>
+        <year>2000</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>10 to the 16 to 1</title>
@@ -356,6 +716,17 @@
     <year>2000</year>
     <genre>Best Novelette</genre>
     <author>James Patrick Kelly</author>
+    <editions>
+      <edition>
+        <isbn></isbn>
+        <image_url>http://d.gr-assets.com/books/1339004387m/13613894.jpg</image_url>
+        <num_pages>26</num_pages>
+        <publisher>Fictionwise</publisher>
+        <format>ebook</format>
+        <year>2000</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Kin</title>
@@ -363,6 +734,7 @@
     <year>2000</year>
     <genre>Best Short Story</genre>
     <author>Bruce McAllister</author>
+    <editions/>
   </book>
   <book>
     <title>The Winds of Marble Arch and Other Stories</title>
@@ -370,6 +742,17 @@
     <year>2000</year>
     <genre>Best Novella</genre>
     <author>Connie Willis</author>
+    <editions>
+      <edition>
+        <isbn>9781596061101</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>700</num_pages>
+        <publisher></publisher>
+        <format></format>
+        <year>2007</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>Science Fiction of the 20th Century: An Illustrated History</title>
@@ -377,6 +760,7 @@
     <year>2000</year>
     <genre>Best Related Book</genre>
     <author>Frank M. Robinson</author>
+    <editions/>
   </book>
   <book>
     <title>Scherzo with Tyrannosaur</title>
@@ -384,6 +768,7 @@
     <year>2000</year>
     <genre>Best Short Story</genre>
     <author>Michael Stanwick</author>
+    <editions/>
   </book>
   <book>
     <title>A Deepness in the Sky (Zones of Thought, #2)</title>
@@ -391,6 +776,17 @@
     <year>2000</year>
     <genre>Best Novel</genre>
     <author>Vernor Vinge</author>
+    <editions>
+      <edition>
+        <isbn>9780812536355</isbn>
+        <image_url>http://d.gr-assets.com/books/1350952749m/226004.jpg</image_url>
+        <num_pages>775</num_pages>
+        <publisher>Tor Science Fiction</publisher>
+        <format>Mass Market Paperback</format>
+        <year>2000</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>To Say Nothing of the Dog (Oxford Time Travel, #2)</title>
@@ -398,6 +794,17 @@
     <year>1999</year>
     <genre>Best Novel</genre>
     <author>Connie Willis</author>
+    <editions>
+      <edition>
+        <isbn>9780553575385</isbn>
+        <image_url>http://d.gr-assets.com/books/1327943222m/77773.jpg</image_url>
+        <num_pages>493</num_pages>
+        <publisher>Bantam</publisher>
+        <format>Paperback</format>
+        <year>1998</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>The Dreams Our Stuff is Made Of: How Science Fiction Conquered the World</title>
@@ -405,6 +812,17 @@
     <year>1999</year>
     <genre>Best Related Book</genre>
     <author>Thomas M. Disch</author>
+    <editions>
+      <edition>
+        <isbn>9780684859781</isbn>
+        <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+        <num_pages>272</num_pages>
+        <publisher>Free Press</publisher>
+        <format>Paperback</format>
+        <year>2000</year>
+        <language>English</language>
+      </edition>
+    </editions>
   </book>
   <book>
     <title>The 43 Antarean Dynasties</title>
@@ -412,5 +830,6 @@
     <year>1998</year>
     <genre>Best Short Story</genre>
     <author>Mike Resnick</author>
+    <editions/>
   </book>
 </books>
