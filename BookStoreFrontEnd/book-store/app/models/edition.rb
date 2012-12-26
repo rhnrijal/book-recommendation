@@ -19,7 +19,7 @@ class Edition < OwlModel
   end
 
   def self.find(id)
-    uri = id.to_i
+    uri = id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?edition ?title ?image ?isbn ?language ?pages ?year ?publisher ?publisher_name ?book ?book_title ?author ?author_name
                             WHERE { book:#{uri} a book:Edition ;
@@ -58,7 +58,7 @@ class Edition < OwlModel
   end
 
   def self.find_book_editions(book_id)
-    book_uri = book_id.to_i
+    book_uri = book_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?edition ?title ?image ?year
                             WHERE {?edition a book:Edition ;
@@ -78,7 +78,7 @@ class Edition < OwlModel
   end
 
   def self.find_publisher_editions(publisher_id)
-    publisher_uri = publisher_id.to_i
+    publisher_uri = publisher_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?edition ?title ?image
                             WHERE {?edition a book:Edition ;

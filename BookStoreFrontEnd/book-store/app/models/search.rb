@@ -1,36 +1,113 @@
 class Search
   @@book = 'http://www.owl-ontologies.com/book.owl#'
 
+  @@noise_words = ['a', 'about', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of', 'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we', 'what', 'when', 'where', 'which', 'with']
+
   def self.tokenizer(query)
-    words = query.split(/\W+/)
-
-    tokens = []
+    words = query.split(/\W+/).reject{|w| w.length < 3 || @@noise_words.include?(w) }
     years = []
-    strings = []
+    tokens = []
 
-    parsing_a_string = false
     words.each do |word|
+      number = word.to_i
+      if number > 1900 && number <= Date.today.year
+        years << number
+      end
       token = LABELS[word]
       if token
         tokens << token
-        parsing_a_string = false
-      else
-        number = word.to_i
-        if number > 1900 && number <= Date.today.year
-          years << number
-          parsing_a_string = false
-        else
-          if parsing_a_string
-            strings[strings.length-1] += ' ' + word
-          else
-            strings << word
-            parsing_a_string = true
-          end
-        end
       end
     end
 
-    return tokens, years, strings
+    return words, years, tokens
+  end
+
+  def self.search(words, years, tokens)
+    score = {}
+
+    years.each do |year|
+      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                              SELECT ?class ?instance
+                              WHERE { ?instance a ?class ;
+                                                book:hasYear ?year
+                                      FILTER regex(?year, '#{year}', 'i' )
+                              }
+                            ")
+      hash['results']['bindings'].each do |resource|
+        klass = resource['class']['value']
+        uri = resource['instance']['value']
+        score[uri] = {klass: klass, points: 3}
+      end
+    end
+
+    words.each_with_index do |word, index|
+      puts "#{index}: searching for #{word}"
+      temp_score = {}
+
+      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                              SELECT ?class ?instance
+                              WHERE { ?instance a ?class ;
+                                      OPTIONAL { ?instance book:hasName ?name } .
+                                      OPTIONAL { ?instance book:hasTitle ?name } .
+                                      FILTER regex(?name, '#{word}', 'i' )
+                              }
+                            ")
+      hash['results']['bindings'].each do |resource|
+        klass = resource['class']['value']
+        uri = resource['instance']['value']
+
+        points = 1
+
+        if tokens.include?(klass)
+          points += 5
+        end
+
+        if score[uri]
+          score[uri][:points] += points
+        else
+
+          related_to_previous = false
+          score.each do |key, value|
+            next if value[:klass] == klass
+
+            relations_hash = Ontology.query(" SELECT ?is_related_to
+                                              WHERE { <#{key}> ?is_related_to <#{uri}> }
+                                            ")
+            n_relations = relations_hash['results']['bindings'].size
+
+            if n_relations > 0
+              score[key][:points] += n_relations
+              points += n_relations
+              related_to_previous = true
+            end
+          end
+
+          if related_to_previous || index == 0
+            temp_score[uri] = {klass: klass, points: points}
+            puts "#{uri} => #{temp_score[uri]}"
+          else
+            puts "#{uri} => Dead End - No Relation"
+          end
+
+        end
+      end
+
+      score.merge!(temp_score)
+
+      # common_keys = score.keys & temp_score.keys    # intersection
+
+      # new_score = {}
+      # common_keys.each do |key|
+      #   new_score[key] = score[key]
+      #   new_score[key][:points] += temp_score[key][:points]
+      # end
+      # score = new_score
+
+    end
+
+    resources = score.sort_by {|key, value| -value[:points]}
+
+    resources
   end
 
   def self.simple(query)

@@ -11,7 +11,7 @@ class AwardWin < OwlModel
   end
 
   def self.find_book_award_wins(book_id)
-    book_uri = book_id.to_i
+    book_uri = book_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?award_win ?year ?genre ?award ?name ?image
                             WHERE { ?award_win a book:AwardWin ;
@@ -37,7 +37,7 @@ class AwardWin < OwlModel
   end
 
   def self.find_author_award_wins(author_id)
-    author_uri = author_id.to_i
+    author_uri = author_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?award_win ?year ?genre ?award ?name ?book ?image ?title
                             WHERE {
@@ -81,7 +81,7 @@ class AwardWin < OwlModel
   end
 
   def self.find_award_award_wins(award_id)
-    award_uri = award_id.to_i
+    award_uri = award_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?award_win ?year ?genre ?book ?book_title
                             WHERE { ?award_win a book:AwardWin ;

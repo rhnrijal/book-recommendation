@@ -2,20 +2,24 @@ class SearchesController < ApplicationController
   def new
     query = params[:q].downcase
 
-    tokens, years, strings = Search.tokenizer(query)
+    words, years, tokens = Search.tokenizer(query)
 
-    if tokens.empty? && years.empty?
-      @resources = Search.simple(query)
-      render :simple
-    elsif tokens.empty? && !years.empty?
-      @resources = Search.with_years(years, strings)
-      render :with_years
-    elsif tokens.size == 1 && years.empty?
-      @authors, @awards, @books, @editions, @publishers = Search.with_one_token(tokens[0], strings)
-      render :with_one_token
-    else
-      render text: [tokens, years, strings], layout: true and return
-    end
+    @stuff = Search.search(words, years, tokens)
+
+    # tokens, years, strings = Search.tokenizer(query)
+
+    # if tokens.empty? && years.empty?
+    #   @resources = Search.simple(query)
+    #   render :simple
+    # elsif tokens.empty? && !years.empty?
+    #   @resources = Search.with_years(years, strings)
+    #   render :with_years
+    # elsif tokens.size == 1 && years.empty?
+    #   @authors, @awards, @books, @editions, @publishers = Search.with_one_token(tokens[0], strings)
+    #   render :with_one_token
+    # else
+    #   render text: [tokens, years, strings], layout: true and return
+    # end
 
     # render text: results.inspect, layout: true and return
 
