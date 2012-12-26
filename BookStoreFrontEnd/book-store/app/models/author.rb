@@ -18,7 +18,7 @@ class Author < OwlModel
                                             book:hasImage ?image
                                   }
                             ORDER BY ASC(?name)
-                            LIMIT 20
+                            LIMIT 150
                           ")
     hash['results']['bindings'].collect do |resource|
       Author.new( id: resource['author']['value'].gsub!(@@book, ''),

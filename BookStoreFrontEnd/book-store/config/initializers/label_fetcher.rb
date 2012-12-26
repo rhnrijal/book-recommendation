@@ -5,8 +5,7 @@ LABELS = {}
 hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         SELECT ?class ?label
-                        WHERE { ?class a rdfs:Class .
-                                ?class rdfs:label ?label }
+                        WHERE { ?class rdfs:label ?label }
                           ")
 hash['results']['bindings'].each do |resource|
   key = resource['label']['value'].downcase
