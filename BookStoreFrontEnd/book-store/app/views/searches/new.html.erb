@@ -1,5 +1,7 @@
-<% @results.each do |result| %>
+<% @results.each_with_index do |result, index| %>
   <div>
-    <%= link_to result.name, result.url %>
+    <%= link_to highlighter(result.name), result.url %> scored <%= @ranking[index] %> points
   </div>
 <% end %>
+
+<% if @results.empty? %><span>Sorry, no results were found :(</span><% end %>

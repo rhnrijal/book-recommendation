@@ -23,7 +23,9 @@ class Award < OwlModel
     hash['results']['bindings'].collect do |resource|
       Award.new(id: resource['award']['value'].gsub!(@@book, ''),
                 name: resource['name']['value'],
-                year: resource['year']['value']
+                year: resource['year']['value'],
+                image: resource['image'] ? resource['image']['value'] : nil,
+                genre: resource['genre'] ? resource['genre']['value'] : nil
               )
     end
   end
@@ -43,9 +45,11 @@ class Award < OwlModel
     resource = hash['results']['bindings'][0]
     award = Award.new(id: uri,
                       name: resource['name']['value'],
-                      year: resource['year']['value']
+                      year: resource['year']['value'],
+                      image: resource['image'] ? resource['image']['value'] : nil,
+                      genre: resource['genre'] ? resource['genre']['value'] : nil
                     )
-    if resource['book_title']['value']
+    if resource['book_title']
       award.book = Book.new(id: resource['winner']['value'].gsub!(@@book, ''),
                             title: resource['book_title']['value']
                           )
@@ -80,7 +84,9 @@ class Award < OwlModel
     hash['results']['bindings'].collect do |resource|
       award = Award.new(id: resource['award']['value'].gsub!(@@book, ''),
                         name: resource['name']['value'],
-                        year: resource['year']['value']
+                        year: resource['year']['value'],
+                        image: resource['image'] ? resource['image']['value'] : nil,
+                        genre: resource['genre'] ? resource['genre']['value'] : nil
                       )
       if resource['book']
         award.book = Book.new(id: resource['book']['value'].gsub!(@@book, ''),
@@ -105,7 +111,9 @@ class Award < OwlModel
     hash['results']['bindings'].collect do |resource|
       Award.new(id: resource['award']['value'].gsub!(@@book, ''),
                 name: resource['name']['value'],
-                year: resource['year']['value']
+                year: resource['year']['value'],
+                image: resource['image'] ? resource['image']['value'] : nil,
+                genre: resource['genre'] ? resource['genre']['value'] : nil
               )
     end
   end
