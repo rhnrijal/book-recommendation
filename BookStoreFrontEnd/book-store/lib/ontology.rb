@@ -40,6 +40,7 @@ SOH_VERSION="0.0.0"
 $proxy = ENV['http_proxy'] ? URI.parse(ENV['http_proxy']) : OpenStruct.new
 
 $service = 'http://alacarte.dei.uc.pt/BookStore/query'
+#$service = 'http://127.0.0.1:3030/BookStore/query'
 $type = 'json'
 $verbose = false
 

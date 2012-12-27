@@ -1,6 +1,9 @@
 class Search
   @@book = 'http://www.owl-ontologies.com/book.owl#'
 
+  @@threshold = false
+  @@min_results = 21
+
   @@noise_words = ['a', 'about', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of', 'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we', 'what', 'when', 'where', 'which', 'with']
 
   def self.tokenizer(query)
@@ -68,7 +71,7 @@ class Search
 
           related_to_previous = false
           score.each do |key, value|
-            next if value[:klass] == klass
+            next if value[:klass] == klass || klass == (@@book + 'Edition')
 
             relations_hash = Ontology.query(" SELECT ?is_related_to
                                               WHERE { <#{key}> ?is_related_to <#{uri}> }
@@ -82,7 +85,7 @@ class Search
             end
           end
 
-          if related_to_previous || index == 0
+          if (related_to_previous || index == 0 || (@@threshold && score.size < @@min_results)) && klass != (@@book + 'Edition')
             temp_score[uri] = {klass: klass, points: points}
             puts "#{uri} => #{temp_score[uri]}"
           else

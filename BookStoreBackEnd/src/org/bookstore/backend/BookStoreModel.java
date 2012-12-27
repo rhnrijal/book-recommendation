@@ -107,7 +107,7 @@ public class BookStoreModel {
 			dataset.begin(ReadWrite.WRITE);
 			try {
 				populateBooks(BookStoreConstants.ONTOLOGY_XML);
-				populateAwards(BookStoreConstants.AWARDS_XML);
+				//populateAwards(BookStoreConstants.AWARDS_XML);
 				populateAuthorAwardWinners(BookStoreConstants.NOBEL_AWARD_WINNERS_XML);
 				populateBookAwardWinners(BookStoreConstants.PULITZER_AWARD_WINNERS_XML);
 				populateBookAwardWinners(BookStoreConstants.HUGO_AWARD_WINNERS_XML);
@@ -401,7 +401,6 @@ public class BookStoreModel {
 			String authorName = null;
 			String awardYear = null;
 			Resource awardInstance = null;
-			Resource awardWinnerInstance = null;
 			
 			String awardName = null;
 			
@@ -419,21 +418,13 @@ public class BookStoreModel {
 					
 					if(authorInstance != null) {
 						
-						awardInstance = getAwardByName(awardName);
+						awardInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award" + awardId++)
+								.addProperty(RDF.type, award)
+								.addProperty(hasName, awardName)
+								.addProperty(hasYear, awardYear)
+								.addProperty(hasGenre, "");
 						
-						if(awardInstance != null) {
-						
-							awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award_winner" + awardWinnerId++)
-									.addProperty(RDF.type, awardWin)
-									.addProperty(hasAward, awardInstance)
-									.addProperty(hasYear, awardYear)
-									.addProperty(hasGenre, "");
-							
-							authorInstance.addProperty(hasWin, awardWinnerInstance);
-						}
-						else {
-							System.out.println("Award with name " + awardName + " does not exist.");
-						}
+						authorInstance.addProperty(hasAward, awardInstance);
 					}
 					else {
 						//System.out.println("Author with name " + authorName + " does not exist.");
@@ -458,7 +449,6 @@ public class BookStoreModel {
 		String awardYear = null;
 		String awardGenre = null;
 		Resource awardInstance = null;
-		Resource awardWinnerInstance = null;
 		
 		NodeList editionList = null;
 		Node readEdition = null;
@@ -558,16 +548,15 @@ public class BookStoreModel {
 							}
 						}
 					}
-					awardInstance = getAwardByName(awardName);
-					if(awardInstance != null && bookInstance != null) {
+					if(bookInstance != null) {
 						
-						awardWinnerInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award_winner" + awardWinnerId++)
-								.addProperty(RDF.type, awardWin)
-								.addProperty(hasAward, awardInstance)
+						awardInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "award" + awardId++)
+								.addProperty(RDF.type, award)
+								.addProperty(hasName, awardName)
 								.addProperty(hasYear, awardYear)
 								.addProperty(hasGenre, awardGenre);
 						
-						bookInstance.addProperty(hasWin, awardWinnerInstance);							
+						bookInstance.addProperty(hasAward, awardInstance);							
 					}
 				}
 			}
