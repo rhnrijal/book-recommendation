@@ -8,11 +8,11 @@
   <%= @author.bio %>
 </p>
 
-<% unless @author.award_wins.empty? %>
+<% unless @author.awards.empty? %>
   <p><b>Awards:</b></p>
 
   <div class='items-padding'>
-    <%= render(@author.award_wins) %>
+    <%= render(@author.awards) %>
   </div>
 <% end %>
 

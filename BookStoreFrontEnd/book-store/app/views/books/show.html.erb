@@ -5,11 +5,11 @@
   <%= @book.genre %>
 </p>
 
-<% unless @book.award_wins.empty? %>
+<% unless @book.awards.empty? %>
   <p><b>Awards:</b></p>
 
   <div class='items-padding'>
-    <%= render(@book.award_wins) %>
+    <%= render(@book.awards) %>
   </div>
 <% end %>
 

@@ -71,7 +71,7 @@ header a {
   font-family: 'Short Stack', cursive;
   font-size: 26px;
   background-color: transparent;
-  width: 100%;
+  width: 60%;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
@@ -79,6 +79,12 @@ header a {
 .dashline:focus {
   outline: 0;
   outline: none;
+}
+
+.iPhoneCheckContainer {
+  display: inline-block;
+  vertical-align: -0.5em;
+  margin-left: 25px;
 }
 
 .sidebar {

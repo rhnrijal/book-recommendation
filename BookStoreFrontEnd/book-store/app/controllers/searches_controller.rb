@@ -2,9 +2,11 @@ class SearchesController < ApplicationController
   def new
     query = params[:q].downcase
 
+    @more_results = (params[:opt] ? true : false)
+
     words, years, tokens = Search.tokenizer(query)
 
-    @stuff = Search.search(words, years, tokens)
+    @results = Search.search(words, years, tokens, @more_results)
 
     # tokens, years, strings = Search.tokenizer(query)
 

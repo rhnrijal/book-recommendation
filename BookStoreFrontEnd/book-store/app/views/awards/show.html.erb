@@ -1,21 +1,13 @@
 <p>
-  <b><%= @award.name %></b>
+  <b><%= "#{@award.name} #{@award.year}" %></b>
 </p>
+
+<%= @award.genre %>
 
 <%= image_tag @award.image, class: 'award-image' %>
 
-<table class='items-table table-without-images'>
-  <% @award.award_wins.each do |award_win| %>
-    <tr class='item-without-image'>
-      <td><%= award_win.year %></td>
-      <td><%= award_win.genre %></td>
-      <td>
-        <% if award_win.book %>
-          <%= link_to award_win.book.title, book_path(award_win.book) %>
-        <% else %>
-          <%= link_to award_win.author.name, author_path(award_win.author) %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% if @award.book %>
+  <%= link_to @award.book.title, book_path(@award.book) %>
+<% else %>
+  <%= link_to @award.author.name, author_path(@award.author) %>
+<% end %>

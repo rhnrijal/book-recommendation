@@ -1,13 +1,13 @@
 class Search
   @@book = 'http://www.owl-ontologies.com/book.owl#'
 
-  @@threshold = false
   @@min_results = 21
 
-  @@noise_words = ['a', 'about', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of', 'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we', 'what', 'when', 'where', 'which', 'with']
+  @@noise_words = [ 'a', 'about', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of',
+                    'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we', 'what', 'when', 'where', 'which', 'with']
 
   def self.tokenizer(query)
-    words = query.split(/\W+/).reject{|w| w.length < 3 || @@noise_words.include?(w) }
+    words = query.split(/\W+/).reject { |w| w.length < 3 || @@noise_words.include?(w) }
     years = []
     tokens = []
 
@@ -25,7 +25,7 @@ class Search
     return words, years, tokens
   end
 
-  def self.search(words, years, tokens)
+  def self.search(words, years, tokens, threshold)
     score = {}
 
     years.each do |year|
@@ -53,6 +53,7 @@ class Search
                                       OPTIONAL { ?instance book:hasName ?name } .
                                       OPTIONAL { ?instance book:hasTitle ?name } .
                                       FILTER regex(?name, '#{word}', 'i' )
+                                      FILTER NOT EXISTS { ?instance a book:Edition . }
                               }
                             ")
       hash['results']['bindings'].each do |resource|
@@ -71,7 +72,7 @@ class Search
 
           related_to_previous = false
           score.each do |key, value|
-            next if value[:klass] == klass || klass == (@@book + 'Edition')
+            next if value[:klass] == klass
 
             relations_hash = Ontology.query(" SELECT ?is_related_to
                                               WHERE { <#{key}> ?is_related_to <#{uri}> }
@@ -85,7 +86,7 @@ class Search
             end
           end
 
-          if (related_to_previous || index == 0 || (@@threshold && score.size < @@min_results)) && klass != (@@book + 'Edition')
+          if related_to_previous || index == 0 || (threshold && score.size < @@min_results)
             temp_score[uri] = {klass: klass, points: points}
             puts "#{uri} => #{temp_score[uri]}"
           else
@@ -96,21 +97,18 @@ class Search
       end
 
       score.merge!(temp_score)
-
-      # common_keys = score.keys & temp_score.keys    # intersection
-
-      # new_score = {}
-      # common_keys.each do |key|
-      #   new_score[key] = score[key]
-      #   new_score[key][:points] += temp_score[key][:points]
-      # end
-      # score = new_score
-
     end
+
+    models = []
 
     resources = score.sort_by {|key, value| -value[:points]}
 
-    resources
+    resources.each do |resource|
+      klass = KLASSES[resource[1][:klass]]
+      models << klass.find(resource[0].gsub(@@book, ''))
+    end
+
+    models
   end
 
   def self.simple(query)

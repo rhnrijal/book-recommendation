@@ -1,5 +1,5 @@
-<% @stuff.each do |stuffy| %>
+<% @results.each do |result| %>
   <div>
-    <%= "#{stuffy[1]} #{stuffy[0]}" %>
+    <%= link_to result.name, result.url %>
   </div>
 <% end %>

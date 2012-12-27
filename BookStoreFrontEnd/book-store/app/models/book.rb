@@ -1,6 +1,6 @@
 class Book < OwlModel
   delegate :url_helpers, to: 'Rails.application.routes'
-  attr_accessor :id, :title, :image, :genre, :author, :editions, :award_wins, :award_win, :year
+  attr_accessor :id, :title, :image, :genre, :author, :editions, :awards, :year
 
   def to_param
     "#{id} #{title}".parameterize
@@ -59,7 +59,7 @@ class Book < OwlModel
                                   image: resource['author_image']['value']
                                 ),
               editions: Edition.find_book_editions(uri),
-              award_wins: AwardWin.find_book_award_wins(uri)
+              awards: Award.find_book_awards(uri)
             )
   end
 

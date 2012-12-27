@@ -44,6 +44,9 @@ GEM
       multi_json (~> 1.0)
     hike (1.2.1)
     i18n (0.6.1)
+    ios-checkboxes (0.2.1)
+      rails (~> 3.1)
+      sass-rails
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -110,6 +113,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  ios-checkboxes
   jquery-rails
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)

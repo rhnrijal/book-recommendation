@@ -1,6 +1,0 @@
-<div class='item'>
-  <%= link_to award_path(award_win.award) do %><%= image_tag award_win.award.image, class: 'item-image' %><%= "#{award_win.award.name} #{award_win.year}" %><% end %>
-  <% if award_win.book %>
-    for writing <%= link_to award_win.book.title, book_path(award_win.book) %>
-  <% end %>
-</div>
