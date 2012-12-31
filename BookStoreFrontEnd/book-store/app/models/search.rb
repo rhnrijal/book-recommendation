@@ -70,6 +70,7 @@ class Search
                                         OPTIONAL { ?instance book:hasName ?name } .
                                         OPTIONAL { ?instance book:hasTitle ?name } .
                                         FILTER regex(?name, '#{word}', 'i' )
+                                        FILTER NOT EXISTS { ?instance a book:Edition }
                                 }
                               ")
         hash['results']['bindings'].each do |resource|
@@ -105,13 +106,11 @@ class Search
               end
             end
 
-            if klass != (@@book + 'Edition')
-              if (related_to_previous || index == 0 || more_results)
-                temp_score[uri] = {klass: klass, points: points}
-                puts "#{uri} => #{temp_score[uri]}"
-              else
-                puts "#{uri} => Dead End - No Relation"
-              end
+            if (related_to_previous || index == 0 || more_results)
+              temp_score[uri] = {klass: klass, points: points}
+              puts "#{uri} => #{temp_score[uri]}"
+            else
+              puts "#{uri} => Dead End - No Relation"
             end
           end
         end
@@ -128,11 +127,10 @@ class Search
 
           hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                                   SELECT ?class ?instance
-                                  WHERE { ?related_instance a ?related_class .
+                                  WHERE { ?instance a ?class .
+                                          ?related_instance a ?related_class .
                                           ?related_instance <#{property}> ?instance .
-                                          ?instance a ?class .
-                                          OPTIONAL { ?related_instance book:hasName ?name } .
-                                          OPTIONAL { ?related_instance book:hasTitle ?name } .
+                                          ?related_instance book:hasName ?name .
                                           FILTER regex(?name, '#{word}', 'i' )
                                   }
                                 ")
@@ -193,53 +191,72 @@ class Search
       end
     end
 
-    if !more_results
-      min_points = words.length - classes.length
-      if !years.empty?
-        min_points = min_points - years.length + @@points_for_year
-      end
-      score.delete_if { |key, value| value[:points] < min_points }
-    end
-
     if !formats.empty?
-      books_to_delete = []
+      editions_to_delete = []
       temp_score = {}
 
       formats.each_with_index do |format, index|
         puts "#{index}: searching for #{format}"
         score.each do |key, value|
-          next if value[:klass] != 'http://www.owl-ontologies.com/book.owl#Book'
+          if value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book'
 
-          formats_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                                          SELECT ?class ?instance
-                                          WHERE { ?instance a ?class ;
-                                                            book:hasFormat <#{format}> .
-                                                  <#{key}> book:hasEdition ?instance
-                                                }
-                                        ")
-          formats_hash['results']['bindings'].each do |resource|
-            klass = resource['class']['value']
-            uri = resource['instance']['value']
-            if temp_score[uri]
-              temp_score[uri][:points] += @@points_for_format
-              puts "#{uri} => #{temp_score[uri]}"
-            else
-              temp_score[uri] = {klass: klass, points: value[:points] + @@points_for_format}
-              books_to_delete << key
-              puts "#{uri} => #{temp_score[uri]}"
+            formats_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT ?class ?instance
+                                            WHERE { ?instance a ?class ;
+                                                              book:hasFormat <#{format}> .
+                                                    <#{key}> book:hasEdition ?instance
+                                                  }
+                                          ")
+            formats_hash['results']['bindings'].each do |resource|
+              klass = resource['class']['value']
+              uri = resource['instance']['value']
+              if temp_score[uri]
+                temp_score[uri][:points] += @@points_for_format
+                puts "#{uri} => #{temp_score[uri]}"
+              else
+                temp_score[uri] = {klass: klass, points: value[:points] + @@points_for_format}
+                puts "#{uri} => #{temp_score[uri]}"
+              end
             end
+
+          elsif value[:klass] == 'http://www.owl-ontologies.com/book.owl#Edition'
+
+            formats_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT ?class ?instance
+                                            WHERE { <#{key}> book:hasFormat <#{format}> }
+                                          ")
+            if formats_hash['results']['bindings'].size == 0
+              editions_to_delete << key
+            end
+          else
+
+            next
+
           end
         end
       end
 
-      score.delete_if {|key, value| value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book' }
+      score.delete_if {|key, value| (value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book') || (editions_to_delete.include? key) }
       score.merge!(temp_score)
+    end
+
+    if !more_results
+      min_points = words.length - classes.length
+      if !years.empty?
+        min_points = min_points - years.length + @@points_for_year
+      end
+      if !formats.empty?
+        min_points = min_points + @@points_for_format
+      end
+      score.delete_if { |key, value| value[:points] < min_points }
     end
 
     models = []
     ranking = []
 
     resources = score.sort_by { |key, value| -value[:points] }
+
+    puts resources
 
     resources.each do |resource|
       model = MODELS[resource[1][:klass]]
