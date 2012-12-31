@@ -1,6 +1,6 @@
 class Edition < OwlModel
   delegate :url_helpers, to: 'Rails.application.routes'
-  attr_accessor :id, :title, :image, :isbn, :language, :pages, :year, :book, :author, :publisher
+  attr_accessor :id, :title, :image, :isbn, :language, :pages, :year, :format, :book, :author, :publisher
 
   def to_param
     "#{id} #{title}".parameterize
@@ -21,7 +21,7 @@ class Edition < OwlModel
   def self.find(id)
     uri = id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?edition ?title ?image ?isbn ?language ?pages ?year ?publisher ?publisher_name ?book ?book_title ?author ?author_name
+                            SELECT ?edition ?title ?image ?isbn ?language ?pages ?year ?format ?publisher ?publisher_name ?book ?book_title ?author ?author_name
                             WHERE { book:#{uri} a book:Edition ;
                                                 book:hasTitle ?title ;
                                                 book:hasImage ?image ;
@@ -29,8 +29,9 @@ class Edition < OwlModel
                                                 book:hasLanguage ?language ;
                                                 book:hasPages ?pages ;
                                                 book:hasYear ?year ;
-                                                book:hasPublisher ?publisher .
-                                    ?publisher book:hasName ?publisher_name .
+                                                book:hasFormat ?format .
+                                    ?publisher book:hasName ?publisher_name ;
+                                               book:hasPublished book:#{uri} .
                                     ?book book:hasEdition book:#{uri} ;
                                           book:hasTitle ?book_title .
                                     ?author book:hasBook ?book ;
@@ -45,6 +46,7 @@ class Edition < OwlModel
                 language: resource['language']['value'],
                 pages: resource['pages']['value'],
                 year: resource['year']['value'],
+                format: resource['format']['value'].gsub!(@@book, ''),
                 book: Book.new( id: resource['book']['value'].gsub!(@@book, ''),
                                 title: resource['book_title']['value']
                               ),
