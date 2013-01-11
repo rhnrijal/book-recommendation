@@ -600,6 +600,8 @@ public class BookStoreModel {
 		String queryString =	BookStoreConstants.ONTOLOGY_PREFIX_BOOK + 
 								"\nSELECT ?x WHERE { ?x a book:" + encodeURL(subject) + " . ?x book:hasName ?name }";
 		
+		
+		
 		ParameterizedSparqlString paramQueryString = new ParameterizedSparqlString(queryString);
 		paramQueryString.setLiteral("name", name);
 		

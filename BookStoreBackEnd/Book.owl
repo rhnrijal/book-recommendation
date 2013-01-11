@@ -12,6 +12,7 @@
   xml:base="http://www.owl-ontologies.com/book.owl">
   <owl:Ontology rdf:about=""/>
   <rdfs:Class rdf:ID="Book">
+    <rdfs:label xml:lang="en">Novel</rdfs:label>
     <rdfs:label xml:lang="pt">Livro</rdfs:label>
     <rdfs:label xml:lang="en">Book</rdfs:label>
   </rdfs:Class>
@@ -69,9 +70,6 @@
   </rdfs:Class>
   <rdfs:Class rdf:ID="User"/>
   <rdfs:Class rdf:ID="Award">
-    <rdfs:label xml:lang="pt">Prémios</rdfs:label>
-    <rdfs:label xml:lang="en">Prizes</rdfs:label>
-    <rdfs:label xml:lang="en">Awards</rdfs:label>
     <rdfs:label xml:lang="pt">Prémio</rdfs:label>
     <rdfs:label xml:lang="en">Prize</rdfs:label>
     <rdfs:label xml:lang="en">Award</rdfs:label>
@@ -104,14 +102,15 @@
       <owl:ObjectProperty rdf:ID="hasPublisher"/>
     </owl:inverseOf>
     <rdfs:label xml:lang="pt">publicado por</rdfs:label>
-    <rdfs:label xml:lang="pt">publicados por</rdfs:label>
     <rdfs:label xml:lang="en">published by</rdfs:label>
     <rdfs:domain rdf:resource="#Publisher"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasBook">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasAuthor"/>
+    </owl:inverseOf>
     <rdfs:label xml:lang="en">written by</rdfs:label>
     <rdfs:label xml:lang="pt">escrito por</rdfs:label>
-    <rdfs:label xml:lang="pt">escritos por</rdfs:label>
     <rdfs:range rdf:resource="#Book"/>
     <rdfs:domain rdf:resource="#Author"/>
   </owl:ObjectProperty>
@@ -142,9 +141,12 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="#Award"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="hasAuthor">
+  <owl:ObjectProperty rdf:about="#hasAuthor">
+    <rdfs:label xml:lang="en">that wrote</rdfs:label>
+    <rdfs:label xml:lang="pt">que escreveu</rdfs:label>
     <rdfs:domain rdf:resource="#Book"/>
     <rdfs:range rdf:resource="#Author"/>
+    <owl:inverseOf rdf:resource="#hasBook"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:ID="hasImage">
     <rdfs:domain>
@@ -227,6 +229,10 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:label xml:lang="pt">lançado em</rdfs:label>
+    <rdfs:label xml:lang="pt">ganho em</rdfs:label>
+    <rdfs:label xml:lang="pt">publicado em</rdfs:label>
+    <rdfs:label xml:lang="en">published in</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="hasStars">
@@ -273,6 +279,15 @@
   </owl:FunctionalProperty>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Hardcover</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Hardcover</rdf:first>
       <rdf:rest rdf:parseType="Resource">
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Hardback</rdf:first>
@@ -280,6 +295,8 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >Hardbound</rdf:first>
           <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Paperback</rdf:first>
             <rdf:rest rdf:parseType="Resource">
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >Softback</rdf:first>
@@ -293,20 +310,9 @@
                 >SoftCover</rdf:first>
               </rdf:rest>
             </rdf:rest>
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Paperback</rdf:first>
           </rdf:rest>
         </rdf:rest>
       </rdf:rest>
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >Hardcover</rdf:first>
-    </owl:oneOf>
-  </owl:DataRange>
-  <owl:DataRange>
-    <owl:oneOf rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >Hardcover</rdf:first>
-      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
     </owl:oneOf>
   </owl:DataRange>
 </rdf:RDF>
