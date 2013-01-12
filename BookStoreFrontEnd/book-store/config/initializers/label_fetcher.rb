@@ -32,7 +32,7 @@ hash['results']['bindings'].each do |resource|
 end
 
 
-PROPERTIES = {}
+OBJECT_PROPERTIES = {}
 hash = Ontology.query(" PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX owl: <http://www.w3.org/2002/07/owl#>
                         SELECT ?property ?label
@@ -43,7 +43,22 @@ hash = Ontology.query(" PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 hash['results']['bindings'].each do |resource|
   key = resource['label']['value'].downcase
   value = resource['property']['value']
-  PROPERTIES[key] = value
+  OBJECT_PROPERTIES[key] = value
+end
+
+
+DATATYPE_PROPERTIES = {}
+hash = Ontology.query(" PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                        SELECT ?property ?label
+                        WHERE { ?property a owl:DatatypeProperty .
+                                ?property rdfs:label ?label
+                              }
+                      ")
+hash['results']['bindings'].each do |resource|
+  key = resource['label']['value'].downcase
+  value = resource['property']['value']
+  DATATYPE_PROPERTIES[key] = value
 end
 
 

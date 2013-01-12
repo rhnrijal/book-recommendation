@@ -21,3 +21,7 @@
 <div class='items-padding'>
   <%= render @books %>
 </div>
+
+<% content_for :recommendations do %>
+  <%= render @related_authors %>
+<% end %>

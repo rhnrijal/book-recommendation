@@ -86,4 +86,46 @@ class Book < OwlModel
     resources.uniq! {|r| r.id}
     resources.sort! { |a,b| b.year <=> a.year }
   end
+
+  def self.find_related_books(book)
+    author_uri = book.author.id.gsub(/-.*/, '')
+    genre = book.genre
+    dice_roll = rand(1..6)
+    resources = []
+
+    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                            SELECT ?book ?title ?image
+                            WHERE { ?book a book:Book ;
+                                          book:hasTitle ?title ;
+                                          book:hasImage ?image ;
+                                          book:hasGenre '#{genre}' .
+                                    book:#{author_uri} book:hasBook ?book
+                                  }
+                            LIMIT #{dice_roll}
+                          ")
+    hash['results']['bindings'].each do |resource|
+      resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
+                            title: resource['title']['value'],
+                            image: resource['image']['value']
+                          )
+    end
+
+    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                            SELECT ?book ?title ?image
+                            WHERE { ?book a book:Book ;
+                                          book:hasTitle ?title ;
+                                          book:hasImage ?image ;
+                                          book:hasGenre '#{genre}'
+                                  }
+                            OFFSET #{rand(0..50)}
+                            LIMIT #{7-dice_roll}
+                          ")
+    hash['results']['bindings'].each do |resource|
+      resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
+                            title: resource['title']['value'],
+                            image: resource['image']['value']
+                          )
+    end
+    resources
+  end
 end

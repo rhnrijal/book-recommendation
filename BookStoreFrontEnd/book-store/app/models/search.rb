@@ -5,6 +5,8 @@ class Search
   require 'publisher'
   require 'award'
 
+  @@stemmer = Lingua::Stemmer.new
+
   @@book = 'http://www.owl-ontologies.com/book.owl#'
 
   @@noise_words = [ 'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of',
@@ -12,17 +14,18 @@ class Search
 
   @@points_at_start = 1
   @@points_for_property = 3
-  @@points_for_belonging_to_class = 3
+  @@points_for_belonging_to_class = 1
+  @@points_for_looking_like_class = 1
   @@points_for_relation = 1
   @@points_for_year = 3
-  @@points_for_solo_year = 1
   @@points_for_format = 2
 
   def self.tokenizer(query)
     years = []
     classes = []
     formats = []
-    properties = []
+    object_properties = []
+    datatype_properties = []
 
     downcased_query = query.downcase
 
@@ -32,9 +35,15 @@ class Search
       end
     end
 
-    PROPERTIES.each do |format, uri|
+    OBJECT_PROPERTIES.each do |format, uri|
       if downcased_query.slice!(format)
-        properties << uri
+        object_properties << uri
+      end
+    end
+
+    DATATYPE_PROPERTIES.each do |format, uri|
+      if downcased_query.slice!(format)
+        datatype_properties << uri
       end
     end
 
@@ -51,14 +60,18 @@ class Search
       end
     end
 
-    return words, years, classes, formats, properties
+    # words = words.collect do |word|
+    #   @@stemmer.stem(word)
+    # end
+
+    return words, years, classes, formats, object_properties
   end
 
-  def self.search(words, years, classes, formats, properties, more_results)
+  def self.search(words, years, classes, formats, object_properties, more_results)
     score = {}
 
-    if properties.empty?
-      puts 'Searching without properties'
+    if object_properties.empty?
+      puts 'Searching without object_properties'
 
       words.each_with_index do |word, index|
         puts "#{index}: searching for #{word}"
@@ -70,6 +83,7 @@ class Search
                                         OPTIONAL { ?instance book:hasName ?name } .
                                         OPTIONAL { ?instance book:hasTitle ?name } .
                                         FILTER regex(?name, '#{word}', 'i' )
+                                        FILTER NOT EXISTS { ?instance a book:Edition }
                                 }
                               ")
         hash['results']['bindings'].each do |resource|
@@ -105,13 +119,11 @@ class Search
               end
             end
 
-            if klass != (@@book + 'Edition')
-              if (related_to_previous || index == 0 || more_results)
-                temp_score[uri] = {klass: klass, points: points}
-                puts "#{uri} => #{temp_score[uri]}"
-              else
-                puts "#{uri} => Dead End - No Relation"
-              end
+            if (related_to_previous || index == 0 || more_results)
+              temp_score[uri] = {klass: klass, points: points}
+              puts "#{uri} => #{temp_score[uri]}"
+            else
+              puts "#{uri} => Dead End - No Relation"
             end
           end
         end
@@ -120,19 +132,18 @@ class Search
       end
 
     else
-      puts 'Searching with properties!'
+      puts 'Searching with object_properties!'
 
-      properties.each do |property|
+      object_properties.each do |property|
         words.each_with_index do |word, index|
           puts "#{index}: searching for #{word}"
 
           hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                                   SELECT ?class ?instance
-                                  WHERE { ?related_instance a ?related_class .
+                                  WHERE { ?instance a ?class .
+                                          ?related_instance a ?related_class .
                                           ?related_instance <#{property}> ?instance .
-                                          ?instance a ?class .
-                                          OPTIONAL { ?related_instance book:hasName ?name } .
-                                          OPTIONAL { ?related_instance book:hasTitle ?name } .
+                                          ?related_instance book:hasName ?name .
                                           FILTER regex(?name, '#{word}', 'i' )
                                   }
                                 ")
@@ -169,7 +180,7 @@ class Search
       end
     end
 
-    if words.length == years.length   # if there are only years
+    if words.length == (years.length + classes.length)
       years.each do |year|
         years_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                                       SELECT ?class ?instance
@@ -182,15 +193,70 @@ class Search
         years_hash['results']['bindings'].each do |resource|
           klass = resource['class']['value']
           uri = resource['instance']['value']
+          points = @@points_for_year
+
+          if classes.include?('http://www.owl-ontologies.com/book.owl#Book') && klass == 'http://www.owl-ontologies.com/book.owl#Edition'
+            points += @@points_for_looking_like_class
+          end
+
           if score[uri]
-            score[uri][:points] += @@points_for_solo_year
+            score[uri][:points] += points
             puts "#{uri} => #{score[uri]}"
           else
-            score[uri] = {klass: klass, points: @@points_at_start}
+            score[uri] = {klass: klass, points: points}
             puts "#{uri} => #{score[uri]}"
           end
         end
       end
+    end
+
+    if !formats.empty?
+      editions_to_delete = []
+      temp_score = {}
+
+      formats.each_with_index do |format, index|
+        puts "#{index}: searching for #{format}"
+        score.each do |key, value|
+          if value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book'
+
+            formats_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT ?class ?instance
+                                            WHERE { ?instance a ?class ;
+                                                              book:hasFormat <#{format}> .
+                                                    <#{key}> book:hasEdition ?instance
+                                                  }
+                                          ")
+            formats_hash['results']['bindings'].each do |resource|
+              klass = resource['class']['value']
+              uri = resource['instance']['value']
+              if temp_score[uri]
+                temp_score[uri][:points] += @@points_for_format
+                puts "#{uri} => #{temp_score[uri]}"
+              else
+                temp_score[uri] = {klass: klass, points: value[:points] + @@points_for_format}
+                puts "#{uri} => #{temp_score[uri]}"
+              end
+            end
+
+          elsif value[:klass] == 'http://www.owl-ontologies.com/book.owl#Edition'
+
+            formats_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT ?class ?instance
+                                            WHERE { <#{key}> book:hasFormat <#{format}> }
+                                          ")
+            if formats_hash['results']['bindings'].size == 0
+              editions_to_delete << key
+            end
+          else
+
+            next
+
+          end
+        end
+      end
+
+      score.delete_if {|key, value| (value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book') || (editions_to_delete.include? key) }
+      score.merge!(temp_score)
     end
 
     if !more_results
@@ -198,42 +264,12 @@ class Search
       if !years.empty?
         min_points = min_points - years.length + @@points_for_year
       end
-      score.delete_if { |key, value| value[:points] < min_points }
-    end
-
-    if !formats.empty?
-      books_to_delete = []
-      temp_score = {}
-
-      formats.each_with_index do |format, index|
-        puts "#{index}: searching for #{format}"
-        score.each do |key, value|
-          next if value[:klass] != 'http://www.owl-ontologies.com/book.owl#Book'
-
-          formats_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                                          SELECT ?class ?instance
-                                          WHERE { ?instance a ?class ;
-                                                            book:hasFormat <#{format}> .
-                                                  <#{key}> book:hasEdition ?instance
-                                                }
-                                        ")
-          formats_hash['results']['bindings'].each do |resource|
-            klass = resource['class']['value']
-            uri = resource['instance']['value']
-            if temp_score[uri]
-              temp_score[uri][:points] += @@points_for_format
-              puts "#{uri} => #{temp_score[uri]}"
-            else
-              temp_score[uri] = {klass: klass, points: value[:points] + @@points_for_format}
-              books_to_delete << key
-              puts "#{uri} => #{temp_score[uri]}"
-            end
-          end
-        end
+      if !formats.empty?
+        min_points = min_points + @@points_for_format
       end
-
-      score.delete_if {|key, value| value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book' }
-      score.merge!(temp_score)
+      puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+      puts "Minimum points needed = #{min_points}"
+      score.delete_if { |key, value| value[:points] < min_points }
     end
 
     models = []
@@ -248,94 +284,5 @@ class Search
     end
 
     return ranking, models
-  end
-
-
-
-
-
-
-
-
-
-
-
-
-
-def self.with_one_token(token, strings)
-
-    authors = []
-    awards = []
-    books = []
-    editions = []
-    publishers = []
-
-    hash = {}
-
-    strings.each do |string|
-
-      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                              PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                              SELECT DISTINCT ?instance ?name ?image ?class
-                              WHERE {
-                                {
-                                    ?instance a <#{token}> ;
-                                              a ?class ;
-                                    OPTIONAL { ?instance book:hasTitle ?name } .
-                                    OPTIONAL { ?instance book:hasName ?name } .
-                                    OPTIONAL { ?instance book:hasImage ?image  } .
-                                    FILTER regex(?name, '#{string}', 'i' )
-                                } UNION {
-                                  ?instance a <#{token}> ;
-                                            a ?class ;
-                                  OPTIONAL { ?instance book:hasTitle ?name } .
-                                  OPTIONAL { ?instance book:hasName ?name } .
-                                  OPTIONAL { ?instance book:hasImage ?image  } .
-                                  
-                                  ?related_instance ?has ?instance .
-                                  ?related_instance a ?related_instance_class
-                                    OPTIONAL { ?related_instance book:hasTitle ?related_name } .
-                                    OPTIONAL { ?related_instance book:hasName ?related_name } .
-                                    FILTER regex(?related_name, '#{string}', 'i' )
-                                }
-                              }
-                            ")
-    
-        hash['results']['bindings'].each do |resource|
-
-          if resource['class']['value'] == 'http://www.owl-ontologies.com/book.owl#Author'
-
-            authors << Author.new(id: resource['instance']['value'].gsub!(@@book, ''),
-                            name: resource['name']['value'],
-                            image: resource['image']['value'])
-
-          elsif resource['class']['value'] == 'http://www.owl-ontologies.com/book.owl#Award'
-
-            awards <<  Award.new(id: resource['instance']['value'].gsub!(@@book, ''),
-                            name: resource['name']['value'],
-                            image: resource['image']['value'])
-
-          elsif resource['class']['value'] == 'http://www.owl-ontologies.com/book.owl#Book'
-            
-            books << Book.new(id: resource['instance']['value'].gsub!(@@book, ''),
-                            title: resource['name']['value'],
-                            image: resource['image']['value']
-                            )
-
-          elsif resource['class']['value'] == 'http://www.owl-ontologies.com/book.owl#Edition'
-            editions <<  Edition.new(id: resource['instance']['value'].gsub!(@@book, ''),
-                                    title: resource['name']['value'],
-                                    image: resource['image']['value']
-                                  )
-
-          elsif resource['class']['value'] == 'http://www.owl-ontologies.com/book.owl#Publisher'
-
-            publishers << Publisher.new(id: resource['instance']['value'].gsub!(@@book, ''),
-                                    name: resource['name']['value'])
-
-          end
-        end
-      end
-      return authors, awards, books, editions, publishers
   end
 end

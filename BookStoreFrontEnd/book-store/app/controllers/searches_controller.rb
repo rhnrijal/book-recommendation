@@ -2,9 +2,11 @@ class SearchesController < ApplicationController
   def new
     @more_results = (params[:opt] ? true : false)
 
-    @words, years, classes, formats, properties = Search.tokenizer(params[:q])
+    @words, years, classes, formats, object_properties = Search.tokenizer(params[:q])
 
-    @ranking, @results = Search.search(@words, years, classes, formats, properties, @more_results)
+    raise @words.to_yaml
+
+    @ranking, @results = Search.search(@words, years, classes, formats, object_properties, @more_results)
 
     # tokens, years, strings = Search.tokenizer(query)
 
