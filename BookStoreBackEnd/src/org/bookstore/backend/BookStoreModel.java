@@ -77,7 +77,7 @@ public class BookStoreModel {
 	Property hasISBN = null;
 	Property hasLanguage = null;
 	Property hasPages = null;
-	Property hasPublisher = null;
+	Property hasPublished = null;
 	Property hasType = null;
 	Property hasYear = null;
 	Property hasFormat = null;
@@ -153,7 +153,7 @@ public class BookStoreModel {
 		hasISBN = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasISBN");
 		hasLanguage = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasLanguage");
 		hasPages = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPages");
-		hasPublisher = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPublisher");
+		hasPublished = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasPublished");
 		hasType = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasType");
 		hasYear = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasYear");
 		hasFormat = model.getProperty(BookStoreConstants.ONTOLOGY_URI + "hasFormat");
@@ -312,19 +312,13 @@ public class BookStoreModel {
 									formatInstance = getFormatByLabel(editionFormat);
 									
 									if(formatInstance == null) {
-//										editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + encodeURL(bookTitle + "_edition_" + new BigInteger(130, random).toString(32)))
-//												.addProperty(RDF.type, edition)
-//												.addProperty(hasISBN, ISBN)
-//												.addProperty(hasPages, pages)
-//												.addProperty(hasYear, year)
-//												.addProperty(hasLanguage, language)
-//												.addProperty(hasTitle, bookTitle)
-//												.addProperty(hasFormat, eBook)
-//												.addProperty(hasPublisher, publisherInstance);
-//										
-//										bookInstance.addProperty(hasEdition, editionInstance);
 										formatInstance = paperback;
+										System.out.println("FORMAT IS NOW PAPERBACK");
 									}
+									else{
+										System.out.println(formatInstance);
+									}
+									
 														
 									editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "edition" + editionId++)
 											.addProperty(RDF.type, edition)
@@ -334,10 +328,10 @@ public class BookStoreModel {
 											.addProperty(hasYear, year)
 											.addProperty(hasLanguage, language)
 											.addProperty(hasTitle, bookTitle)
-											.addProperty(hasFormat, formatInstance)
-											.addProperty(hasPublisher, publisherInstance);
+											.addProperty(hasFormat, formatInstance);
 									
 									bookInstance.addProperty(hasEdition, editionInstance);
+									publisherInstance.addProperty(hasPublished, editionInstance);
 								}
 							}
 						}
@@ -538,11 +532,10 @@ public class BookStoreModel {
 											.addProperty(hasYear, year)
 											.addProperty(hasLanguage, language)
 											.addProperty(hasTitle, bookTitle)
-											.addProperty(hasFormat, formatInstance)
-											.addProperty(hasPublisher, publisherInstance);
+											.addProperty(hasFormat, formatInstance);
 									
 									bookInstance.addProperty(hasEdition, editionInstance);
-									
+									publisherInstance.addProperty(hasPublished, editionInstance);
 									
 								}
 							}
@@ -663,11 +656,12 @@ public class BookStoreModel {
 		
 		ParameterizedSparqlString paramQueryString = new ParameterizedSparqlString(queryString);
 		paramQueryString.setLiteral("inserted_label", label);
+		
 		ResultSet results = executeQuery(model, paramQueryString.toString());
 
 		while (results.hasNext()) {
 			QuerySolution row = results.next();
-			RDFNode thing = row.get("x");
+			RDFNode thing = row.get("format");
 			return (Resource) thing;
 		}
 		return null;
