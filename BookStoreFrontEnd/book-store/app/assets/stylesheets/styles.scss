@@ -94,11 +94,9 @@ header a {
   min-width: 200px;
   padding: 10px;
 
-  ul {
+  .links {
     padding: 20px;
     list-style-type: none;
-    background-color: rgba(213, 213, 213, 0.4);
-    border: 1px solid #AFAFAF;
 
     li {
       margin: 20px 0 0 0;
@@ -109,6 +107,22 @@ header a {
       }
     }
   }
+
+  .recommendations {
+    margin-top: 30px;
+  }
+
+  .links,
+  .recommendations {
+    background-color: rgba(213, 213, 213, 0.4);
+    border: 1px solid #AFAFAF;
+  }
+}
+
+.recommendations {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .content {

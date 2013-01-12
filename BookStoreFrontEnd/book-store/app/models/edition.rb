@@ -21,7 +21,7 @@ class Edition < OwlModel
   def self.find(id)
     uri = id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?edition ?title ?image ?isbn ?language ?pages ?year ?format ?publisher ?publisher_name ?book ?book_title ?author ?author_name
+                            SELECT ?edition ?title ?image ?isbn ?language ?pages ?year ?format ?publisher ?publisher_name ?book ?book_title ?book_genre ?author ?author_name
                             WHERE { book:#{uri} a book:Edition ;
                                                 book:hasTitle ?title ;
                                                 book:hasImage ?image ;
@@ -33,7 +33,8 @@ class Edition < OwlModel
                                     ?publisher book:hasName ?publisher_name ;
                                                book:hasPublished book:#{uri} .
                                     ?book book:hasEdition book:#{uri} ;
-                                          book:hasTitle ?book_title .
+                                          book:hasTitle ?book_title ;
+                                          book:hasGenre ?book_genre .
                                     ?author book:hasBook ?book ;
                                             book:hasName ?author_name
                                   }
@@ -48,7 +49,8 @@ class Edition < OwlModel
                 year: resource['year']['value'],
                 format: resource['format']['value'].gsub!(@@book, ''),
                 book: Book.new( id: resource['book']['value'].gsub!(@@book, ''),
-                                title: resource['book_title']['value']
+                                title: resource['book_title']['value'],
+                                genre: resource['book_genre']['value']
                               ),
                 author: Author.new( id: resource['author']['value'].gsub!(@@book, ''),
                                     name: resource['author_name']['value']
@@ -75,7 +77,7 @@ class Edition < OwlModel
       Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
                   image: resource['image']['value']
-              )
+                )
     end
   end
 
@@ -93,7 +95,34 @@ class Edition < OwlModel
       Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
                   image: resource['image']['value']
-              )
+                )
+    end
+  end
+
+  def self.find_related_editions(edition)
+    uri = edition.id
+    genre = edition.book.genre
+    format = edition.format
+
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts format
+
+    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                            SELECT ?edition ?title ?image
+                            WHERE { ?book a book:Book ;
+                                          book:hasGenre '#{genre}' ;
+                                          book:hasEdition ?edition .
+                                    ?edition book:hasTitle ?title ;
+                                             book:hasImage ?image ;
+                                  }
+                            OFFSET #{rand(0..50)}
+                            LIMIT 8
+                          ")
+    hash['results']['bindings'].collect do |resource|
+      Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
+                  title: resource['title']['value'],
+                  image: resource['image']['value']
+                )
     end
   end
 end
