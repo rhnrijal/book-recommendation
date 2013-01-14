@@ -5,12 +5,19 @@ class Search
   require 'publisher'
   require 'award'
 
-  @@stemmer = Lingua::Stemmer.new
+
 
   @@book = 'http://www.owl-ontologies.com/book.owl#'
 
-  @@noise_words = [ 'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of',
+  @@en_noise_words = [ 'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in', 'is', 'it', 'of',
                     'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we']
+
+  @@pt_noise_words = ['de', 'a', 'o', 'que', 'e', 'do', 'da', 'em', 'um', 'para', 'com', 'no', 'uma', 'os', 'no', 'se',
+                      'na', 'por', 'mais', 'as', 'dos', 'como', 'mas', 'foi', 'ao', 'ele', 'das', 'tem', 'seu', 'sua', 'ou',
+                      'ser', 'quando', 'muito', 'h', 'nos', 'j', 'est', 'eu', 'tambm', 's', 'pelo', 'pela', 'at', 'isso',
+                      'ela', 'entre', 'era', 'depois', 'sem', 'mesmo', 'aos', 'ter', 'seus', 'quem', 'nas', 'me', 'esse',
+                      'eles', 'est', 'essa', 'num', 'nem', 'suas', 'meu', 's', 'minha', 'tm', 'numa', 'pelos', 'elas', 'havia',
+                      'seja', 'qual', 'ser', 'ns', 'lhe', 'deles', 'essas', 'esses', 'pelas', 'este']
 
   @@points_at_start = 1
   @@points_for_property = 3
@@ -28,43 +35,45 @@ class Search
     datatype_properties = []
 
     downcased_query = query.downcase
+    tokens = downcased_query.split(/\W+/)
+    stems = Array(Lingua.stemmer(tokens)).join(' ')
 
-    FORMATS.each do |format, uri|
-      if downcased_query.slice!(format)
-        formats << uri
-      end
-    end
-
-    OBJECT_PROPERTIES.each do |format, uri|
-      if downcased_query.slice!(format)
+    OBJECT_PROPERTIES.each do |object_property, uri|
+      if stems.slice!(object_property)
         object_properties << uri
       end
     end
 
-    DATATYPE_PROPERTIES.each do |format, uri|
-      if downcased_query.slice!(format)
+    DATATYPE_PROPERTIES.each do |datatype_property, uri|
+      if stems.slice!(datatype_property)
         datatype_properties << uri
       end
     end
 
-    words = downcased_query.split(/\W+/).reject { |w| w.length < 3 || @@noise_words.include?(w) }
+    CLASSES.each do |klass, uri|
+      if stems.slice!(klass)
+        classes << uri
+      end
+    end
+
+    tokens.delete_if do |token|
+      format_uri = FORMATS[token]
+      if format_uri
+        formats << format_uri
+        true
+      end
+    end
+
+    words = tokens.reject { |token| @@en_noise_words.include?(token) || @@pt_noise_words.include?(token) || !stems.include?(Lingua.stemmer(token)) }
 
     words.each do |word|
-      klass = CLASSES[word]
-      if klass
-        classes << klass
-      end
       number = word.to_i
       if number > 1900 && number <= Date.today.year
         years << number
       end
     end
 
-    # words = words.collect do |word|
-    #   @@stemmer.stem(word)
-    # end
-
-    return words, years, classes, formats, object_properties
+    return words, years, classes, formats, object_properties, datatype_properties
   end
 
   def self.search(words, years, classes, formats, object_properties, more_results)
