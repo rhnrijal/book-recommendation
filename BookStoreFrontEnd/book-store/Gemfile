@@ -4,6 +4,7 @@ gem 'rails', '3.2.9'
 gem 'ios-checkboxes'
 gem 'jquery-rails'
 gem 'ruby-stemmer', :require => 'lingua/stemmer'
+gem 'text', :require => 'text/white_similarity'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

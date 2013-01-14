@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
 
     @words, years, classes, formats, object_properties = Search.tokenizer(params[:q])
 
-    raise @words.to_yaml
+    #raise @words.to_yaml
 
     @ranking, @results = Search.search(@words, years, classes, formats, object_properties, @more_results)
 

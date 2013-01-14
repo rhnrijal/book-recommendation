@@ -90,42 +90,43 @@ class Book < OwlModel
   def self.find_related_books(book)
     author_uri = book.author.id.gsub(/-.*/, '')
     genre = book.genre
-    dice_roll = rand(1..6)
     resources = []
+    
+    similar_authors_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                  SELECT DISTINCT ?author (count(?book) as ?count)
+                                  WHERE {
+                                    ?author a book:Author ;
+                                        book:hasBook ?book .
+                                    ?book book:hasGenre ?genre .
+                                    FILTER regex(?genre, '#{genre}', 'i')
+                                  } GROUP BY ?author
+                                  ORDER BY DESC(?count)
+                                  ")
 
-    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?book ?title ?image
-                            WHERE { ?book a book:Book ;
-                                          book:hasTitle ?title ;
-                                          book:hasImage ?image ;
-                                          book:hasGenre '#{genre}' .
-                                    book:#{author_uri} book:hasBook ?book
-                                  }
-                            LIMIT #{dice_roll}
-                          ")
-    hash['results']['bindings'].each do |resource|
-      resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
+    similar_authors_hash['results']['bindings'].each do |resource|
+      break if resources.size >= @@limit
+      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                              SELECT DISTINCT ?book ?title ?image
+                              WHERE {
+                                <#{resource['author']['value']}> a book:Author ;
+                                    book:hasBook ?book .
+                                ?book book:hasGenre ?genre ;
+                                    book:hasTitle ?title ;
+                                    book:hasImage ?image .
+                                FILTER regex(?genre, '#{genre}', 'i')
+                              }")
+
+      i = 0
+      hash['results']['bindings'].shuffle.each do |resource|
+        break if resources.size >= @@limit || i == 2
+        resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
                             title: resource['title']['value'],
                             image: resource['image']['value']
                           )
+        i = i + 1
+      end
     end
 
-    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?book ?title ?image
-                            WHERE { ?book a book:Book ;
-                                          book:hasTitle ?title ;
-                                          book:hasImage ?image ;
-                                          book:hasGenre '#{genre}'
-                                  }
-                            OFFSET #{rand(0..50)}
-                            LIMIT #{7-dice_roll}
-                          ")
-    hash['results']['bindings'].each do |resource|
-      resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
-                            title: resource['title']['value'],
-                            image: resource['image']['value']
-                          )
-    end
     resources
   end
 end

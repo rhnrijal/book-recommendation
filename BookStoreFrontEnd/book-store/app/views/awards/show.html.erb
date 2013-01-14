@@ -11,3 +11,7 @@
 <% else %>
   <%= link_to @award.author.name, author_path(@award.author) %>
 <% end %>
+
+<% content_for :recommendations do %>
+  <%= render @related_awards %>
+<% end %>

@@ -103,26 +103,57 @@ class Edition < OwlModel
     uri = edition.id
     genre = edition.book.genre
     format = edition.format
+    title = edition.title
 
-    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-    puts format
+    resources = []
 
-    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?edition ?title ?image
-                            WHERE { ?book a book:Book ;
-                                          book:hasGenre '#{genre}' ;
-                                          book:hasEdition ?edition .
-                                    ?edition book:hasTitle ?title ;
-                                             book:hasImage ?image ;
-                                  }
-                            OFFSET #{rand(0..50)}
-                            LIMIT 8
-                          ")
-    hash['results']['bindings'].collect do |resource|
-      Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
+    same_book_array = []
+
+    same_book_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                      SELECT DISTINCT ?edition ?format ?title ?image
+                                      WHERE {
+                                            <#{@@book + edition.book.id}> book:hasEdition ?edition .
+                                        ?edition book:hasFormat ?format ;
+                                            book:hasTitle ?title ;
+                                            book:hasImage ?image .
+                                        MINUS { ?edition book:hasFormat <#{@@book + format}> }
+                                      }")
+
+    dice_roll = rand(1..@@limit-1)
+
+    i = 0
+    same_book_hash['results']['bindings'].each do |resource|
+      break if i == dice_roll
+      same_book_array << Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
                   image: resource['image']['value']
                 )
+      i = i + 1
     end
+
+    other_books_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT DISTINCT ?edition ?title ?image ?format
+                                            WHERE {
+                                              <#{@@book + edition.author.id}> book:hasBook ?book .
+                                              ?book book:hasEdition ?edition .
+                                              MINUS { <#{@@book + edition.book.id}> book:hasEdition ?edition }
+                                              ?edition book:hasFormat <#{@@book + format}> ;
+                                                       book:hasTitle ?title ;
+                                                       book:hasImage ?image ;
+                                                       book:hasFormat ?format .
+                                      }")
+
+    sorted_editions = other_books_hash['results']['bindings'].sort_by { |i| -@@white.similarity(title, i['title']['value']) }
+
+    sorted_editions.each do |resource|
+      break if i == @@limit
+      resources << Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
+                  title: resource['title']['value'],
+                  image: resource['image']['value']
+                )
+      i = i + 1
+    end
+
+    resources + same_book_array
   end
 end

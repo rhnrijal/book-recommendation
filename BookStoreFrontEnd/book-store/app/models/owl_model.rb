@@ -4,6 +4,8 @@ class OwlModel
   extend ActiveModel::Naming
 
   @@book = 'http://www.owl-ontologies.com/book.owl#'
+  @@limit = 7
+  @@white = Text::WhiteSimilarity.new
 
   def initialize(attributes = {})
     attributes.each do |name, value|

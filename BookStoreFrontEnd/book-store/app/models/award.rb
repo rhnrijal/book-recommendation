@@ -117,4 +117,37 @@ class Award < OwlModel
               )
     end
   end
+
+  def self.find_related_awards(award)
+
+    puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                            SELECT ?award ?name ?year ?image
+                            WHERE { ?award a book:Award ;
+                                            book:hasName ?name ;
+                                            book:hasYear ?year .
+                                    FILTER regex(?name, '#{award.name}', 'i')
+                                    OPTIONAL { ?award book:hasImage ?image . }
+                                  }
+                            ORDER BY ASC(?year)
+                          ")
+
+    resources = []
+    
+    current_award = Integer(award.year)
+
+    hash['results']['bindings'].each do |resource|
+      award = Integer(resource['year']['value'])
+      if current_award != award && (award >= ( current_award - @@limit/2 - 1)) && ( award <= (current_award + @@limit/2))
+        resources << Award.new(id: resource['award']['value'].gsub!(@@book, ''),
+                name: resource['name']['value'],
+                year: resource['year']['value'],
+                image: resource['image'] ? resource['image']['value'] : nil
+              )
+      end
+    end
+
+    resources
+  end
 end

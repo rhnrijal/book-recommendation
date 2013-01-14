@@ -51,33 +51,47 @@ class Author < OwlModel
   def self.find_related_authors(author)
     uri = author.id
 
-    genres_hash = Ontology.query("PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                                  SELECT ?genre
-                                  WHERE { ?book a book:Book ;
-                                                book:hasGenre ?genre .
-                                          book:#{uri} book:hasBook ?book
-                                        }
-                                ")
+    genres_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                   SELECT DISTINCT ?genre (count(?genre) as ?count)
+                                    WHERE {
+                                      book:#{uri} a book:Author ;
+                                          book:hasBook ?book .
+                                      ?book book:hasGenre ?genre .
+                                    } GROUP BY ?genre
+                                    ORDER BY DESC(?count)")
+
     genres = genres_hash['results']['bindings'].collect do |resource|
       resource['genre']['value']
     end
 
-    hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT DISTINCT ?author ?name ?image
-                            WHERE { ?author a book:Author ;
-                                            book:hasName ?name ;
-                                            book:hasImage ?image ;
-                                            book:hasBook ?book .
-                                    ?book book:hasGenre '#{genres.sample}'
-                                  }
-                            OFFSET #{rand(0..40)}
-                            LIMIT 8
-                          ")
-    hash['results']['bindings'].collect do |resource|
-      Author.new( id: resource['author']['value'].gsub!(@@book, ''),
-                  name: resource['name']['value'],
-                  image: resource['image']['value']
-              )
+    similar_authors = []
+    
+    genres.each do |genre|
+      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                              SELECT DISTINCT ?author ?name ?image (count(?book) as ?count)
+                              WHERE {
+                                ?author a book:Author ;
+                                    book:hasName ?name ;
+                                    book:hasImage ?image ;
+                                    book:hasBook ?book .
+                                MINUS { ?author book:hasName ?author_name .
+                                        FILTER regex(?author_name, '#{author.name}' ,'i')
+                                }
+                                ?book book:hasGenre ?genre .
+                                FILTER regex(?genre, '#{genre}', 'i')
+                              } GROUP BY ?author ?name ?image
+                              ORDER BY DESC(?count)
+                              LIMIT #{@@limit}")
+
+      hash['results']['bindings'].each do |resource|
+        break if similar_authors.size == @@limit
+        similar_authors << Author.new( id: resource['author']['value'].gsub!(@@book, ''),
+                    name: resource['name']['value'],
+                    image: resource['image']['value']
+                )
+      end
     end
+
+    similar_authors
   end
 end
