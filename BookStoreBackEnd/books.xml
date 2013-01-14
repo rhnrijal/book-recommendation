@@ -156,6 +156,24 @@
             <year>2000</year>
             <language>English</language>
           </edition>
+          <edition>
+            <title>A Storm of Swords: Blood and Gold (A Song of Ice and Fire #3, Part 2 of 2)</title>
+            <image_url>http://d.gr-assets.com/books/1327183045m/147915.jpg</image_url>
+            <num_pages>637</num_pages>
+            <publisher>Voyager</publisher>
+            <format>Paperback</format>
+            <year>2001</year>
+            <language>English</language>
+          </edition>
+          <edition>
+            <title>A Storm of Swords: Steel and Snow (A Song of Ice and Fire #3, Part 1 of 2)</title>
+            <image_url>http://d.gr-assets.com/books/1353235205m/768889.jpg</image_url>
+            <num_pages>640</num_pages>
+            <publisher>Voyager</publisher>
+            <format>Paperback</format>
+            <year>2001</year>
+            <language>English</language>
+          </edition>
         </editions>
       </book>
       <book>
@@ -212,46 +230,22 @@
             <year>2011</year>
             <language>English</language>
           </edition>
-        </editions>
-      </book>
-      <book>
-        <title>A Storm of Swords: Blood and Gold (A Song of Ice and Fire #3, Part 2 of 2)</title>
-        <genre>Science Fiction &amp; Fantasy</genre>
-        <editions>
           <edition>
-            <image_url>http://d.gr-assets.com/books/1327183045m/147915.jpg</image_url>
-            <num_pages>637</num_pages>
-            <publisher>Voyager</publisher>
+            <title>A Dance with Dragons: Dreams and Dust (A Song of Ice and Fire #5, Part 1 of 2)</title>
+            <image_url>http://d.gr-assets.com/books/1331401651m/13337715.jpg</image_url>
+            <num_pages>690</num_pages>
+            <publisher>Harper Voyager</publisher>
             <format>Paperback</format>
-            <year>2001</year>
+            <year>2012</year>
             <language>English</language>
           </edition>
-        </editions>
-      </book>
-      <book>
-        <title>A Storm of Swords: Steel and Snow (A Song of Ice and Fire #3, Part 1 of 2)</title>
-        <genre>Science Fiction &amp; Fantasy</genre>
-        <editions>
           <edition>
-            <image_url>http://d.gr-assets.com/books/1353235205m/768889.jpg</image_url>
-            <num_pages>640</num_pages>
-            <publisher>Voyager</publisher>
+            <title>A Dance with Dragons: After the Feast (A Song of Ice and Fire #5, Part 2 of 2)</title>
+            <image_url>http://d.gr-assets.com/books/1327932256m/13337716.jpg</image_url>
+            <num_pages>560</num_pages>
+            <publisher>Harper Voyager</publisher>
             <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-        </editions>
-      </book>
-      <book>
-        <title>A Song of Ice and Fire</title>
-        <genre>Science Fiction &amp; Fantasy</genre>
-        <editions>
-          <edition>
-            <image_url>http://d.gr-assets.com/books/1328046798m/9814682.jpg</image_url>
-            <num_pages>4081</num_pages>
-            <publisher>Bantam</publisher>
-            <format>Mass Market Paperback</format>
-            <year>2011</year>
+            <year>2012</year>
             <language>English</language>
           </edition>
         </editions>
@@ -285,20 +279,6 @@
         </editions>
       </book>
       <book>
-        <title>A Dance with Dragons: Dreams and Dust (A Song of Ice and Fire #5, Part 1 of 2)</title>
-        <genre>Science Fiction &amp; Fantasy</genre>
-        <editions>
-          <edition>
-            <image_url>http://d.gr-assets.com/books/1331401651m/13337715.jpg</image_url>
-            <num_pages>690</num_pages>
-            <publisher>Harper Voyager</publisher>
-            <format>Paperback</format>
-            <year>2012</year>
-            <language>English</language>
-          </edition>
-        </editions>
-      </book>
-      <book>
         <title>The Hedge Knight II: Sworn Sword (Graphic Novel)</title>
         <genre>Science Fiction &amp; Fantasy</genre>
         <editions>
@@ -322,20 +302,6 @@
             <publisher>Ace Hardcover</publisher>
             <format>Hardcover</format>
             <year>2011</year>
-            <language>English</language>
-          </edition>
-        </editions>
-      </book>
-      <book>
-        <title>A Dance with Dragons: After the Feast (A Song of Ice and Fire #5, Part 2 of 2)</title>
-        <genre>Science Fiction &amp; Fantasy</genre>
-        <editions>
-          <edition>
-            <image_url>http://d.gr-assets.com/books/1327932256m/13337716.jpg</image_url>
-            <num_pages>560</num_pages>
-            <publisher>Harper Voyager</publisher>
-            <format>Paperback</format>
-            <year>2012</year>
             <language>English</language>
           </edition>
         </editions>
@@ -1024,6 +990,48 @@
             <year>2003</year>
             <language>English</language>
           </edition>
+          <edition>
+            <isbn>9780590353427</isbn>
+            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
+            <num_pages>312</num_pages>
+            <publisher>Scholastic Inc.</publisher>
+            <format>Paperback</format>
+            <year>1999</year>
+            <language>English</language>
+          </edition>
+          <edition>
+            <isbn>9780590353403</isbn>
+            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
+            <num_pages>309</num_pages>
+            <publisher>Arthur A. Levine Books</publisher>
+            <format>Hardcover</format>
+            <year>1998</year>
+            <language>English</language>
+          </edition>
+        </editions>
+      </book>
+      <book>
+        <title>Harry Potter and the Chamber of Secrets (Harry Potter, #2)</title>
+        <genre>Fiction</genre>
+        <editions>
+          <edition>
+            <isbn>9780439064873</isbn>
+            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
+            <num_pages>341</num_pages>
+            <publisher>Scholastic Paperbacks</publisher>
+            <format>Paperback</format>
+            <year>2000</year>
+            <language>English</language>
+          </edition>
+          <edition>
+            <isbn>9780439064866</isbn>
+            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
+            <num_pages>341</num_pages>
+            <publisher>Arthur A. Levine Books</publisher>
+            <format>Hardcover</format>
+            <year>1999</year>
+            <language>English</language>
+          </edition>
         </editions>
       </book>
       <book>
@@ -1038,120 +1046,6 @@
             <year>2004</year>
             <language>English</language>
           </edition>
-        </editions>
-      </book>
-      <book>
-        <title>Harry Potter and the Deathly Hallows (Harry Potter, #7)</title>
-        <genre>Fiction</genre>
-        <editions>
-          <edition>
-            <isbn>9780590353427</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
-            <num_pages>312</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Paperback</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064873</isbn>
-            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136365</isbn>
-            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139601</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2002</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439785969</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358071</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625733m/2.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Scholastic, Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545128285</isbn>
-            <image_url>http://d.gr-assets.com/books/1333988118m/4020390.jpg</image_url>
-            <num_pages>112</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2008</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780590353403</isbn>
-            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
-            <num_pages>309</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1998</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439784542</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139595</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219525m/49130.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545010221</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
-            <num_pages>759</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064866</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
           <edition>
             <isbn>9780439136358</isbn>
             <image_url>http://d.gr-assets.com/books/1262653778m/49116.jpg</image_url>
@@ -1162,21 +1056,12 @@
             <language>English</language>
           </edition>
           <edition>
-            <isbn>9780439358064</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219696m/77522.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545044257</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861667m/862041.jpg</image_url>
-            <num_pages>4100</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
+            <isbn>9780439136365</isbn>
+            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
+            <num_pages>435</num_pages>
+            <publisher>Scholastic Paperbacks</publisher>
+            <format>Paperback</format>
+            <year>2001</year>
             <language>English</language>
           </edition>
         </editions>
@@ -1186,420 +1071,12 @@
         <genre>Fiction</genre>
         <editions>
           <edition>
-            <isbn>9780590353427</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
-            <num_pages>312</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Paperback</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064873</isbn>
-            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136365</isbn>
-            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-          <edition>
             <isbn>9780439139601</isbn>
             <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
             <num_pages>734</num_pages>
             <publisher>Scholastic Inc.</publisher>
             <format>Hardcover</format>
             <year>2002</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439785969</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358071</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625733m/2.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Scholastic, Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545128285</isbn>
-            <image_url>http://d.gr-assets.com/books/1333988118m/4020390.jpg</image_url>
-            <num_pages>112</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2008</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780590353403</isbn>
-            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
-            <num_pages>309</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1998</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439784542</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139595</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219525m/49130.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545010221</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
-            <num_pages>759</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064866</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136358</isbn>
-            <image_url>http://d.gr-assets.com/books/1262653778m/49116.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358064</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219696m/77522.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545044257</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861667m/862041.jpg</image_url>
-            <num_pages>4100</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-        </editions>
-      </book>
-      <book>
-        <title>Harry Potter and the Half-Blood Prince (Harry Potter, #6)</title>
-        <genre>Fiction</genre>
-        <editions>
-          <edition>
-            <isbn>9780590353427</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
-            <num_pages>312</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Paperback</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064873</isbn>
-            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136365</isbn>
-            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139601</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2002</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439785969</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358071</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625733m/2.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Scholastic, Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545128285</isbn>
-            <image_url>http://d.gr-assets.com/books/1333988118m/4020390.jpg</image_url>
-            <num_pages>112</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2008</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780590353403</isbn>
-            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
-            <num_pages>309</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1998</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439784542</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139595</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219525m/49130.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545010221</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
-            <num_pages>759</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064866</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136358</isbn>
-            <image_url>http://d.gr-assets.com/books/1262653778m/49116.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358064</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219696m/77522.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545044257</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861667m/862041.jpg</image_url>
-            <num_pages>4100</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-        </editions>
-      </book>
-      <book>
-        <title>Harry Potter and the Chamber of Secrets (Harry Potter, #2)</title>
-        <genre>Fiction</genre>
-        <editions>
-          <edition>
-            <isbn>9780590353427</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
-            <num_pages>312</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Paperback</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064873</isbn>
-            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136365</isbn>
-            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139601</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2002</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439785969</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358071</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625733m/2.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Scholastic, Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545128285</isbn>
-            <image_url>http://d.gr-assets.com/books/1333988118m/4020390.jpg</image_url>
-            <num_pages>112</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2008</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780590353403</isbn>
-            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
-            <num_pages>309</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1998</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439784542</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139595</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219525m/49130.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545010221</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
-            <num_pages>759</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064866</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136358</isbn>
-            <image_url>http://d.gr-assets.com/books/1262653778m/49116.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358064</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219696m/77522.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545044257</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861667m/862041.jpg</image_url>
-            <num_pages>4100</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
             <language>English</language>
           </edition>
         </editions>
@@ -1609,120 +1086,12 @@
         <genre>Fiction</genre>
         <editions>
           <edition>
-            <isbn>9780590353427</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
-            <num_pages>312</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Paperback</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064873</isbn>
-            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136365</isbn>
-            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139601</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2002</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439785969</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
             <isbn>9780439358071</isbn>
             <image_url>http://d.gr-assets.com/books/1327625733m/2.jpg</image_url>
             <num_pages>870</num_pages>
             <publisher>Scholastic, Inc.</publisher>
             <format>Hardcover</format>
             <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545128285</isbn>
-            <image_url>http://d.gr-assets.com/books/1333988118m/4020390.jpg</image_url>
-            <num_pages>112</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2008</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780590353403</isbn>
-            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
-            <num_pages>309</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1998</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439784542</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139595</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219525m/49130.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545010221</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
-            <num_pages>759</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064866</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136358</isbn>
-            <image_url>http://d.gr-assets.com/books/1262653778m/49116.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
             <language>English</language>
           </edition>
           <edition>
@@ -1734,10 +1103,40 @@
             <year>2003</year>
             <language>English</language>
           </edition>
+        </editions>
+      </book>
+      <book>
+        <title>Harry Potter and the Half-Blood Prince (Harry Potter, #6)</title>
+        <genre>Fiction</genre>
+        <editions>
           <edition>
-            <isbn>9780545044257</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861667m/862041.jpg</image_url>
-            <num_pages>4100</num_pages>
+            <isbn>9780439785969</isbn>
+            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
+            <num_pages>652</num_pages>
+            <publisher>Scholastic Paperbacks</publisher>
+            <format>Paperback</format>
+            <year>2005</year>
+            <language>English</language>
+          </edition>
+          <edition>
+            <isbn>9780439784542</isbn>
+            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
+            <num_pages>652</num_pages>
+            <publisher>Arthur A. Levine Books</publisher>
+            <format>Hardcover</format>
+            <year>2005</year>
+            <language>English</language>
+          </edition>
+        </editions>
+      </book>
+      <book>
+        <title>Harry Potter and the Deathly Hallows (Harry Potter, #7)</title>
+        <genre>Fiction</genre>
+        <editions>
+          <edition>
+            <isbn>9780545010221</isbn>
+            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
+            <num_pages>759</num_pages>
             <publisher>Arthur A. Levine Books</publisher>
             <format>Hardcover</format>
             <year>2007</year>
@@ -1757,66 +1156,6 @@
             <year>2008</year>
             <language>English</language>
           </edition>
-        </editions>
-      </book>
-      <book>
-        <title>Harry Potter Boxset</title>
-        <genre>Fiction</genre>
-        <editions>
-          <edition>
-            <isbn>9780590353427</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861791m/121121.jpg</image_url>
-            <num_pages>312</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Paperback</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064873</isbn>
-            <image_url>http://d.gr-assets.com/books/1327869701m/50968.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136365</isbn>
-            <image_url>http://d.gr-assets.com/books/1293473658m/224926.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2001</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139601</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625629m/6.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Scholastic Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2002</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439785969</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625845m/1.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Scholastic Paperbacks</publisher>
-            <format>Paperback</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358071</isbn>
-            <image_url>http://d.gr-assets.com/books/1327625733m/2.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Scholastic, Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
           <edition>
             <isbn>9780545128285</isbn>
             <image_url>http://d.gr-assets.com/books/1333988118m/4020390.jpg</image_url>
@@ -1824,78 +1163,6 @@
             <publisher>Arthur A. Levine Books</publisher>
             <format>Hardcover</format>
             <year>2008</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780590353403</isbn>
-            <image_url>http://d.gr-assets.com/books/1342796205m/77523.jpg</image_url>
-            <num_pages>309</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1998</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439784542</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219722m/49852.jpg</image_url>
-            <num_pages>652</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439139595</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219525m/49130.jpg</image_url>
-            <num_pages>734</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2000</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545010221</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219787m/136251.jpg</image_url>
-            <num_pages>759</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439064866</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219344m/15881.jpg</image_url>
-            <num_pages>341</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439136358</isbn>
-            <image_url>http://d.gr-assets.com/books/1262653778m/49116.jpg</image_url>
-            <num_pages>435</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>1999</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780439358064</isbn>
-            <image_url>http://d.gr-assets.com/books/1333219696m/77522.jpg</image_url>
-            <num_pages>870</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2003</year>
-            <language>English</language>
-          </edition>
-          <edition>
-            <isbn>9780545044257</isbn>
-            <image_url>http://d.gr-assets.com/books/1328861667m/862041.jpg</image_url>
-            <num_pages>4100</num_pages>
-            <publisher>Arthur A. Levine Books</publisher>
-            <format>Hardcover</format>
-            <year>2007</year>
             <language>English</language>
           </edition>
         </editions>
@@ -1948,20 +1215,6 @@
             <publisher>Little, Brown and Company</publisher>
             <format>Hardcover</format>
             <year>2012</year>
-            <language>English</language>
-          </edition>
-        </editions>
-      </book>
-      <book>
-        <title>Harry Potter Boxed Set (Harry Potter #1-6)</title>
-        <genre>Fiction</genre>
-        <editions>
-          <edition>
-            <image_url>http://d.gr-assets.com/books/1328867351m/10.jpg</image_url>
-            <num_pages>0</num_pages>
-            <publisher>Scholastic, Inc.</publisher>
-            <format>Hardcover</format>
-            <year>2005</year>
             <language>English</language>
           </edition>
         </editions>
