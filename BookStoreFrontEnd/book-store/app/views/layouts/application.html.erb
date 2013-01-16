@@ -12,7 +12,7 @@
 <body>
 <header class='group'>
   <h1><%= link_to 'Book Store', root_path %></h1>
-  <%= form_tag search_path, method: :get, class: 'search' do %>
+  <%= form_tag search_path, method: :get, class: 'search', id: 'search' do %>
     <%= text_field_tag :q, params[:q], placeholder: 'Type anything book related...', class: 'dashline', pattern: '.{3,}', title: '3 characters minimum' %>
     <%= check_box_tag 'opt', 1, @more_results %>
   <% end %>
@@ -26,9 +26,11 @@
     <li><%= link_to 'Awards', awards_path %></li>
   </ul>
 
-  <div class='recommendations'>
-    <%= yield :recommendations %>
-  </div>
+  <% if content_for?(:recommendations) %>
+    <div class='recommendations'>
+      <%= yield :recommendations %>
+    </div>
+  <% end %>
 
 </div>
 
