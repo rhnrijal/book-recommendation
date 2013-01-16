@@ -98,32 +98,39 @@ class Book < OwlModel
                                     ?author a book:Author ;
                                         book:hasBook ?book .
                                     ?book book:hasGenre ?genre .
-                                    FILTER regex(?genre, '#{genre}', 'i')
+                                    FILTER regex(?genre, \"#{genre}\", 'i')
                                   } GROUP BY ?author
                                   ORDER BY DESC(?count)
                                   ")
 
-    similar_authors_hash['results']['bindings'].each do |resource|
-      break if resources.size >= @@limit
-      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                              SELECT DISTINCT ?book ?title ?image
-                              WHERE {
-                                <#{resource['author']['value']}> a book:Author ;
-                                    book:hasBook ?book .
-                                ?book book:hasGenre ?genre ;
-                                    book:hasTitle ?title ;
-                                    book:hasImage ?image .
-                                FILTER regex(?genre, '#{genre}', 'i')
-                              }")
+    if similar_authors_hash['results']['bindings'][0]['count']['value'].to_i > 0
 
-      i = 0
-      hash['results']['bindings'].shuffle.each do |resource|
-        break if resources.size >= @@limit || i == 2
-        resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
-                            title: resource['title']['value'],
-                            image: resource['image']['value']
-                          )
-        i = i + 1
+      similar_authors_hash['results']['bindings'].each do |resource|
+        break if resources.size >= @@limit
+        hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                SELECT DISTINCT ?book ?title ?image
+                                WHERE {
+                                  <#{resource['author']['value']}> a book:Author ;
+                                      book:hasBook ?book .
+                                  ?book book:hasGenre ?genre ;
+                                      book:hasTitle ?title ;
+                                      book:hasImage ?image .
+                                  FILTER regex(?genre, \"#{genre}\", 'i')
+                                  MINUS { ?book a book:Book ;
+                                                book:hasTitle ?title .
+                                          FILTER regex(?title, \"#{book.title}\", 'i')
+                                              }
+                                }")
+
+        i = 0
+        hash['results']['bindings'].shuffle.each do |resource|
+          break if resources.size >= @@limit || i == 2
+          resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
+                              title: resource['title']['value'],
+                              image: resource['image']['value']
+                            )
+          i = i + 1
+        end
       end
     end
 

@@ -3,3 +3,7 @@
 <div class='items-padding'>
   <%= render @publisher.editions %>
 </div>
+
+<% content_for :recommendations do %>
+  <%= render @related_publishers %>
+<% end %>

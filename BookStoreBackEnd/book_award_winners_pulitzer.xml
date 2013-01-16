@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <books>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Malcolm X: A Life of Reinvention</title>
     <award>Pulitzer Prize</award>
     <year>2012</year>
@@ -19,6 +20,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Life on Mars</title>
     <award>Pulitzer Prize</award>
     <year>2012</year>
@@ -37,6 +39,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Swerve: How the World Became Modern</title>
     <award>Pulitzer Prize</award>
     <year>2012</year>
@@ -55,6 +58,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>George F. Kennan: An American Life</title>
     <award>Pulitzer Prize</award>
     <year>2012</year>
@@ -73,6 +77,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>A Visit from the Goon Squad</title>
     <award>Pulitzer Prize</award>
     <year>2011</year>
@@ -91,6 +96,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Clybourne Park</title>
     <award>Pulitzer Prize</award>
     <year>2011</year>
@@ -99,6 +105,7 @@
     <editions/>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Washington: A Life</title>
     <award>Pulitzer Prize</award>
     <year>2011</year>
@@ -117,6 +124,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Best of It: New and Selected Poems</title>
     <award>Pulitzer Prize</award>
     <year>2011</year>
@@ -135,6 +143,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Emperor of All Maladies</title>
     <award>Pulitzer Prize</award>
     <year>2011</year>
@@ -153,6 +162,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Fiery Trial: Abraham Lincoln and American Slavery</title>
     <award>Pulitzer Prize</award>
     <year>2011</year>
@@ -171,6 +181,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Versed</title>
     <award>Pulitzer Prize</award>
     <year>2010</year>
@@ -179,6 +190,7 @@
     <editions/>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Next to Normal</title>
     <award>Pulitzer Prize</award>
     <year>2010</year>
@@ -197,6 +209,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The First Tycoon: The Epic Life of Cornelius Vanderbilt</title>
     <award>Pulitzer Prize</award>
     <year>2010</year>
@@ -215,6 +228,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Tinkers</title>
     <award>Pulitzer Prize</award>
     <year>2010</year>
@@ -233,6 +247,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Dead Hand: The Untold Story of the Cold War Arms Race and its Dangerous Legacy</title>
     <award>Pulitzer Prize</award>
     <year>2010</year>
@@ -251,6 +266,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Lords of Finance: The Bankers Who Broke the World</title>
     <award>Pulitzer Prize</award>
     <year>2010</year>
@@ -269,6 +285,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Shadow of Sirius</title>
     <award>Pulitzer Prize</award>
     <year>2009</year>
@@ -287,6 +304,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Olive Kitteridge</title>
     <award>Pulitzer Prize</award>
     <year>2009</year>
@@ -305,6 +323,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Hemingses of Monticello</title>
     <award>Pulitzer Prize</award>
     <year>2009</year>
@@ -323,6 +342,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>American Lion: Andrew Jackson in the White House</title>
     <award>Pulitzer Prize</award>
     <year>2009</year>
@@ -341,6 +361,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Slavery by Another Name: The Re-Enslavement of Black Americans from the Civil War to World War II</title>
     <award>Pulitzer Prize</award>
     <year>2009</year>
@@ -359,6 +380,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Nazi Germany and the Jews: The Years of Extermination, 1939-1945</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -377,6 +399,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Failure</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -395,6 +418,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Time and Materials</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -413,6 +437,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>August: Osage County</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -431,6 +456,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>What Hath God Wrought: The Transformation of America, 1815-1848</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -449,6 +475,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Brief Wondrous Life of Oscar Wao</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -467,6 +494,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Eden's Outcasts: The Story of Louisa May Alcott and Her Father</title>
     <award>Pulitzer Prize</award>
     <year>2008</year>
@@ -485,6 +513,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Most Famous Man in America: The Biography of Henry Ward Beecher</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -503,6 +532,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Road</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -521,6 +551,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Native Guard</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -539,6 +570,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Stories Volume 1</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -557,6 +589,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Rabbit Hole</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -575,6 +608,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Looming Tower: Al-Qaeda and the Road to 9/11</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -593,6 +627,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Race Beat: The Press, the Civil Rights Struggle, and the Awakening of a Nation</title>
     <award>Pulitzer Prize</award>
     <year>2007</year>
@@ -611,6 +646,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Polio: An American Story</title>
     <award>Pulitzer Prize</award>
     <year>2006</year>
@@ -629,6 +665,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Imperial Reckoning: The Untold Story of Britain's Gulag in Kenya</title>
     <award>Pulitzer Prize</award>
     <year>2006</year>
@@ -647,6 +684,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer</title>
     <award>Pulitzer Prize</award>
     <year>2006</year>
@@ -665,6 +703,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>March</title>
     <award>Pulitzer Prize</award>
     <year>2006</year>
@@ -683,6 +722,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Late Wife</title>
     <award>Pulitzer Prize</award>
     <year>2006</year>
@@ -701,6 +741,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Gilead</title>
     <award>Pulitzer Prize</award>
     <year>2005</year>
@@ -719,6 +760,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Washington's Crossing</title>
     <award>Pulitzer Prize</award>
     <year>2005</year>
@@ -737,6 +779,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Doubt</title>
     <award>Pulitzer Prize</award>
     <year>2005</year>
@@ -755,6 +798,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Delights &amp; Shadows</title>
     <award>Pulitzer Prize</award>
     <year>2005</year>
@@ -773,6 +817,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Ghost Wars: The Secret History of the CIA, Afghanistan, and bin Laden from the Soviet Invasion to September 10, 2001</title>
     <award>Pulitzer Prize</award>
     <year>2005</year>
@@ -791,6 +836,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>de Kooning: An American Master</title>
     <award>Pulitzer Prize</award>
     <year>2005</year>
@@ -809,6 +855,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>I am My Own Wife</title>
     <award>Pulitzer Prize</award>
     <year>2004</year>
@@ -827,6 +874,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>The Known World</title>
     <award>Pulitzer Prize</award>
     <year>2004</year>
@@ -845,6 +893,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>A Nation Under Our Feet: Black Political Struggles in the Rural South from Slavery to the Great Migration</title>
     <award>Pulitzer Prize</award>
     <year>2004</year>
@@ -863,6 +912,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Gulag</title>
     <award>Pulitzer Prize</award>
     <year>2004</year>
@@ -881,6 +931,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Walking to Martha's Vineyard</title>
     <award>Pulitzer Prize</award>
     <year>2004</year>
@@ -899,6 +950,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>A Problem from Hell: America and the Age of Genocide</title>
     <award>Pulitzer Prize</award>
     <year>2003</year>
@@ -917,6 +969,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>An Army at Dawn: The War in North Africa, 1942-1943</title>
     <award>Pulitzer Prize</award>
     <year>2003</year>
@@ -935,6 +988,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Anna in the Tropics</title>
     <award>Pulitzer Prize</award>
     <year>2003</year>
@@ -953,6 +1007,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Master of the Senate (The Years of Lyndon Johnson, #3)</title>
     <award>Pulitzer Prize</award>
     <year>2003</year>
@@ -971,6 +1026,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Middlesex</title>
     <award>Pulitzer Prize</award>
     <year>2003</year>
@@ -989,6 +1045,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Moy Sand and Gravel</title>
     <award>Pulitzer Prize</award>
     <year>2003</year>
@@ -1007,6 +1064,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Topdog/Underdog</title>
     <award>Pulitzer Prize</award>
     <year>2002</year>
@@ -1025,6 +1083,7 @@
     </editions>
   </book>
   <book>
+    <image>http://student.dei.uc.pt/~jpenetra/bookstore/pulitzer_prize.png</image>
     <title>Carry Me Home: Birmingham, Alabama: The Climactic Battle of the Civil Rights Revolution</title>
     <award>Pulitzer Prize</award>
     <year>2002</year>

@@ -112,7 +112,7 @@ class Search
             related_to_previous = false
             score.each do |key, value|
               next if value[:klass] == klass
-
+              
               relations_hash = Ontology.query(" SELECT ?is_related_to
                                                 WHERE {
                                                   { <#{key}> ?is_related_to <#{uri}> }

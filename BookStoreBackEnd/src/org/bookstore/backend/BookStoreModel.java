@@ -226,6 +226,7 @@ public class BookStoreModel {
 			Node bookEdition = null;
 			Resource bookInstance = null;
 			String bookTitle = null;
+			String editionTitle = null;
 			String bookGenre = null;
 			
 			/* Edition */
@@ -295,6 +296,7 @@ public class BookStoreModel {
 									year = getValue("year", bookEdition);
 									language = getValue("language", bookEdition);
 									editionFormat = getValue("format", bookEdition);
+									editionTitle = getValue("title", bookEdition);
 									
 									bookInstance = getBookByTitle(bookTitle);
 									
@@ -313,12 +315,7 @@ public class BookStoreModel {
 									
 									if(formatInstance == null) {
 										formatInstance = paperback;
-										System.out.println("FORMAT IS NOW PAPERBACK");
-									}
-									else{
-										System.out.println(formatInstance);
-									}
-									
+									}									
 														
 									editionInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "edition" + editionId++)
 											.addProperty(RDF.type, edition)
@@ -327,7 +324,7 @@ public class BookStoreModel {
 											.addProperty(hasPages, pages)
 											.addProperty(hasYear, year)
 											.addProperty(hasLanguage, language)
-											.addProperty(hasTitle, bookTitle)
+											.addProperty(hasTitle, editionTitle.equals("") ? bookTitle : editionTitle)
 											.addProperty(hasFormat, formatInstance);
 									
 									bookInstance.addProperty(hasEdition, editionInstance);
@@ -394,6 +391,7 @@ public class BookStoreModel {
 			Resource authorInstance = null;
 			String authorName = null;
 			String awardYear = null;
+			String awardImage = null;
 			Resource awardInstance = null;
 			
 			String awardName = null;
@@ -407,6 +405,7 @@ public class BookStoreModel {
 					authorName = getValue("name", readAuthor);
 					awardYear = getValue("year", readAuthor);
 					awardName = getValue("award", readAuthor);
+					awardImage = getValue("image", readAuthor);
 					
 					authorInstance = getResourceByName("Author", authorName);
 					
@@ -416,6 +415,7 @@ public class BookStoreModel {
 								.addProperty(RDF.type, award)
 								.addProperty(hasName, awardName)
 								.addProperty(hasYear, awardYear)
+								.addProperty(hasImage, awardImage)
 								.addProperty(hasGenre, "");
 						
 						authorInstance.addProperty(hasAward, awardInstance);
@@ -440,8 +440,10 @@ public class BookStoreModel {
 		Resource bookInstance = null;
 		String authorName = null;
 		String bookTitle = null;
+		String editionTitle = null;
 		String awardYear = null;
 		String awardGenre = null;
+		String awardImage = null;
 		Resource awardInstance = null;
 		
 		NodeList editionList = null;
@@ -475,6 +477,7 @@ public class BookStoreModel {
 					authorName = getValue("author", readBook);
 					awardYear = getValue("year", readBook);
 					awardGenre = getValue("genre", readBook);
+					awardImage = getValue("image", readBook);
 					
 					bookInstance = getBookByTitle(bookTitle);
 					authorInstance = getResourceByName("Author", authorName);
@@ -490,6 +493,8 @@ public class BookStoreModel {
 							for(int i = 0; i < editionList.getLength(); i++ ) {
 								readEdition = editionList.item(i);
 								if(readEdition.getNodeType() == Node.ELEMENT_NODE) {
+									
+									editionTitle = getValue("title", readEdition);
 									
 									image_url = getValue("image_url", readEdition);
 									ISBN = getValue("isbn", readEdition);
@@ -531,7 +536,7 @@ public class BookStoreModel {
 											.addProperty(hasPages, pages)
 											.addProperty(hasYear, year)
 											.addProperty(hasLanguage, language)
-											.addProperty(hasTitle, bookTitle)
+											.addProperty(hasTitle, editionTitle.equals("") ? bookTitle : editionTitle)
 											.addProperty(hasFormat, formatInstance);
 									
 									bookInstance.addProperty(hasEdition, editionInstance);
@@ -547,6 +552,7 @@ public class BookStoreModel {
 								.addProperty(RDF.type, award)
 								.addProperty(hasName, awardName)
 								.addProperty(hasYear, awardYear)
+								.addProperty(hasImage, awardImage)
 								.addProperty(hasGenre, awardGenre);
 						
 						bookInstance.addProperty(hasAward, awardInstance);							
