@@ -62,7 +62,6 @@ class Author < OwlModel
 
     similar_authors = []
 
-
     if genres_hash['results']['bindings'][0]['count']['value'].to_i > 0
 
       genres = genres_hash['results']['bindings'].collect do |resource|

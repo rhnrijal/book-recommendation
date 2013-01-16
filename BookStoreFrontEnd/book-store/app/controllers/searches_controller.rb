@@ -2,52 +2,32 @@ class SearchesController < ApplicationController
   def new
     @more_results = (params[:opt] ? true : false)
 
-    @words, years, classes, formats, object_properties, datatype_properties = Search.tokenizer(params[:q])
+    search = Search.new(params[:q], @more_results)
 
-    tokens = "Words:" + @words.to_yaml +
-             "Years:" + years.to_yaml +
-             "Classes:" + classes.to_yaml +
-             "Formats:" + formats.to_yaml +
-             "Object Properties:" + object_properties.to_yaml +
-             "Datatype Properties:" + datatype_properties.to_yaml
+    # raise "OWL" + "\n" +
+    #       "CLASSES" + CLASSES.to_yaml +
+    #       "FORMATS" + FORMATS.to_yaml +
+    #       "OBJECT_PROPERTIES" + OBJECT_PROPERTIES.to_yaml +
+    #       "DATATYPE_PROPERTIES" + DATATYPE_PROPERTIES.to_yaml
 
-    # raise tokens
+    # raise "Query: " + search.query + "\n" +
+    #       "Stems: " + search.stems.to_yaml +
+    #       "Words: " + search.words.to_yaml +
+    #       "Years: " + search.years.to_yaml +
+    #       "Classes: " + search.classes.to_yaml +
+    #       "Formats: " + search.formats.to_yaml +
+    #       "Object Properties: " + search.object_properties.to_yaml +
+    #       "Datatype Properties: " + search.datatype_properties.to_yaml
 
-    @ranking, @results = Search.search(@words, years, classes, formats, object_properties, datatype_properties, @more_results)
+    search.with_words
 
-    # tokens, years, strings = Search.tokenizer(query)
+    search.with_classes
 
-    # if tokens.empty? && years.empty?
-    #   @resources = Search.simple(query)
-    #   render :simple
-    # elsif tokens.empty? && !years.empty?
-    #   @resources = Search.with_years(years, strings)
-    #   render :with_years
-    # elsif tokens.size == 1 && years.empty?
-    #   @authors, @awards, @books, @editions, @publishers = Search.with_one_token(tokens[0], strings)
-    #   render :with_one_token
-    # else
-    #   render text: [tokens, years, strings], layout: true and return
-    # end
+    search.with_years
 
-    # render text: results.inspect, layout: true and return
+    search.with_formats
 
-    # book = ['book', 'books', 'livro', 'livros']
-    # author = ['author', 'authors', 'writer', 'writers', 'autor', 'autores', 'escritor', 'escritores']
-
-    # book_request = words.any? { |word| book.include?(word) }
-    # author_request = words.any? { |word| author.include?(word) }
-
-    # if book_request
-    #   name = words.reject { |word| book.include?(word) }.join(' ')
-    #   @books = Book.find_by_name(name)
-    #   render 'books/index'
-    # elsif author_request
-    #   name = words.reject { |word| author.include?(word) }.join(' ')
-    #   @authors = Author.find_by_name(name)
-    #   render 'authors/index'
-    # else
-    #   render text: 'I have no idea what you want', layout: true
-    # end
+    @ranking, @results = search.get_results
+    @tokens = search.tokens
   end
 end
