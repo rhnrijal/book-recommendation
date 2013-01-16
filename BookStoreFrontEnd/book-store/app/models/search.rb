@@ -287,8 +287,17 @@ class Search
     resources = score.sort_by { |key, value| -value[:points] }
 
     resources.each do |resource|
-      model = MODELS[resource[1][:klass]]
-      models << model.find(resource[0].gsub(@@book, ''))
+      if resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Author'
+        models << Author.find(resource[0].gsub(@@book, ''))
+      elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Award'
+        models <<  Award.find(resource[0].gsub(@@book, ''))
+      elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Book'
+        models << Book.find(resource[0].gsub(@@book, ''))
+      elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Edition'
+        models <<  Edition.find(resource[0].gsub(@@book, ''))
+      elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Publisher'
+        models << Publisher.find(resource[0].gsub(@@book, ''))
+      end
       ranking << resource[1][:points]
     end
 

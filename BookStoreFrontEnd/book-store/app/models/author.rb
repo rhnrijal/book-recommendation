@@ -60,8 +60,6 @@ class Author < OwlModel
                                     } GROUP BY ?genre
                                     ORDER BY DESC(?count)")
 
-    puts genres_hash
-
     similar_authors = []
 
 
@@ -92,7 +90,6 @@ class Author < OwlModel
 
           hash['results']['bindings'].each do |resource|
             break if similar_authors.size == @@limit
-            puts resource
             similar_authors << Author.new( id: resource['author']['value'].gsub!(@@book, ''),
                         name: resource['name']['value'],
                         image: resource['image']['value']
