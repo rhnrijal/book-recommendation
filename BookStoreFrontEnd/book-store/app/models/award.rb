@@ -13,10 +13,11 @@ class Award < OwlModel
   def self.all
     # genre image
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?award ?name ?year
+                            SELECT ?award ?name ?year ?image
                             WHERE { ?award a book:Award ;
                                             book:hasName ?name ;
                                             book:hasYear ?year ;
+                                            book:hasImage ?image .
                                   }
                             ORDER BY ASC(?name) DESC(?year)
                           ")
@@ -33,10 +34,12 @@ class Award < OwlModel
   def self.find(id)
     uri = id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?name ?year ?winner ?author_name ?book_title
+                            SELECT ?name ?year ?genre ?image ?winner ?author_name ?book_title
                             WHERE { book:#{uri} a book:Award ;
                                                 book:hasName ?name ;
-                                                book:hasYear ?year .
+                                                book:hasYear ?year ;
+                                                book:hasGenre ?genre ;
+                                                book:hasImage ?image .
                                     ?winner book:hasAward book:#{uri} ;
                                     OPTIONAL { ?winner book:hasName ?author_name } .
                                     OPTIONAL { ?winner book:hasTitle ?book_title }
@@ -64,16 +67,19 @@ class Award < OwlModel
   def self.find_author_awards(author_id)
     author_uri = author_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?award ?name ?year ?book ?title
+                            SELECT ?award ?name ?image ?year ?book ?title
                             WHERE {
                               { ?award a book:Award ;
                                         book:hasName ?name ;
-                                        book:hasYear ?year .
+                                        book:hasYear ?year ;
+                                        book:hasGenre ?genre ;
+                                        book:hasImage ?image .
                                 book:#{author_uri} book:hasAward ?award .
                               } UNION {
                                 ?award a book:Award ;
                                         book:hasName ?name ;
-                                        book:hasYear ?year .
+                                        book:hasYear ?year ;
+                                        book:hasImage ?image .
                                 book:#{author_uri} book:hasBook ?book .
                                 ?book book:hasAward ?award ;
                                       book:hasTitle ?title
@@ -100,10 +106,12 @@ class Award < OwlModel
   def self.find_book_awards(book_id)
     book_uri = book_id.gsub(/-.*/, '')
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                            SELECT ?award ?name ?year
+                            SELECT ?award ?name ?year ?genre ?image
                             WHERE { ?award a book:Award ;
                                             book:hasName ?name ;
-                                            book:hasYear ?year .
+                                            book:hasYear ?year ;
+                                            book:hasGenre ?genre ;
+                                            book:hasImage ?image .  
                                     book:#{book_uri} book:hasAward ?award
                                   }
                             ORDER BY DESC(?year)
@@ -120,25 +128,24 @@ class Award < OwlModel
 
   def self.find_related_awards(award)
 
-    puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?award ?name ?year ?image
                             WHERE { ?award a book:Award ;
                                             book:hasName ?name ;
                                             book:hasYear ?year .
-                                    FILTER regex(?name, '#{award.name}', 'i')
+                                    FILTER regex(?name, \"#{award.name}\", 'i')
                                     OPTIONAL { ?award book:hasImage ?image . }
                                   }
-                            ORDER BY ASC(?year)
+                            ORDER BY DESC(?year)
                           ")
 
     resources = []
     
-    current_award = Integer(award.year)
+    current_award = award.year.to_i
 
     hash['results']['bindings'].each do |resource|
-      award = Integer(resource['year']['value'])
+      break if resources.size == @@limit
+      award = resource['year']['value'].to_i
       if current_award != award && (award >= ( current_award - @@limit/2 - 1)) && ( award <= (current_award + @@limit/2))
         resources << Award.new(id: resource['award']['value'].gsub!(@@book, ''),
                 name: resource['name']['value'],

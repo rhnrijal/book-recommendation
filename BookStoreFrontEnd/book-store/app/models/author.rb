@@ -60,35 +60,41 @@ class Author < OwlModel
                                     } GROUP BY ?genre
                                     ORDER BY DESC(?count)")
 
-    genres = genres_hash['results']['bindings'].collect do |resource|
-      resource['genre']['value']
-    end
-
     similar_authors = []
 
-    genres.each do |genre|
-      hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
-                              SELECT DISTINCT ?author ?name ?image (count(?book) as ?count)
-                              WHERE {
-                                ?author a book:Author ;
-                                    book:hasName ?name ;
-                                    book:hasImage ?image ;
-                                    book:hasBook ?book .
-                                MINUS { ?author book:hasName ?author_name .
-                                        FILTER regex(?author_name, '#{author.name}' ,'i')
-                                }
-                                ?book book:hasGenre ?genre .
-                                FILTER regex(?genre, '#{genre}', 'i')
-                              } GROUP BY ?author ?name ?image
-                              ORDER BY DESC(?count)
-                              LIMIT #{@@limit}")
+    if genres_hash['results']['bindings'][0]['count']['value'].to_i > 0
 
-      hash['results']['bindings'].each do |resource|
-        break if similar_authors.size == @@limit
-        similar_authors << Author.new( id: resource['author']['value'].gsub!(@@book, ''),
-                    name: resource['name']['value'],
-                    image: resource['image']['value']
-                )
+      genres = genres_hash['results']['bindings'].collect do |resource|
+        resource['genre']['value']
+      end
+      
+      genres.each do |genre|
+        hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                SELECT DISTINCT ?author ?name ?image (count(?book) as ?count)
+                                WHERE {
+                                  ?author a book:Author ;
+                                      book:hasName ?name ;
+                                      book:hasImage ?image ;
+                                      book:hasBook ?book .
+                                  MINUS { ?author book:hasName ?author_name .
+                                          FILTER regex(?author_name, \"#{author.name}\" ,'i')
+                                  }
+                                  ?book book:hasGenre ?genre .
+                                  FILTER regex(?genre, \"#{genre}\", 'i')
+                                } GROUP BY ?author ?name ?image
+                                ORDER BY DESC(?count)
+                                LIMIT #{@@limit - similar_authors.size}")
+
+        if hash['results']['bindings'][0]['count']['value'].to_i > 0
+
+          hash['results']['bindings'].each do |resource|
+            break if similar_authors.size == @@limit
+            similar_authors << Author.new( id: resource['author']['value'].gsub!(@@book, ''),
+                        name: resource['name']['value'],
+                        image: resource['image']['value']
+                    )
+          end
+        end
       end
     end
 

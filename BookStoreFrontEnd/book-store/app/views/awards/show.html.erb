@@ -1,11 +1,10 @@
 <p>
-  <b><%= "#{@award.name} #{@award.year}" %></b>
+  <b><%= "#{@award.name} #{@award.year}" %> - <%= @award.genre %></b>
 </p>
-
-<%= @award.genre %>
-
+<p>
 <%= image_tag @award.image, class: 'award-image' %>
-
+</p>
+won by 
 <% if @award.book %>
   <%= link_to @award.book.title, book_path(@award.book) %>
 <% else %>

@@ -81,16 +81,16 @@ class Edition < OwlModel
     end
   end
 
-  def self.find_publisher_editions(publisher_id)
-    publisher_uri = publisher_id.gsub(/-.*/, '')
+  def self.find_publisher_editions(publisher_uri)
     hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                             SELECT ?edition ?title ?image
                             WHERE {?edition a book:Edition ;
                                             book:hasTitle ?title ;
-                                            book:hasImage ?image ;
-                                            book:hasPublisher book:#{publisher_uri}
+                                            book:hasImage ?image .
+                                   book:#{publisher_uri} book:hasPublished ?edition 
                                   }
                           ")
+
     hash['results']['bindings'].collect do |resource|
       Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
@@ -119,16 +119,11 @@ class Edition < OwlModel
                                         MINUS { ?edition book:hasFormat <#{@@book + format}> }
                                       }")
 
-    dice_roll = rand(1..@@limit-1)
-
-    i = 0
     same_book_hash['results']['bindings'].each do |resource|
-      break if i == dice_roll
       same_book_array << Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
                   image: resource['image']['value']
                 )
-      i = i + 1
     end
 
     other_books_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
@@ -145,15 +140,25 @@ class Edition < OwlModel
 
     sorted_editions = other_books_hash['results']['bindings'].sort_by { |i| -@@white.similarity(title, i['title']['value']) }
 
+    if sorted_editions.size > @@limit && same_book_array.size > @@limit
+      dice_roll = rand(1..@@limit-1)
+    else
+      dice_roll = @@limit
+    end
+
     sorted_editions.each do |resource|
-      break if i == @@limit
+      break if resources.size == dice_roll
       resources << Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
                   image: resource['image']['value']
                 )
-      i = i + 1
     end
 
-    resources + same_book_array
+    same_book_array.each do |resource|
+      break if resources.size == @@limit
+        resources << resource
+    end
+
+    resources
   end
 end

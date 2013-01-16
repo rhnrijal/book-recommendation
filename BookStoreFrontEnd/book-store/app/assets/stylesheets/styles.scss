@@ -222,7 +222,9 @@ a {
 }
 
 .award-image {
-  @include prefix(filter, drop-shadow(10px -10px 20px #C4C4C4));
+  @include prefix(filter, drop-shadow(2px -2px 4px #C4C4C4));
+  height: 100%;
+  width: 100px;
 }
 
 .cover-image {
