@@ -1,7 +1,11 @@
-<% @results.each_with_index do |result, index| %>
-  <div>
-    <%= link_to highlighter(result.name), result.url %> scored <%= @ranking[index] %> points
-  </div>
-<% end %>
+<%= image_tag 'wait.gif', alt: 'Loading... Please wait.', id: 'loader', style: 'display:none' %>
 
-<% if @results.empty? %><span>Sorry, no results were found :(</span><% end %>
+<div id='results'>
+  <% @results.each_with_index do |result, index| %>
+    <div>
+      <%= link_to highlighter(result.name), result.url %> scored <%= @ranking[index] %> points
+    </div>
+  <% end %>
+
+  <% if @results.empty? %><span>Sorry, no results were found :(</span><% end %>
+</div>

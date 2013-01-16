@@ -114,12 +114,12 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  coffee-rails (~> 3.2.1)
+  coffee-rails
   ios-checkboxes
   jquery-rails
   rails (= 3.2.9)
   ruby-stemmer
-  sass-rails (~> 3.2.3)
+  sass-rails (= 3.2.5)
   text
   thin
-  uglifier (>= 1.0.3)
+  uglifier

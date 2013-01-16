@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
 
     # raise tokens
 
-    @ranking, @results = Search.search(@words, years, classes, formats, object_properties, @more_results)
+    @ranking, @results = Search.search(@words, years, classes, formats, object_properties, datatype_properties, @more_results)
 
     # tokens, years, strings = Search.tokenizer(query)
 

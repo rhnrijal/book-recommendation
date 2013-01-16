@@ -76,7 +76,7 @@ class Search
     return words, years, classes, formats, object_properties, datatype_properties
   end
 
-  def self.search(words, years, classes, formats, object_properties, more_results)
+  def self.search(words, years, classes, formats, object_properties, datatype_properties, more_results)
     score = {}
 
     if object_properties.empty?
