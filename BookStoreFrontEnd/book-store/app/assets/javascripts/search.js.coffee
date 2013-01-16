@@ -3,8 +3,5 @@ $('#opt').iphoneStyle
     uncheckedLabel: 'Better results'
 
 $('#search').submit ->
-    if $('#results').length
-        $('#results').fadeOut 'normal', ->
-            $('#loader').fadeIn 'normal'
-    else
+    $('#content').fadeOut 'normal', ->
         $('#loader').fadeIn 'normal'

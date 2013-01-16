@@ -65,7 +65,7 @@ class Author < OwlModel
     end
 
     similar_authors = []
-    
+
     genres.each do |genre|
       hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                               SELECT DISTINCT ?author ?name ?image (count(?book) as ?count)

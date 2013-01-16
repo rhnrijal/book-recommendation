@@ -34,7 +34,8 @@
 
 </div>
 
-<div class='content'>
+<%= image_tag 'wait.gif', alt: 'Loading... Please wait.', id: 'loader', style: 'display:none' %>
+<div id='content'>
   <%= yield %>
 </div>
 
