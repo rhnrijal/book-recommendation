@@ -140,22 +140,23 @@ class Edition < OwlModel
 
     sorted_editions = other_books_hash['results']['bindings'].sort_by { |i| -@@white.similarity(title, i['title']['value']) }
 
-    if sorted_editions.size > @@limit && same_book_array.size > @@limit
+    if sorted_editions.size + same_book_array.size >= @@limit
       dice_roll = rand(1..@@limit-1)
     else
       dice_roll = @@limit
     end
 
     sorted_editions.each do |resource|
-      break if resources.size == dice_roll
+      break if resources.size == dice_roll && resources.size + same_book_array.size >= @@limit
       resources << Edition.new(id: resource['edition']['value'].gsub!(@@book, ''),
                   title: resource['title']['value'],
                   image: resource['image']['value']
                 )
+      return resources if resources.size == @@limit
     end
 
     same_book_array.each do |resource|
-      break if resources.size == @@limit
+        return resources if resources.size == @@limit
         resources << resource
     end
 
