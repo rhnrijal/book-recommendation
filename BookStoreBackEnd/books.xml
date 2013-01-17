@@ -5529,6 +5529,45 @@
     <bio>Lu&#xED;s Vaz de Cam&#xF5;es (Portuguese pronunciation: [lu&#x2C8;i&#x283; va&#x283; d&#x268; ka&#x2C8;m&#xF5;&#x237;&#x303;&#x283;]; sometimes rendered in English as Camoens; c. 1524 &#x2013; June 10, 1580) is considered Portugal's, and the Portuguese language's greatest poet. His mastery of verse has been compared to that of Shakespeare, Vondel, Homer, Virgil, and Dante. He wrote a considerable amount of lyrical poetry (in Portuguese and in Spanish) and drama but is best remembered for his epic work Os Lus&#xED;adas (The Lusiads). His recollection of poetry The Parnasum of Lu&#xED;s de Cam&#xF5;es was lost in his lifetime.&lt;br /&gt;&lt;br /&gt;Source: &lt;a href="http://en.wikipedia.org/wiki/Lu%C3%ADs_de_Cam%C3%B5es" target="_blank" rel="nofollow"&gt;http://en.wikipedia.org/wiki/Lu%C3%AD...&lt;/a&gt;</bio>
     <books>
       <book>
+        <title>Os Lusíadas</title>
+        <genre>Poetry</genre>
+        <editions>
+          <edition>
+            <title>The Lusiads</title>
+            <image_url>http://www.goodreads.com/assets/nocover/60x80.png</image_url>
+            <num_pages>288</num_pages>
+            <publisher>Oxford University Press</publisher>
+            <format>Paperback</format>
+            <year>2002</year>
+            <language>English</language>
+          </edition>
+          <edition>
+            <image_url>http://d.gr-assets.com/books/1327572886m/909739.jpg</image_url>
+            <num_pages>648</num_pages>
+            <publisher>Porto Editora</publisher>
+            <format>Hardcover</format>
+            <year>2006</year>
+            <language>Portuguese</language>
+          </edition>
+          <edition>
+            <image_url>http://d.gr-assets.com/books/1314543436m/10663662.jpg</image_url>
+            <num_pages>490</num_pages>
+            <publisher>Círculo de Leitores</publisher>
+            <format>Hardcover</format>
+            <year>1984</year>
+            <language>Portuguese</language>
+          </edition>
+          <edition>
+            <image_url>http://d.gr-assets.com/books/1297616351m/7826694.jpg</image_url>
+            <num_pages>419</num_pages>
+            <publisher>Editora Ulisseia</publisher>
+            <format>Paperback</format>
+            <year>2002</year>
+            <language>Portuguese</language>
+          </edition>
+        </editions>
+      </book>
+      <book>
         <title>Sonetos para amar o amor</title>
         <genre>Poetry</genre>
         <editions>
