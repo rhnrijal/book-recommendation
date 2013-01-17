@@ -46,11 +46,20 @@
             <% if @show_year %>
               <p>in <b><%= result[1].year %></b></p>
             <% end %>
-            <% if @show_format %>
-              <p><b><%= result[1].format %></b></p>
-            <% else %>
-              <p><%= result[1].format %></p>
-            <% end %>
+            <p>
+              <% if @show_format %>
+                <b><%= result[1].format %></b>
+              <% else %>
+                <%= result[1].format %>
+              <% end %>
+            </p>
+            <p>
+              <% if @show_language %>
+                <b><%= result[1].language %></b>
+              <% else %>
+                <%= result[1].language %>
+              <% end %>
+            </p>
             <p><%= result[0][:points] %> points</p>
           </div>
         <% elsif result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Publisher' %>

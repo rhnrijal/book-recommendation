@@ -43,7 +43,10 @@ class SearchesController < ApplicationController
       search.with_formats
     end
 
-    search.with_languages
+    if !search.languages.empty?
+      @show_language = true
+      search.with_languages
+    end
 
     @results = search.get_results
     @words = search.words

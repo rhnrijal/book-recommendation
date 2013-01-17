@@ -12,7 +12,7 @@ class Search
 
   @@book = 'http://www.owl-ontologies.com/book.owl#'
 
-  @@accepted_languages = {'português' => 'Portuguese', 'portuguese' => 'Portuguese', 'english' => 'english', 'inglês' => 'English'}
+  @@accepted_languages = {'português' => 'Portuguese', 'portuguese' => 'Portuguese', 'english' => 'English', 'inglês' => 'English'}
 
   @@en_noise_words = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in',
                       'is', 'it', 'of', 'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we']
@@ -31,7 +31,7 @@ class Search
   @@points_for_relation = 2
   @@points_for_year = 1
   @@points_for_format = 6
-  @@points_for_language = 3
+  @@points_for_language = 6
 
   def initialize(query, more_results)
     @query = query
@@ -189,7 +189,7 @@ class Search
           uri = resource['instance']['value']
           points = value[:points] + @@points_for_property
           if @score[uri]
-            puts "Not giving you any more points"
+            @score[uri][:points] += points
           elsif temp_score[uri]
             temp_score[uri][:points] += points
             puts "#{uri} => #{temp_score[uri]}"
