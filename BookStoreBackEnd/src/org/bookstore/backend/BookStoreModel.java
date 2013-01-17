@@ -284,7 +284,7 @@ public class BookStoreModel {
 		
 									publisherInstance = getResourceByName("Publisher", publisherName);
 		
-									if (publisherInstance == null) {
+									if (publisherInstance == null && !publisherName.equals("")) {
 										publisherInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "publisher" + publisherId++)
 												.addProperty(RDF.type, publisher)
 												.addProperty(hasName, publisherName);
@@ -328,7 +328,9 @@ public class BookStoreModel {
 											.addProperty(hasFormat, formatInstance);
 									
 									bookInstance.addProperty(hasEdition, editionInstance);
-									publisherInstance.addProperty(hasPublished, editionInstance);
+									if(publisherInstance != null) {
+										publisherInstance.addProperty(hasPublished, editionInstance);
+									}
 								}
 							}
 						}
@@ -517,7 +519,7 @@ public class BookStoreModel {
 									
 									publisherInstance = getResourceByName("Publisher", publisherName);
 		
-									if (publisherInstance == null) {
+									if (publisherInstance == null && !publisherName.equals("")) {
 										publisherInstance = model.createResource(BookStoreConstants.ONTOLOGY_URI + "publisher" + publisherId++)
 												.addProperty(RDF.type, publisher)
 												.addProperty(hasName, publisherName);
@@ -540,7 +542,9 @@ public class BookStoreModel {
 											.addProperty(hasFormat, formatInstance);
 									
 									bookInstance.addProperty(hasEdition, editionInstance);
-									publisherInstance.addProperty(hasPublished, editionInstance);
+									if(publisherInstance != null) {
+										publisherInstance.addProperty(hasPublished, editionInstance);
+									}
 									
 								}
 							}
