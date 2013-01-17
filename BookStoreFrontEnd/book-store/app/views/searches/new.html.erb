@@ -42,7 +42,15 @@
           </div>
           <div class='result-centered'>
             <p><%= link_to highlighter(result[1].name), result[1].url %></p>
-            <p>Book written by <%= link_to highlighter(result[1].author.name), result[1].author.url %></p>
+            <p>Edition of book written by <%= link_to highlighter(result[1].author.name), result[1].author.url %></p>
+            <% if @show_year %>
+              <p>in <b><%= result[1].year %></b></p>
+            <% end %>
+            <% if @show_format %>
+              <p><b><%= result[1].format %></b></p>
+            <% else %>
+              <p><%= result[1].format %></p>
+            <% end %>
             <p><%= result[0][:points] %> points</p>
           </div>
         <% elsif result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Publisher' %>

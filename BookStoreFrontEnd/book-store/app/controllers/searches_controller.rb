@@ -23,6 +23,7 @@ class SearchesController < ApplicationController
     search.with_words
 
     if search.words.length == search.years.length
+      @show_year = true
       search.everything_with_years
     end
 
@@ -32,10 +33,15 @@ class SearchesController < ApplicationController
       search.with_object_properties
     end
 
-    if search.words.length != search.years.length
+    if !search.years.empty? && (search.words.length != search.years.length)
+      @show_year = true
       search.with_years
     end
-    search.with_formats
+
+    if !search.formats.empty?
+      @show_format = true
+      search.with_formats
+    end
 
     search.with_languages
 

@@ -26,7 +26,7 @@ class Search
                       'havia', 'seja', 'qual', 'ser', 'ns', 'lhe', 'deles', 'essas', 'esses', 'pelas', 'este']
 
   @@points_at_start = 1
-  @@points_for_property = 1
+  @@points_for_property = 2
   @@points_for_class = 1
   @@points_for_relation = 2
   @@points_for_year = 1
