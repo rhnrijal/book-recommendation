@@ -73,19 +73,19 @@ class Publisher < OwlModel
                                           ?edition book:hasFormat <#{format}> .
                                           ?publisher a book:Publisher ;
                                               book:hasPublished ?edition ;
-                                              book:hasName ?name 
+                                              book:hasName ?name .
                                         } 
                                         GROUP BY ?publisher ?name
                                         ORDER BY DESC(?count_g)
                                         LIMIT #{@@limit - resources.size}
-                                        ")
-
-                                        puts hash                                  
+                                        ")                            
 
       hash['results']['bindings'].each do |resource|
-        resources << Publisher.new(id: resource['publisher']['value'].gsub!(@@book, ''),
-                                            name: resource['name']['value']
-                                            )
+        if resource['name']['value'] != publisher.name
+          resources << Publisher.new(id: resource['publisher']['value'].gsub!(@@book, ''),
+                                              name: resource['name']['value']
+                                              )
+        end
         return resources if resources.size == @@limit
       end
     end
