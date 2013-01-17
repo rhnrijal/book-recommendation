@@ -1,9 +1,57 @@
-<div id='results'>
-  <% @results.each_with_index do |result, index| %>
-    <div>
-      <%= link_to highlighter(result.name), result.url %> scored <%= @ranking[index] %> points
-    </div>
-  <% end %>
+<% if @results.empty? %>
+  <span>Sorry, no results were found :(</span>
+<% else %>
+  <div>
+    <% @results.each do |result| %>
+      <div class='result group'>
+        <% if result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Author' %>
+          <div class='image-crop'>
+            <p><%= link_to image_tag(result[1].image, class: 'result-image'), result[1].url %></p>
+          </div>
+          <div class='result-centered'>
+            <p><%= link_to highlighter(result[1].name), result[1].url %></p>
+            <p><%= result[0][:points] %> points</p>
+          </div>
+        <% elsif result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Award' %>
+          <div class='image-crop'>
+            <%= link_to image_tag(result[1].image, class: 'result-image'), result[1].url %>
+          </div>
+          <div class='result-centered'>
+            <p><%= link_to highlighter(result[1].name), result[1].url %></p>
 
-  <% if @results.empty? %><span>Sorry, no results were found :(</span><% end %>
-</div>
+            <% if result[1].author.nil? %>
+              <p>won by book <%= link_to highlighter(result[1].book.name), result[1].book.url %></p>
+            <% else %>
+              <p>won by author <%= link_to highlighter(result[1].author.name), result[1].author.url %></p>
+            <% end %>
+
+            <p><%= result[0][:points] %> points</p>
+          </div>
+        <% elsif result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Book' %>
+          <div class='image-crop'>
+            <%= link_to image_tag(result[1].image, class: 'result-image'), result[1].url %>
+          </div>
+          <div class='result-centered'>
+            <p><%= link_to highlighter(result[1].name), result[1].url %></p>
+            <p>written by <%= link_to highlighter(result[1].author.name), result[1].author.url %></p>
+            <p><%= result[0][:points] %> points</p>
+          </div>
+        <% elsif result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Edition' %>
+          <div class='image-crop'>
+            <%= link_to image_tag(result[1].image, class: 'result-image'), result[1].url %>
+          </div>
+          <div class='result-centered'>
+            <p><%= link_to highlighter(result[1].name), result[1].url %></p>
+            <p>Book written by <%= link_to highlighter(result[1].author.name), result[1].author.url %></p>
+            <p><%= result[0][:points] %> points</p>
+          </div>
+        <% elsif result[0][:klass] == 'http://www.owl-ontologies.com/book.owl#Publisher' %>
+          <div class='result-centered'>
+            <p>Publisher <%= link_to highlighter(result[1].name), result[1].url %></p>
+            <p><%= result[0][:points] %> points</p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

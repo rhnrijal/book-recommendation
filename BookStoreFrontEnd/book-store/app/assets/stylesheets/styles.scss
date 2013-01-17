@@ -251,3 +251,31 @@ a {
 .author-name, .author-bio {
   padding: 0 0 10px 0;
 }
+
+.result {
+  margin-bottom: 20px;
+
+  p {
+    margin-bottom: 5px;
+  }
+}
+
+.image-crop {
+  display: inline-block;
+  height: 150px;
+  width: 100px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.result-image {
+  height: 150px;
+  width: auto;
+  margin-left: -5%;
+}
+
+.result-centered {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
