@@ -8,9 +8,11 @@ class Search
   require 'award'
 
   attr_accessor :query, :tokens, :stems, :words, :years, :classes, :formats, :more_results,
-                :object_properties, :datatype_properties, :ranking, :score
+                :object_properties, :datatype_properties, :languages, :score
 
   @@book = 'http://www.owl-ontologies.com/book.owl#'
+
+  @@accepted_languages = {'português' => 'Portuguese', 'portuguese' => 'Portuguese', 'english' => 'english', 'inglês' => 'English'}
 
   @@en_noise_words = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'from', 'how', 'i', 'in',
                       'is', 'it', 'of', 'on', 'or', 'that', 'the', 'this', 'to', 'was', 'we']
@@ -29,6 +31,7 @@ class Search
   @@points_for_relation = 2
   @@points_for_year = 1
   @@points_for_format = 6
+  @@points_for_language = 3
 
   def initialize(query, more_results)
     @query = query
@@ -39,7 +42,8 @@ class Search
     @formats = []
     @object_properties = []
     @datatype_properties = []
-    @tokens = query.downcase.split(/\W+/)
+    @languages = []
+    @tokens = query.downcase.split(/[\s,']+/)
     @stems = Array(Lingua.stemmer(@tokens))
 
     _tokens = @tokens
@@ -69,6 +73,12 @@ class Search
       class_uri = CLASSES[Lingua.stemmer(token)] || CLASSES[token.singularize]
       if class_uri
         @classes << class_uri
+        delete = true
+      end
+
+      language = @@accepted_languages[token]
+      if language
+        languages << language
         delete = true
       end
       delete
@@ -179,8 +189,7 @@ class Search
           uri = resource['instance']['value']
           points = value[:points] + @@points_for_property
           if @score[uri]
-            @score[uri][:points] += points
-            puts "#{uri} => #{@score[uri]}"
+            puts "Not giving you any more points"
           elsif temp_score[uri]
             temp_score[uri][:points] += points
             puts "#{uri} => #{temp_score[uri]}"
@@ -367,40 +376,94 @@ class Search
     @score.merge!(temp_score)
   end
 
+  def with_languages
+    temp_score = {}
+
+    @languages.each_with_index do |language, index|
+      puts "#{index}: searching for #{language}"
+      @score.each do |key, value|
+        if value[:klass] == 'http://www.owl-ontologies.com/book.owl#Edition'
+
+          languages_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT (count(*) as ?count)
+                                            WHERE { <#{key}> book:hasLanguage '#{language}' }
+                                          ")
+          if languages_hash['results']['bindings'][0]['count']['value'].to_i > 0
+            value[:points] += @@points_for_language
+          end
+
+        elsif value[:klass] == 'http://www.owl-ontologies.com/book.owl#Book'
+
+          languages_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                            SELECT ?class ?instance
+                                            WHERE { ?instance a ?class ;
+                                                              book:hasLanguage '#{language}' .
+                                                    <#{key}> book:hasEdition ?instance
+                                                  }
+                                          ")
+          languages_hash['results']['bindings'].each do |resource|
+            klass = resource['class']['value']
+            uri = resource['instance']['value']
+            if @score[uri]
+              @score[uri][:points] += @@points_for_language
+              puts "#{uri} => #{@score[uri]}"
+            elsif temp_score[uri]
+              temp_score[uri][:points] += @@points_for_language
+              puts "#{uri} => #{temp_score[uri]}"
+            else
+              temp_score[uri] = {klass: klass, points: value[:points] + @@points_for_language}
+              puts "#{uri} => #{temp_score[uri]}"
+            end
+          end
+
+        else
+
+          next
+
+        end
+      end
+    end
+    @score.merge!(temp_score)
+  end
+
   def get_results
     if !@more_results
-      min_points = @words.length + @formats.length*@@points_for_format + @object_properties.length*@@points_for_property
+      min_points = @words.length + @object_properties.length*@@points_for_property
       if !@classes.empty? && @object_properties.empty?
         min_points = min_points + @@points_for_class
       end
       if !@years.empty?
         min_points = min_points - @years.length + @@points_for_year
       end
+      if !@formats.empty?
+        min_points = min_points + @@points_for_format
+      end
+      if !@languages.empty?
+        min_points = min_points + @@points_for_language
+      end
       puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
       puts "Minimum points needed = #{min_points}"
       score.delete_if { |key, value| value[:points] < min_points }
     end
 
-    models = []
     ranking = []
 
     resources = @score.sort_by { |key, value| -value[:points] }
 
     resources.each do |resource|
       if resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Author'
-        models << Author.find(resource[0].gsub(@@book, ''))
+        ranking << [resource[1], Author.find(resource[0].gsub(@@book, ''))]
       elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Award'
-        models <<  Award.find(resource[0].gsub(@@book, ''))
+        ranking <<  [resource[1], Award.find(resource[0].gsub(@@book, ''))]
       elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Book'
-        models << Book.find(resource[0].gsub(@@book, ''))
+        ranking << [resource[1], Book.find(resource[0].gsub(@@book, ''))]
       elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Edition'
-        models <<  Edition.find(resource[0].gsub(@@book, ''))
+        ranking << [resource[1], Edition.find(resource[0].gsub(@@book, ''))]
       elsif resource[1][:klass] == 'http://www.owl-ontologies.com/book.owl#Publisher'
-        models << Publisher.find(resource[0].gsub(@@book, ''))
+        ranking << [resource[1], Publisher.find(resource[0].gsub(@@book, ''))]
       end
-      ranking << resource[1][:points]
     end
 
-    return ranking, models
+    return ranking
   end
 end

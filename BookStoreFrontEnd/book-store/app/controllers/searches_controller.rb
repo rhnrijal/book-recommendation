@@ -17,7 +17,8 @@ class SearchesController < ApplicationController
     #       "Classes: " + search.classes.to_yaml +
     #       "Formats: " + search.formats.to_yaml +
     #       "Object Properties: " + search.object_properties.to_yaml +
-    #       "Datatype Properties: " + search.datatype_properties.to_yaml
+    #       "Datatype Properties: " + search.datatype_properties.to_yaml +
+    #       "Languages: " + search.languages.to_yaml
 
     search.with_words
 
@@ -36,7 +37,9 @@ class SearchesController < ApplicationController
     end
     search.with_formats
 
-    @ranking, @results = search.get_results
+    search.with_languages
+
+    @results = search.get_results
     @words = search.words
   end
 end
