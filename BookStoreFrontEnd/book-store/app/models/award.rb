@@ -144,7 +144,6 @@ class Award < OwlModel
     current_award = award.year.to_i
 
     hash['results']['bindings'].each do |resource|
-      break if resources.size == @@limit
       award = resource['year']['value'].to_i
       if current_award != award && (award >= ( current_award - @@limit/2 - 1)) && ( award <= (current_award + @@limit/2))
         resources << Award.new(id: resource['award']['value'].gsub!(@@book, ''),
@@ -152,6 +151,7 @@ class Award < OwlModel
                 year: resource['year']['value'],
                 image: resource['image'] ? resource['image']['value'] : nil
               )
+        return resources if resources.size == @@limit
       end
     end
 

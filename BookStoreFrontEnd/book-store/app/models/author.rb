@@ -60,7 +60,7 @@ class Author < OwlModel
                                     } GROUP BY ?genre
                                     ORDER BY DESC(?count)")
 
-    similar_authors = []
+    resources = []
 
     if genres_hash['results']['bindings'][0]['count']['value'].to_i > 0
 
@@ -83,21 +83,21 @@ class Author < OwlModel
                                   FILTER regex(?genre, \"#{genre}\", 'i')
                                 } GROUP BY ?author ?name ?image
                                 ORDER BY DESC(?count)
-                                LIMIT #{@@limit - similar_authors.size}")
+                                LIMIT #{@@limit - resources.size}
+                                ")
 
         if hash['results']['bindings'][0]['count']['value'].to_i > 0
-
           hash['results']['bindings'].each do |resource|
-            break if similar_authors.size == @@limit
-            similar_authors << Author.new( id: resource['author']['value'].gsub!(@@book, ''),
+            resources << Author.new( id: resource['author']['value'].gsub!(@@book, ''),
                         name: resource['name']['value'],
                         image: resource['image']['value']
                     )
+            return resources if resources.size == @@limit
           end
         end
       end
     end
 
-    similar_authors
+    resources
   end
 end
