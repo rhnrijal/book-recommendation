@@ -60,12 +60,3 @@ hash['results']['bindings'].each do |resource|
   value = resource['property']['value']
   DATATYPE_PROPERTIES[key] = value
 end
-
-
-MODELS = {
-  "http://www.owl-ontologies.com/book.owl#Author" => Author,
-  "http://www.owl-ontologies.com/book.owl#Book" => Book,
-  "http://www.owl-ontologies.com/book.owl#Edition" => Edition,
-  "http://www.owl-ontologies.com/book.owl#Award" => Award,
-  "http://www.owl-ontologies.com/book.owl#Publisher" => Publisher
-}

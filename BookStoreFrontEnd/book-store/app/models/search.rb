@@ -24,10 +24,10 @@ class Search
                       'havia', 'seja', 'qual', 'ser', 'ns', 'lhe', 'deles', 'essas', 'esses', 'pelas', 'este']
 
   @@points_at_start = 1
-  @@points_for_property = 2
+  @@points_for_property = 1
   @@points_for_class = 1
   @@points_for_relation = 2
-  @@points_for_year = 3
+  @@points_for_year = 1
   @@points_for_format = 6
 
   def initialize(query, more_results)
@@ -42,8 +42,8 @@ class Search
     @tokens = query.downcase.split(/\W+/)
     @stems = Array(Lingua.stemmer(@tokens))
 
-    tokens = @tokens
-    singulars = query.downcase.singularize
+    _tokens = @tokens
+    singulars = @tokens.collect { |token| token.singularize }.join(' ')
 
     OBJECT_PROPERTIES.each do |object_property, uri|
       if singulars.slice!(object_property)
@@ -57,7 +57,7 @@ class Search
       end
     end
 
-    tokens.delete_if do |token|
+    _tokens.delete_if do |token|
       delete = false
 
       format_uri = FORMATS[token]
@@ -74,8 +74,12 @@ class Search
       delete
     end
 
-    @words = tokens.reject do |token|
-      @@en_noise_words.include?(token) || @@pt_noise_words.include?(token) || !singulars.include?(token)
+    # if classes.include?('http://www.owl-ontologies.com/book.owl#Book')
+    #   classes << 'http://www.owl-ontologies.com/book.owl#Edition'
+    # end
+
+    @words = _tokens.reject do |token|
+      @@en_noise_words.include?(token) || @@pt_noise_words.include?(token) || !singulars.include?(token.singularize)
     end
 
     @words.each do |word|
@@ -87,8 +91,6 @@ class Search
   end
 
   def with_words
-    puts 'Searching with words'
-
     @words.each_with_index do |word, index|
       puts "#{index}: searching for #{word}"
       temp_score = {}
@@ -159,6 +161,39 @@ class Search
     end
   end
 
+  def with_object_properties
+    temp_score = {}
+
+    @object_properties.each_with_index do |property, property_index|
+      puts "#{property_index}: searching for #{property}"
+      @score.each do |key, value|
+        property_hash = Ontology.query("PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                        SELECT ?class ?instance
+                                        WHERE {
+                                          ?instance a ?class .
+                                          <#{key}> <#{property}> ?instance
+                                        }
+                                      ")
+        property_hash['results']['bindings'].each do |resource|
+          klass = resource['class']['value']
+          uri = resource['instance']['value']
+          points = value[:points] + @@points_for_property
+          if @score[uri]
+            @score[uri][:points] += points
+            puts "#{uri} => #{@score[uri]}"
+          elsif temp_score[uri]
+            temp_score[uri][:points] += points
+            puts "#{uri} => #{temp_score[uri]}"
+          else
+            temp_score[uri] = {klass: klass, points: points}
+            puts "#{uri} => #{temp_score[uri]}"
+          end
+        end
+      end
+    end
+    @score.merge!(temp_score)
+  end
+
   def with_classes
     temp_score = {}
 
@@ -194,6 +229,37 @@ class Search
               puts "#{uri} => #{temp_score[uri]}"
             end
           end
+        end
+      end
+    end
+    @score.merge!(temp_score)
+  end
+
+  def everything_with_years
+    temp_score = {}
+
+    @years.each_with_index do |year, index|
+      puts "#{index}: searching for #{year}"
+
+      years_hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
+                                    SELECT ?class ?instance
+                                    WHERE {
+                                      ?instance a ?class ;
+                                                book:hasYear '#{year}' .
+                                    }
+                                  ")
+      years_hash['results']['bindings'].each do |resource|
+        klass = resource['class']['value']
+        uri = resource['instance']['value']
+        if @score[uri]
+          @score[uri][:points] += @@points_for_year
+          puts "#{uri} => #{@score[uri]}"
+        elsif temp_score[uri]
+          temp_score[uri][:points] += @@points_for_year
+          puts "#{uri} => #{temp_score[uri]}"
+        else
+          temp_score[uri] = {klass: klass, points: @@points_for_year}
+          puts "#{uri} => #{temp_score[uri]}"
         end
       end
     end
@@ -303,9 +369,12 @@ class Search
 
   def get_results
     if !@more_results
-      min_points = @words.length + @classes.length + @formats.length*@@points_for_format
-      if !years.empty?
-        min_points = min_points - years.length + @@points_for_year
+      min_points = @words.length + @formats.length*@@points_for_format + @object_properties.length*@@points_for_property
+      if !@classes.empty? && @object_properties.empty?
+        min_points = min_points + @@points_for_class
+      end
+      if !@years.empty?
+        min_points = min_points - @years.length + @@points_for_year
       end
       puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
       puts "Minimum points needed = #{min_points}"

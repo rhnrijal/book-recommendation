@@ -21,13 +21,22 @@ class SearchesController < ApplicationController
 
     search.with_words
 
-    search.with_classes
+    if search.words.length == search.years.length
+      search.everything_with_years
+    end
 
-    search.with_years
+    if search.object_properties.empty?
+      search.with_classes
+    else
+      search.with_object_properties
+    end
 
+    if search.words.length != search.years.length
+      search.with_years
+    end
     search.with_formats
 
     @ranking, @results = search.get_results
-    @tokens = search.tokens
+    @words = search.words
   end
 end
