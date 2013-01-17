@@ -1,5 +1,9 @@
 <p>
-  <b><%= "#{@award.name} #{@award.year}" %> - <%= @award.genre %></b>
+  <b><%= "#{@award.name} #{@award.year}" %> 
+  	<% if !@award.genre.empty? %>
+  		- <%= @award.genre %>
+  	<% end %>
+  </b>
 </p>
 <p>
 <%= image_tag @award.image, class: 'award-image' %>

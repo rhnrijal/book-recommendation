@@ -56,10 +56,9 @@ class Publisher < OwlModel
                                         ORDER BY DESC(?count_g) DESC(?count_f)
                                 ")
 
-    similar_publishers = []
+    resources = []
 
     genres = genre_format_hash['results']['bindings'].collect do |resource|
-      break if similar_publishers.size == @@limit
 
       genre = resource['genre']['value']
       format = resource['format']['value']
@@ -78,20 +77,20 @@ class Publisher < OwlModel
                                         } 
                                         GROUP BY ?publisher ?name
                                         ORDER BY DESC(?count_g)
-                                        LIMIT #{@@limit - similar_publishers.size}
+                                        LIMIT #{@@limit - resources.size}
                                         ")
 
                                         puts hash                                  
 
       hash['results']['bindings'].each do |resource|
-        break if similar_publishers.size == @@limit
-        similar_publishers << Publisher.new(id: resource['publisher']['value'].gsub!(@@book, ''),
+        resources << Publisher.new(id: resource['publisher']['value'].gsub!(@@book, ''),
                                             name: resource['name']['value']
                                             )
+        return resources if resources.size == @@limit
       end
     end
 
-    similar_publishers
+    resources
   end
 
 end

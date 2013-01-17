@@ -104,9 +104,7 @@ class Book < OwlModel
                                   ")
 
     if similar_authors_hash['results']['bindings'][0]['count']['value'].to_i > 0
-
       similar_authors_hash['results']['bindings'].each do |resource|
-        break if resources.size >= @@limit
         hash = Ontology.query(" PREFIX book: <http://www.owl-ontologies.com/book.owl#>
                                 SELECT DISTINCT ?book ?title ?image
                                 WHERE {
@@ -124,11 +122,12 @@ class Book < OwlModel
 
         i = 0
         hash['results']['bindings'].shuffle.each do |resource|
-          break if resources.size >= @@limit || i == 2
+          break if i == 2
           resources << Book.new(id: resource['book']['value'].gsub!(@@book, ''),
                               title: resource['title']['value'],
                               image: resource['image']['value']
                             )
+          return resources if resources.size == @@limit
           i = i + 1
         end
       end
