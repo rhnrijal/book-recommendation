@@ -1,16 +1,20 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
-gem 'ios-checkboxes', '0.2.1'
-gem 'jquery-rails', '~> 3.0.4'
-gem 'ruby-stemmer', '~> 0.9.3', :require => 'lingua/stemmer'
-gem 'text', '~> 1.2.1', :require => 'text/white_similarity'
-gem 'thin', '~> 1.5.1'
+gem 'rails', '~> 5.2.4.1'
+#gem 'ios-checkboxes', '0.2.1'
+gem 'jquery-rails'
+gem 'ruby-stemmer', :require => 'lingua/stemmer'
+gem 'text', :require => 'text/white_similarity'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '3.2.5'
+  gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
 end
+
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
